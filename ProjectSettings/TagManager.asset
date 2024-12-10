@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags: []
   layers:
   - Default
@@ -11,8 +11,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Enemy
+  - Bullet
   - 
   - 
   - 
@@ -41,3 +41,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Gun
+    uniqueID: 2433535327
+    locked: 0
+  - name: Enemy
+    uniqueID: 1035272721
+    locked: 0
+  - name: New Layer 3
+    uniqueID: 2048555015
+    locked: 0
+  - name: New Layer 4
+    uniqueID: 802616873
+    locked: 0
+  m_RenderingLayers:
+  - Default
