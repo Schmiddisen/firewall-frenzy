@@ -22,24 +22,21 @@
     <list default="true" id="5c4dfa08-b909-4ee8-9ffa-ea72b728b648" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.firewall-frenzy/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.firewall-frenzy/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.firewall-frenzy/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.firewall-frenzy/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Turret.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Turret.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BuildManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BuildManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Bullet.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Bullet.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EnemyMovement.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EnemyMovement.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EnemySpawner.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EnemySpawner.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Health.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Health.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plot.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Turret.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Turret.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Menu.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Menu.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/MenuClose.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/MenuClose.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/MenuOpen.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/MenuOpen.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Basic Turret.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Basic Turret.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Bullet.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Bullet.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Enemy.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Enemy.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Sniper Turret.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Sniper Turret.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemySpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemySpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Plot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Plot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Turret.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Turret.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/start_scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/start_scene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,6 +50,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy/Editor/ViewSwitcher.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tower.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UpgradeUIHandler.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -67,8 +65,13 @@
         <option value="$PROJECT_DIR$/Assets/Health.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tower.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BuildManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Plot.cs" />
         <option value="$PROJECT_DIR$/Assets/Menu.cs" />
+        <option value="$PROJECT_DIR$/Assets/TurretSlowMo.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EnemyMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EnemySpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Turret.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Plot.cs" />
+        <option value="$PROJECT_DIR$/Assets/UpgradeUIHandler.cs" />
       </list>
     </option>
   </component>
@@ -115,6 +118,7 @@
       <workItem from="1733818282203" duration="5302000" />
       <workItem from="1733854936077" duration="1144000" />
       <workItem from="1734950835447" duration="1412000" />
+      <workItem from="1735293063719" duration="3018000" />
     </task>
     <servers />
   </component>
