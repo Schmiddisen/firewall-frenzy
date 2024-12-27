@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.UI;
+
 public class Turret : MonoBehaviour
 {
     [Header("References")] 
@@ -8,11 +10,14 @@ public class Turret : MonoBehaviour
     [SerializeField] private LayerMask enemyMask;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firingPoint;
+    [SerializeField] private GameObject upgradeUI;
+    [SerializeField] private Button upgradeButton;
 
     [Header("Attribute")] 
     [SerializeField] private float targetingRange = 5f;
     [SerializeField] private float rotationSpeed = 5f;
     [SerializeField] private float bps = 1f; //Bullets per Second
+    
 
     private Transform target;
     private float timeUntilFire;
@@ -94,6 +99,15 @@ public class Turret : MonoBehaviour
         Handles.color = Color.magenta;
         Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
     }
-    
-    
+
+    public void OpenUpgradeUI()
+    {
+        upgradeUI.SetActive(true);
+    }
+
+    public void CloseUpgradeUI()
+    {
+        upgradeUI.SetActive(false);
+    }
+
 }

@@ -16,11 +16,13 @@ public class EnemyMovement : MonoBehaviour
     private int pathIndex = 0;
     private Vector2 lastPosition;
 
+    private float baseSpeed;
+
     private void Start()
     {
+        baseSpeed = moveSpeed;
         lastPosition = transform.position;
         target = LevelManager.main.path[pathIndex];
-        moveSpeed = Random.Range(1f, 4f);
     }
 
     private void Update()
@@ -48,5 +50,15 @@ public class EnemyMovement : MonoBehaviour
         rb.linearVelocity =  dir * moveSpeed;
         distanceTraveled += Vector2.Distance(transform.position, lastPosition);
         lastPosition = transform.position;
+    }
+
+    public void UpdateSpeed(float newSpeed)
+    {
+        moveSpeed = newSpeed;
+    }
+
+    public void ResetSpeed()
+    {
+        moveSpeed = baseSpeed;
     }
 }

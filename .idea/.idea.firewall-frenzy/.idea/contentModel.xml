@@ -52,6 +52,9 @@
             <e p="EmojiOne.json" t="Include" />
           </e>
         </e>
+        <e p="TurretSlowMo.cs" t="Include" />
+        <e p="UIManager.cs" t="Include" />
+        <e p="UpgradeUIHandler.cs" t="Include" />
       </e>
       <e p="firewall-frenzy.sln" t="IncludeFlat" />
       <e p="obj" t="ExcludeRecursive" />
