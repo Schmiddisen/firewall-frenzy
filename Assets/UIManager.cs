@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        
+        isHoveringUI = false;
     }
 
     public void SetHoveringState(bool state)

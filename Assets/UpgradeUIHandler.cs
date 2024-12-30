@@ -8,12 +8,13 @@ public class UpgradeUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerExi
     public void OnPointerEnter(PointerEventData eventData)
     {
         mouse_over = true;
-        UIManager.main.SetHoveringState(true);
+        LevelManager.main.GetComponent<UIManager>().SetHoveringState(true);
     }
     
     public void OnPointerExit(PointerEventData eventData)
     {
         mouse_over = false;
-        UIManager.main.SetHoveringState(false);
+        LevelManager.main.GetComponent<UIManager>().SetHoveringState(false);
+        gameObject.SetActive(false);
     }
 }
