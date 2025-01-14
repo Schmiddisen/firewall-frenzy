@@ -38,14 +38,14 @@ public class Plot : MonoBehaviour
 
         Tower towerToBuild = BuildManager.main.GetSelectedTower();
 
-        if (towerToBuild.cost > LevelManager.main.currency)
+        if (towerToBuild.buildCost > LevelManager.main.currency)
         {
             return;
         }
 
-        LevelManager.main.SpendCurrency(towerToBuild.cost);
+        LevelManager.main.SpendCurrency(towerToBuild.buildCost);
         
-        towerObject = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
+        towerObject = Instantiate(towerToBuild.towerPrefab, transform.position, Quaternion.identity);
         turret = towerObject.GetComponent<Turret>();
     }
 }

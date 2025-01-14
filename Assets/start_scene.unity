@@ -5229,10 +5229,10 @@ RectTransform:
   - {fileID: 1452790940}
   m_Father: {fileID: 1034572139}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 125, y: -55}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &836867073
 MonoBehaviour:
@@ -5476,7 +5476,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 251907062808809976, guid: b4eaaf196473d3f4c8ee4c6f3b356446, type: 3}
-  - {fileID: 251907062808809976, guid: 01d57b20b36ca71489e5c41471a399c2, type: 3}
   - {fileID: 251907062808809976, guid: b4eaaf196473d3f4c8ee4c6f3b356446, type: 3}
   - {fileID: 251907062808809976, guid: b4eaaf196473d3f4c8ee4c6f3b356446, type: 3}
   baseEnemies: 8
@@ -5917,10 +5916,10 @@ RectTransform:
   - {fileID: 2120106811}
   m_Father: {fileID: 1034572139}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 125, y: -155}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &951094974
 MonoBehaviour:
@@ -8645,10 +8644,10 @@ RectTransform:
   - {fileID: 1369053482}
   m_Father: {fileID: 1034572139}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 125, y: -255}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1361811451
 MonoBehaviour:

@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 8157328350873208677}
   - component: {fileID: 7790073113312619929}
   - component: {fileID: 8220030878926793392}
-  - component: {fileID: 7999501843761399967}
-  - component: {fileID: -8503055245459876426}
   m_Layer: 6
   m_Name: TankEnemy
   m_TagString: Untagged
@@ -154,32 +152,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &7999501843761399967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 251907062808809976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9de3dbf75990f2b40aeab3b2b03fd1c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 8220030878926793392}
-  moveSpeed: 1
-  distanceTraveled: 0
---- !u!114 &-8503055245459876426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 251907062808809976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 185303ced67cc5b449338b03f52b941f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitPoints: 4
-  currencyWorth: 100
