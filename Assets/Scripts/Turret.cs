@@ -75,20 +75,7 @@ public class Turret : MonoBehaviour
              (Vector2) transform.position, 0f, enemyMask);
         if (hits.Length > 0)
         {
-            float distance = 0;
-            RaycastHit2D furthestHit = hits[0];
-            for (int i = 0; i < hits.Length; i++)
-            {
-                float i_distance = hits[i].transform.gameObject.GetComponent<EnemyMovement>().distanceTraveled;
-
-                if (i_distance > distance)
-                {
-                    distance = i_distance;
-                    furthestHit = hits[i];
-                }
-            }
-
-            target = furthestHit.transform;
+            target = hits[0].transform;
         }
     }
 

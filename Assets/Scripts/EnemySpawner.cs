@@ -24,11 +24,13 @@ public class EnemySpawner : MonoBehaviour
     private float eps; //Enemies per Second
     private bool isSpawning = false;
 
+
     private void Awake()
     {
         onEnemyDestroy = new UnityEvent();
         onEnemyDestroy.AddListener(EnemyDestroyed);
     }
+
 
     private void Start()
     {
@@ -80,7 +82,7 @@ public class EnemySpawner : MonoBehaviour
         Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity);
     }
 
-    private void EnemyDestroyed()
+    public void EnemyDestroyed()
     {
         enemiesAlive--;
     }
