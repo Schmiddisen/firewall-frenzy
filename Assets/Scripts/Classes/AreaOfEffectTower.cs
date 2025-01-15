@@ -5,10 +5,16 @@ public class AreaOfEffectTower: Tower {
 
     void Start() {
         // From Serialized Fields in Unity Editor
-        base.setupTower(enemyMasks, turretRotationPoint, turretFiringPoint, towerPrefab, 
+        base.setupTower(enemyMasks, towerRotationPoint, towerFiringPoint, towerPrefab, 
         rotationSpeed, baseUpgradeCosts, buildCost, baseTargetingRange, baseDMG, baseAPS, name);
     }
 
+
+    public override void OnMouseDown() {
+        base.OnMouseDown();
+    }
+
+    
     public override void updateMethod() {
         
     }
