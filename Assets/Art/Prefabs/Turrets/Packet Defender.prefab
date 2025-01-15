@@ -333,9 +333,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4745782068123731257}
-  - component: {fileID: 4141159517600201062}
+  - component: {fileID: -8019583124124422244}
+  - component: {fileID: -7007702373414277094}
   m_Layer: 0
-  m_Name: Basic Turret
+  m_Name: Packet Defender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -359,7 +360,7 @@ Transform:
   - {fileID: 513512652718665631}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4141159517600201062
+--- !u!114 &-8019583124124422244
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -368,22 +369,59 @@ MonoBehaviour:
   m_GameObject: {fileID: 5427145149855544514}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1074be004cfa5ba44bbf29b652527798, type: 3}
+  m_Script: {fileID: 11500000, guid: a434ee73345d63d489f4774700fa593c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretRotationPoint: {fileID: 5483990413604372803}
-  enemyMask:
-    serializedVersion: 2
+  enemyMasks:
+  - serializedVersion: 2
     m_Bits: 64
-  bulletPrefab: {fileID: 6831238910303489396, guid: 6b143cbb8a90cac44adb21567715a29c, type: 3}
-  firingPoint: {fileID: 7875497887002927684}
-  upgradeUI: {fileID: 895666477825150527}
-  upgradeButton: {fileID: 2903294729846031671}
-  targetingRange: 3.51
+  towerRotationPoint: {fileID: 5483990413604372803}
+  towerFiringPoint: {fileID: 7875497887002927684}
+  towerPrefab: {fileID: 5427145149855544514}
   rotationSpeed: 100
-  bps: 1
-  baseUpgradeCost: 100
-  targetingRangeBase: 0
+  baseUpgradeCosts: 100
+  buildCost: 100
+  baseTargetingRange: 3
+  baseDMG: 1
+  baseAPS: 2
+  name: Packet Defender
+  bulletPrefab: {fileID: 6831238910303489396, guid: 6b143cbb8a90cac44adb21567715a29c, type: 3}
+--- !u!58 &-7007702373414277094
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5427145149855544514}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 5
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.1
 --- !u!1 &5616294262342070216
 GameObject:
   m_ObjectHideFlags: 0

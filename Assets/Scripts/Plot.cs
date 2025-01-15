@@ -28,7 +28,7 @@ public class Plot : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (LevelManager.main.GetComponent<UIManager>().IsHoveringUI()) return;
+/*         if (LevelManager.main.GetComponent<UIManager>().IsHoveringUI()) return;
         
         if (towerObject != null)
         {
@@ -46,6 +46,6 @@ public class Plot : MonoBehaviour
         LevelManager.main.SpendCurrency(towerToBuild.buildCost);
         
         towerObject = Instantiate(towerToBuild.towerPrefab, transform.position, Quaternion.identity);
-        turret = towerObject.GetComponent<Turret>();
+        turret = towerObject.GetComponent<Turret>(); */
     }
 }

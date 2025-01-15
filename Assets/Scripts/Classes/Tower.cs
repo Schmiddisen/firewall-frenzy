@@ -6,40 +6,40 @@ public abstract class Tower : MonoBehaviour
 {
     [Header("References")]
     public LayerMask[] enemyMasks;
-    public Transform turretRotationPoint;
-    public Transform turretFiringPoint;
+    public Transform towerRotationPoint;
+    public Transform towerFiringPoint;
 
     public GameObject towerPrefab;
-    private Transform[] enemyTargets;
+    protected Transform[] enemyTargets;
 
     [Header("Attributes")]
 
     public float rotationSpeed;
     public int baseUpgradeCosts;
-    private int currentUpgradeCosts;
+    protected int currentUpgradeCosts;
     public int buildCost;
-    private int currentLevel = 1;
+    protected int currentLevel = 1;
 
     public float baseTargetingRange;
-    private float currentTargetingRange;
+    protected float currentTargetingRange;
 
     public int baseDMG;
-    private int currentDMG;
+    protected int currentDMG;
 
     public float baseAPS;
-    private float currentAPS;
+    protected float currentAPS;
 
-    private float timeUntilFire = 0;
+    protected float timeUntilFire = 0;
 
     public string name;
 
-    public void setupTower(LayerMask[] enemyMasks, Transform turretRotationPoint, Transform turretFiringPoint, 
+    public void setupTower(LayerMask[] enemyMasks, Transform towerRotationPoint, Transform towerFiringPoint, 
                             GameObject towerPrefab, float rotationSpeed, int baseUpgradeCosts, int buildCost, float baseTargetingRange, 
                             int baseDMG, float baseAPS, string name)
     {
         this.enemyMasks = enemyMasks;
-        this.turretRotationPoint = turretRotationPoint;
-        this.turretFiringPoint = turretFiringPoint;
+        this.towerRotationPoint = towerRotationPoint;
+        this.towerFiringPoint = towerFiringPoint;
         this.rotationSpeed = rotationSpeed;
         this.baseUpgradeCosts = baseUpgradeCosts;
         this.buildCost = buildCost;
@@ -55,8 +55,32 @@ public abstract class Tower : MonoBehaviour
 
     public void Update()
     {
+        //Tower independent Update method
         this.updateMethod();
+
+        //General time until fire advance
+        timeUntilFire += Time.deltaTime;
+        if (timeUntilFire >= 1f / this.currentAPS)
+        {
+            this.attack();
+            timeUntilFire = 0f;
+        }
         // If selected Draw Range
+    }
+
+        private void OnMouseEnter()
+    {
+        //sr.color = hoverColor;
+    }
+
+    private void OnMouseExit()
+    {
+        //sr.color = startColor;
+    }
+
+    public virtual void OnMouseDown()
+    {
+        Debug.Log("Mouse Down");
     }
 
     public abstract void updateMethod();
