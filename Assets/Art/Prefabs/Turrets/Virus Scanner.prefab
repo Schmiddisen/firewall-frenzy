@@ -193,7 +193,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -92499645, guid: 478c9308451375e4e9203520d5af9482, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.2241854, b: 0.2241854, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -336,7 +336,7 @@ GameObject:
   - component: {fileID: -8019583124124422244}
   - component: {fileID: -7007702373414277094}
   m_Layer: 0
-  m_Name: Packet Defender
+  m_Name: Virus Scanner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -380,14 +380,14 @@ MonoBehaviour:
   shootingParticlePrefab: {fileID: 0}
   towerPrefab: {fileID: 5427145149855544514}
   rotationSpeed: 100
-  baseUpgradeCosts: 100
-  buildCost: 100
-  baseTargetingRange: 3
-  baseDMG: 1
-  baseAPS: 2
-  name: Packet Defender
-  bulletPrefab: {fileID: 6831238910303489396, guid: 6b143cbb8a90cac44adb21567715a29c, type: 3}
-  targetPrio: 0
+  baseUpgradeCosts: 200
+  buildCost: 200
+  baseTargetingRange: 10
+  baseDMG: 10
+  baseAPS: 0.3
+  name: Virus Scanner
+  bulletPrefab: {fileID: 6831238910303489396, guid: 5328dbb373b6acd41b994dc58a2abe5e, type: 3}
+  targetPrio: 1
 --- !u!58 &-7007702373414277094
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -423,7 +423,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.37
+  m_Radius: 0.35
 --- !u!1 &5616294262342070216
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,7 +482,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 2, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7875497887002927684}

@@ -1,17 +1,19 @@
 using UnityEngine;
-using System;
+
 
 public class TargetingTower: Tower {
 
     [Header("Further Targting Tower specific Fields and References")]
     [SerializeField]
     public GameObject bulletPrefab;
+    [SerializeField]
+    public TargetingPriority targetPrio;
 
     private Transform currentTarget;
 
-    void Start() {
+    void Awake() {
         // From Serialized Fields in Unity Editor
-        base.setupTower(enemyMasks, towerRotationPoint, towerFiringPoint, towerPrefab,
+        base.setupTower(enemyMasks, towerRotationPoint, towerFiringPoint, shootingParticlePrefab, towerPrefab,
         rotationSpeed, baseUpgradeCosts, buildCost, baseTargetingRange, baseDMG, baseAPS, name);
     }
 
@@ -19,33 +21,28 @@ public class TargetingTower: Tower {
         base.OnMouseDown();
     }
 
+    public override void OnTriggerEnter2D(Collider2D other) {
+        base.OnTriggerEnter2D(other);
+    }
+    public override void OnTriggerExit2D(Collider2D other) {
+        base.OnTriggerExit2D(other);
+    }
+
+
     public override void updateMethod() {
-        findTargets();
         if (currentTarget != null) {
             RotateTowardsTarget();
         }
     }
 
-
-    public override void findTargets() {
-        //First entry
-        LayerMask targetedEnemyMask = base.enemyMasks[0];
-        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, base.currentTargetingRange,
-             (Vector2) transform.position, 0f, targetedEnemyMask);
-        if (hits.Length > 0)
-        {
-            //First in Range
-            currentTarget = hits[0].transform;
-        }
-    }
-
     public override void attack() {
+        currentTarget = TargetingCalculator.getTargetAfterPriority(this.targetPrio, base.enemyTargets);
         if(currentTarget == null) return;
         Shoot();
     }
 
     public override void upgrade() {
-
+        //for range upgrades base.upgradeRange(x)
     }
 
     private void RotateTowardsTarget()
@@ -62,6 +59,6 @@ public class TargetingTower: Tower {
     {
         GameObject bulletObj = Instantiate(bulletPrefab, base.towerFiringPoint.position, Quaternion.identity);
         Bullet bulletScript = bulletObj.GetComponent<Bullet>();
-        bulletScript.setTarget(currentTarget);
+        bulletScript.setTarget(currentTarget, base.currentDMG);
     }
 }

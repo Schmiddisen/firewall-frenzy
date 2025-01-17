@@ -22,6 +22,8 @@ public class Enemy: MonoBehaviour
 
     private bool isDestroyed = false;
 
+    private float distanceTraveled;
+
 
 
     public void Start() {
@@ -30,6 +32,8 @@ public class Enemy: MonoBehaviour
 
         currentHealth = baseHealth;
         currentMovementSpeed = baseMovementSpeed;
+
+        distanceTraveled = 0;
     
     }
 
@@ -41,6 +45,8 @@ public class Enemy: MonoBehaviour
 
         Vector2 dir = (currentPathTarget.position - transform.position).normalized;
         rb.linearVelocity =  dir * currentMovementSpeed;
+
+        distanceTraveled += currentMovementSpeed * Time.deltaTime;
         
         if (Vector2.Distance(currentPathTarget.position, transform.position) <= 0.1f)
         {
@@ -77,5 +83,9 @@ public class Enemy: MonoBehaviour
     public void onDestroy() {
         EnemySpawner.onEnemyDestroy.Invoke();
         Destroy(gameObject);
+    }
+
+    public float getDistanceTraveled() {
+        return this.distanceTraveled;
     }
 }

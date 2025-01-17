@@ -193,7 +193,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -92499645, guid: 478c9308451375e4e9203520d5af9482, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.93917584, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -333,10 +333,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4745782068123731257}
-  - component: {fileID: -8019583124124422244}
   - component: {fileID: -7007702373414277094}
+  - component: {fileID: 5036345231661256697}
   m_Layer: 0
-  m_Name: Packet Defender
+  m_Name: Firewall Node
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -356,38 +356,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2011281966750921556}
-  - {fileID: 5483990413604372803}
   - {fileID: 513512652718665631}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-8019583124124422244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5427145149855544514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a434ee73345d63d489f4774700fa593c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyMasks:
-  - serializedVersion: 2
-    m_Bits: 64
-  towerRotationPoint: {fileID: 5483990413604372803}
-  towerFiringPoint: {fileID: 7875497887002927684}
-  shootingParticlePrefab: {fileID: 0}
-  towerPrefab: {fileID: 5427145149855544514}
-  rotationSpeed: 100
-  baseUpgradeCosts: 100
-  buildCost: 100
-  baseTargetingRange: 3
-  baseDMG: 1
-  baseAPS: 2
-  name: Packet Defender
-  bulletPrefab: {fileID: 6831238910303489396, guid: 6b143cbb8a90cac44adb21567715a29c, type: 3}
-  targetPrio: 0
 --- !u!58 &-7007702373414277094
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -423,126 +394,33 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.37
---- !u!1 &5616294262342070216
-GameObject:
+  m_Radius: 0.42
+--- !u!114 &5036345231661256697
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7875497887002927684}
-  m_Layer: 0
-  m_Name: FiringPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7875497887002927684
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5616294262342070216}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.168, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5483990413604372803}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7558766880320543098
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5483990413604372803}
-  - component: {fileID: 7394419757872846907}
-  m_Layer: 0
-  m_Name: Gun
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5483990413604372803
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7558766880320543098}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7875497887002927684}
-  m_Father: {fileID: 4745782068123731257}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &7394419757872846907
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7558766880320543098}
+  m_GameObject: {fileID: 5427145149855544514}
   m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1861431969
-  m_SortingLayer: 1
-  m_SortingOrder: 1
-  m_Sprite: {fileID: -1468882120, guid: 478c9308451375e4e9203520d5af9482, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.32, y: 0.32}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee350cec7535d9b4d8cd8ad7412fea3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyMasks:
+  - serializedVersion: 2
+    m_Bits: 64
+  towerRotationPoint: {fileID: 2011281966750921556}
+  towerFiringPoint: {fileID: 2011281966750921556}
+  shootingParticlePrefab: {fileID: 5539328130595238048, guid: b3208d66aaad205468c71e23f5001141, type: 3}
+  towerPrefab: {fileID: 5427145149855544514}
+  rotationSpeed: 0
+  baseUpgradeCosts: 100
+  buildCost: 100
+  baseTargetingRange: 2
+  baseDMG: 2
+  baseAPS: 0.5
+  name: Firwall Node
 --- !u!1 &8005598851598749195
 GameObject:
   m_ObjectHideFlags: 0

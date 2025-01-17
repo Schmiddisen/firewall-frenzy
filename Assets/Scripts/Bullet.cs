@@ -9,17 +9,19 @@ public class Bullet : MonoBehaviour
     [Header("Attributes")] 
     [SerializeField] private float bulletSpeed = 5f;
 
-    [SerializeField] private int bulletDamage = 1;
+    private int bulletDamage;
+
     [SerializeField] private float aliveTimeUntilDespawn = 10;
     
 
     private Transform target;
     private float timeAlive;
 
-    public void setTarget(Transform _target)
+    public void setTarget(Transform _target, int dmg)
     {
         timeAlive = 0f;
         target = _target;
+        bulletDamage = dmg;
     }
 
     private void FixedUpdate()
@@ -38,6 +40,10 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        if (target == null) return;
+        //If it collides with another Enemy, that is NOT the target, dont do the damage
+        if (other.collider != target.GetComponent<Collider2D>()) return;
+
         other.gameObject.GetComponent<Enemy>().takeDamage(bulletDamage);
         Destroy(gameObject);
     }
