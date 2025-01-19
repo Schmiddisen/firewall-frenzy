@@ -8,7 +8,7 @@ using System.Linq;
 public abstract class Tower : MonoBehaviour
 {
     [Header("References")]
-    public LayerMask[] enemyMasks;
+    [SerializeField] public LayerMask enemyMask;
     public Transform towerRotationPoint;
     public Transform towerFiringPoint;
 
@@ -40,13 +40,14 @@ public abstract class Tower : MonoBehaviour
     protected float timeUntilFire = 0;
 
     protected CircleCollider2D targetingRangeDetetector;
-    
 
-    public void setupTower(LayerMask[] enemyMasks, Transform towerRotationPoint, Transform towerFiringPoint, ParticleSystem shootingParticlePrefab,
+    public bool isActiv;
+    
+    public void setupTower(LayerMask enemyMask, Transform towerRotationPoint, Transform towerFiringPoint, ParticleSystem shootingParticlePrefab,
                             GameObject towerPrefab, float rotationSpeed, int baseUpgradeCosts, int buildCost, float baseTargetingRange, 
                             int baseDMG, float baseAPS, string name)
     {
-        this.enemyMasks = enemyMasks;
+        this.enemyMask = enemyMask;
         this.towerRotationPoint = towerRotationPoint;
         this.towerFiringPoint = towerFiringPoint;
         this.towerPrefab = towerPrefab;
@@ -68,10 +69,14 @@ public abstract class Tower : MonoBehaviour
         targetingRangeDetetector = gameObject.AddComponent<CircleCollider2D>();
         targetingRangeDetetector.isTrigger = true;
         targetingRangeDetetector.radius = baseTargetingRange;
+
+        isActiv = false;
     }
 
     public void Update()
     {
+        //If tower isnt active yet, return
+        if (!isActiv) return;
         //Tower independent Update method
         this.updateMethod();
 
@@ -79,10 +84,9 @@ public abstract class Tower : MonoBehaviour
         timeUntilFire += Time.deltaTime;
         if (timeUntilFire >= 1f / this.currentAPS)
         {
-            this.attack();
+            attack();
             timeUntilFire = 0f;
         }
-        // If selected Draw Range
     }
 
     private void OnMouseEnter()
@@ -114,7 +118,7 @@ public abstract class Tower : MonoBehaviour
     public virtual void OnTriggerEnter2D(Collider2D other)
     {
         //Return if the other object is not in the layer of the Hit-Able enemies
-        if (enemyMasks.Contains(other.gameObject.layer)) return;
+        if (((1 << other.gameObject.layer) & enemyMask) == 0) return;
         
         Transform enemyTransform = other.transform;
         if (!enemyTargets.Contains(enemyTransform)) // Only if the Enemy is not in the List
@@ -126,7 +130,7 @@ public abstract class Tower : MonoBehaviour
     public virtual void OnTriggerExit2D(Collider2D other)
     {
         //Return if the other object is not in the layer of the Hit-Able enemies
-        if (enemyMasks.Contains(other.gameObject.layer)) return;
+        if (((1 << other.gameObject.layer) & enemyMask) == 0) return;
         
         Transform enemyTransform = other.transform;
         if (enemyTargets.Contains(enemyTransform)) // Only if the Enemy is in the List
@@ -135,7 +139,12 @@ public abstract class Tower : MonoBehaviour
         }
     }
 
+    public void setActive(bool b) {
+        isActiv = b;
+    }
+
     public abstract void updateMethod();
     public abstract void attack();
     public abstract void upgrade();
+
 }

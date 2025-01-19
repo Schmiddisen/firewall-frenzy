@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 4745782068123731257}
   - component: {fileID: -8019583124124422244}
   - component: {fileID: -7007702373414277094}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Virus Scanner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -372,8 +372,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a434ee73345d63d489f4774700fa593c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyMasks:
-  - serializedVersion: 2
+  enemyMask:
+    serializedVersion: 2
     m_Bits: 64
   towerRotationPoint: {fileID: 5483990413604372803}
   towerFiringPoint: {fileID: 7875497887002927684}
@@ -386,6 +386,7 @@ MonoBehaviour:
   baseDMG: 10
   baseAPS: 0.3
   name: Virus Scanner
+  isFiring: 0
   bulletPrefab: {fileID: 6831238910303489396, guid: 5328dbb373b6acd41b994dc58a2abe5e, type: 3}
   targetPrio: 1
 --- !u!58 &-7007702373414277094

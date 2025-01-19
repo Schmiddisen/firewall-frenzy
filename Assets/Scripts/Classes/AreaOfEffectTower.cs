@@ -3,13 +3,14 @@ using System;
 using UnityEditor;
 using UnityEngine.UI;
 using Unity.Collections;
+using System.Collections.Generic;
 
 
 public class AreaOfEffectTower: Tower {
 
     void Start() {
         // From Serialized Fields in Unity Editor
-        base.setupTower(enemyMasks, towerRotationPoint, towerFiringPoint, shootingParticlePrefab, towerPrefab, 
+        base.setupTower(enemyMask, towerRotationPoint, towerFiringPoint, shootingParticlePrefab, towerPrefab, 
         rotationSpeed, baseUpgradeCosts, buildCost, baseTargetingRange, baseDMG, baseAPS, name);
 
         //When Start, set CircleCollider Range for Particles so that they match the actual tower range
@@ -35,7 +36,9 @@ public class AreaOfEffectTower: Tower {
     public override void attack() {
         Instantiate(base.shootingParticlePrefab, base.towerRotationPoint.position, this.towerRotationPoint.rotation);
         if(base.enemyTargets == null || base.enemyTargets.Count == 0) return;
-        foreach(Transform target in base.enemyTargets) {
+        //Make a Copy because maybe an Enemy will exit the range right in the time when we iterate the list
+        List<Transform> targetsCopy = new List<Transform>(base.enemyTargets);
+        foreach(Transform target in targetsCopy) {
             if (target == null) continue;
             target.gameObject.GetComponent<Enemy>().takeDamage(base.currentDMG);
         }

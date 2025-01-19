@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections.Generic;
 
 public class TargetingTower: Tower {
 
@@ -13,7 +13,7 @@ public class TargetingTower: Tower {
 
     void Awake() {
         // From Serialized Fields in Unity Editor
-        base.setupTower(enemyMasks, towerRotationPoint, towerFiringPoint, shootingParticlePrefab, towerPrefab,
+        base.setupTower(enemyMask, towerRotationPoint, towerFiringPoint, shootingParticlePrefab, towerPrefab,
         rotationSpeed, baseUpgradeCosts, buildCost, baseTargetingRange, baseDMG, baseAPS, name);
     }
 
@@ -30,13 +30,16 @@ public class TargetingTower: Tower {
 
 
     public override void updateMethod() {
+        //Make a Copy because maybe an Enemy will exit the range right in the time when we iterate the list
+        List<Transform> targetsCopy = new List<Transform>(base.enemyTargets);
+        currentTarget = TargetingCalculator.getTargetAfterPriority(this.targetPrio, targetsCopy);
+
         if (currentTarget != null) {
             RotateTowardsTarget();
         }
     }
 
     public override void attack() {
-        currentTarget = TargetingCalculator.getTargetAfterPriority(this.targetPrio, base.enemyTargets);
         if(currentTarget == null) return;
         Shoot();
     }

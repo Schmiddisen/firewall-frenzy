@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 4745782068123731257}
   - component: {fileID: -7007702373414277094}
   - component: {fileID: 5036345231661256697}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Firewall Node
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,8 +407,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee350cec7535d9b4d8cd8ad7412fea3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyMasks:
-  - serializedVersion: 2
+  enemyMask:
+    serializedVersion: 2
     m_Bits: 64
   towerRotationPoint: {fileID: 2011281966750921556}
   towerFiringPoint: {fileID: 2011281966750921556}
@@ -421,6 +421,7 @@ MonoBehaviour:
   baseDMG: 2
   baseAPS: 0.5
   name: Firwall Node
+  isFiring: 0
 --- !u!1 &8005598851598749195
 GameObject:
   m_ObjectHideFlags: 0
