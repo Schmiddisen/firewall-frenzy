@@ -1282,6 +1282,7 @@ GameObject:
   - component: {fileID: 849018325}
   - component: {fileID: 849018326}
   - component: {fileID: 849018327}
+  - component: {fileID: 849018328}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -1314,6 +1315,7 @@ MonoBehaviour:
   - {fileID: 21173498}
   - {fileID: 498454491}
   - {fileID: 653859853}
+  selectedTower: {fileID: 0}
   currency: 100
 --- !u!4 &849018324
 Transform:
@@ -1381,6 +1383,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03cd06754bdcb0f4f8121dd80dac2291, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &849018328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849018322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f031740ab138140a1f125ad41bea39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &900735342

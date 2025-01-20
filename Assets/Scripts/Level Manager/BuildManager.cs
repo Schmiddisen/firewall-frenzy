@@ -56,6 +56,7 @@ public class BuildManager : MonoBehaviour
         mousePosition.z = 0;
         currentTower = Instantiate(currentTowerPrefab, mousePosition, Quaternion.identity);
         isPlacing = true;
+        LevelManager.main.setSelectedTower(currentTower);
     }
 
     void MoveTowerToMousePosition()
@@ -65,16 +66,24 @@ public class BuildManager : MonoBehaviour
         currentTower.transform.position = mousePosition;
         if (!isPlacable())
         {
-            currentTower.transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.gray; 
+            currentTower.transform.GetChild(1).GetComponent<SpriteRenderer>().color = Color.gray; 
         }
         else
         {
-            currentTower.transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.white;
+            currentTower.transform.GetChild(1).GetComponent<SpriteRenderer>().color = Color.white;
         }
     }
 
     bool isPlacable()
     {   
+        // Temporarly disable the own colliders of the currently placed tower
+        Collider2D[] colliders = currentTower.GetComponentsInChildren<Collider2D>();
+        foreach (var col in colliders)
+        {
+            col.enabled = false;
+        }
+
+
         //Check if its on a Map Blocker
         Collider2D blockerCollider = Physics2D.OverlapCircle(currentTower.transform.position, 0.5f, LayerMask.GetMask("Map Blocker"));
         bool onBlocker = blockerCollider != null;
@@ -84,10 +93,17 @@ public class BuildManager : MonoBehaviour
         bool onMap = mapCollider != null;
 
         //Check if its on another Tower
-        Collider2D towerCollider = Physics2D.OverlapCircle(currentTower.transform.position, 0.5f, LayerMask.GetMask("Tower"));
+        Collider2D towerCollider = Physics2D.OverlapCircle(currentTower.transform.position, 0.5f, LayerMask.GetMask("Tower Base"));
         bool onTower = towerCollider != null;
 
-        return onMap && !onBlocker;
+        // Reactivate the own Collider angain
+        foreach (var col in colliders)
+        {
+            col.enabled = true;
+        }
+
+
+        return onMap && !onBlocker && !onTower;
     }
 
     void TryPlaceTower()
@@ -95,7 +111,9 @@ public class BuildManager : MonoBehaviour
         if (isPlacable())
         {
             isPlacing = false;
-            currentTower.GetComponent<Tower>().setActive(true);
+            Tower tower = currentTower.GetComponent<Tower>();
+            LevelManager.main.deselectTower();
+            tower.setActive(true);
         }
     }
 }

@@ -2,19 +2,23 @@ using UnityEngine;
 using System;
 using UnityEditor;
 using System.Collections.Generic;
-using System.Linq;
+
 
 [System.Serializable]
 public abstract class Tower : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] public LayerMask enemyMask;
+
+    public CircleCollider2D towerBaseCollider;
     public Transform towerRotationPoint;
     public Transform towerFiringPoint;
 
     public ParticleSystem shootingParticlePrefab;
 
     public GameObject towerPrefab;
+
+    public LineRenderer rangeIndicator;
 
     [Header("Attributes")]
 
@@ -43,14 +47,16 @@ public abstract class Tower : MonoBehaviour
 
     public bool isActiv;
     
-    public void setupTower(LayerMask enemyMask, Transform towerRotationPoint, Transform towerFiringPoint, ParticleSystem shootingParticlePrefab,
-                            GameObject towerPrefab, float rotationSpeed, int baseUpgradeCosts, int buildCost, float baseTargetingRange, 
-                            int baseDMG, float baseAPS, string name)
+    public void setupTower(LayerMask enemyMask, CircleCollider2D towerBaseCollider, Transform towerRotationPoint, Transform towerFiringPoint, ParticleSystem shootingParticlePrefab,
+                            GameObject towerPrefab, LineRenderer rangeIndicator, float rotationSpeed, int baseUpgradeCosts,
+                            int buildCost, float baseTargetingRange, int baseDMG, float baseAPS, string name)
     {
         this.enemyMask = enemyMask;
+        this.towerBaseCollider = towerBaseCollider;
         this.towerRotationPoint = towerRotationPoint;
         this.towerFiringPoint = towerFiringPoint;
         this.towerPrefab = towerPrefab;
+        this.rangeIndicator = rangeIndicator;
         this.shootingParticlePrefab = shootingParticlePrefab;
         this.rotationSpeed = rotationSpeed;
         this.baseUpgradeCosts = baseUpgradeCosts;
@@ -69,8 +75,11 @@ public abstract class Tower : MonoBehaviour
         targetingRangeDetetector = gameObject.AddComponent<CircleCollider2D>();
         targetingRangeDetetector.isTrigger = true;
         targetingRangeDetetector.radius = baseTargetingRange;
+        targetingRangeDetetector.offset = new Vector2(0, 0);
 
         isActiv = false;
+
+        redrawRangeIndicator();
     }
 
     public void Update()
@@ -87,32 +96,37 @@ public abstract class Tower : MonoBehaviour
             attack();
             timeUntilFire = 0f;
         }
+
     }
 
-    private void OnMouseEnter()
+    private void redrawRangeIndicator()
     {
-        //sr.color = hoverColor;
-    }
+        rangeIndicator.useWorldSpace = false;
+        rangeIndicator.loop = true;
+        int segments = 25;
+        float radius = this.currentTargetingRange;
+        rangeIndicator.positionCount = segments + 1;
+        rangeIndicator.sortingOrder = 10;
 
-    private void OnMouseExit()
-    {
-        //sr.color = startColor;
-    }
+        AnimationCurve curve = new AnimationCurve();
+        float constantWidth = 0.08f;
+        curve.AddKey(0f, constantWidth);
+        curve.AddKey(1f, constantWidth);
+        rangeIndicator.widthCurve = curve;
 
-    public virtual void OnMouseDown()
-    {
-        //Needs implementation
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Handles.color = Color.magenta;
-        Handles.DrawWireDisc(transform.position, transform.forward, baseTargetingRange);
+        float angleStep = 360f / segments;
+        for (int i = 0; i <= segments; i++)
+        {
+            float angle = Mathf.Deg2Rad * i * angleStep;
+            Vector3 position = new Vector3(Mathf.Cos(angle) * radius, Mathf.Sin(angle) * radius, 0);
+            rangeIndicator.SetPosition(i, position);
+        }
     }
 
     protected void upgradeRange(float amount) {
         this.currentTargetingRange += amount;
         this.targetingRangeDetetector.radius = currentTargetingRange;
+        redrawRangeIndicator();
     }
 
     public virtual void OnTriggerEnter2D(Collider2D other)
@@ -141,6 +155,10 @@ public abstract class Tower : MonoBehaviour
 
     public void setActive(bool b) {
         isActiv = b;
+    }
+
+    public void showRangeIndicator(bool b) {
+        this.rangeIndicator.enabled = b;
     }
 
     public abstract void updateMethod();

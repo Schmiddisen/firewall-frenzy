@@ -13,13 +13,10 @@ public class TargetingTower: Tower {
 
     void Awake() {
         // From Serialized Fields in Unity Editor
-        base.setupTower(enemyMask, towerRotationPoint, towerFiringPoint, shootingParticlePrefab, towerPrefab,
-        rotationSpeed, baseUpgradeCosts, buildCost, baseTargetingRange, baseDMG, baseAPS, name);
+        base.setupTower(enemyMask, towerBaseCollider, towerRotationPoint, towerFiringPoint, shootingParticlePrefab, towerPrefab,
+        rangeIndicator, rotationSpeed, baseUpgradeCosts, buildCost, baseTargetingRange, baseDMG, baseAPS, name);
     }
 
-    public override void OnMouseDown() {
-        base.OnMouseDown();
-    }
 
     public override void OnTriggerEnter2D(Collider2D other) {
         base.OnTriggerEnter2D(other);

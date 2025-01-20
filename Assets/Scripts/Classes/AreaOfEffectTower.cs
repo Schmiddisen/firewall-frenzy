@@ -10,17 +10,14 @@ public class AreaOfEffectTower: Tower {
 
     void Start() {
         // From Serialized Fields in Unity Editor
-        base.setupTower(enemyMask, towerRotationPoint, towerFiringPoint, shootingParticlePrefab, towerPrefab, 
-        rotationSpeed, baseUpgradeCosts, buildCost, baseTargetingRange, baseDMG, baseAPS, name);
+        base.setupTower(enemyMask, towerBaseCollider, towerRotationPoint, towerFiringPoint, shootingParticlePrefab, towerPrefab, 
+        rangeIndicator, rotationSpeed, baseUpgradeCosts, buildCost, baseTargetingRange, baseDMG, baseAPS, name);
 
         //When Start, set CircleCollider Range for Particles so that they match the actual tower range
         setParticleColliderRadius(base.baseTargetingRange);
     }
 
 
-    public override void OnMouseDown() {
-        base.OnMouseDown();
-    }
     public override void OnTriggerEnter2D(Collider2D other) {
         base.OnTriggerEnter2D(other);
     }
