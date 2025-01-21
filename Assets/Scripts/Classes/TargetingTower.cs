@@ -1,19 +1,19 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
+using UnityEngine.EventSystems;
 
 public class TargetingTower: Tower {
 
     [Header("Further Targting Tower specific Fields and References")]
     [SerializeField]
     public GameObject bulletPrefab;
-    [SerializeField]
-    public TargetingPriority targetPrio;
 
     private Transform currentTarget;
 
     void Awake() {
         // From Serialized Fields in Unity Editor
-        base.setupTower(enemyMask, towerBaseCollider, towerRotationPoint, towerFiringPoint, shootingParticlePrefab, towerPrefab,
+        base.setupTower(enemyMask, targetPrio, towerBaseCollider, towerRotationPoint, towerFiringPoint, shootingParticlePrefab, towerPrefab,
         rangeIndicator, rotationSpeed, baseUpgradeCosts, buildCost, baseTargetingRange, baseDMG, baseAPS, name);
     }
 

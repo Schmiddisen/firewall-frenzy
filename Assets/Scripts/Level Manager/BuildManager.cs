@@ -31,7 +31,27 @@ public class BuildManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && isPlacing)
         {
+
             TryPlaceTower();
+
+        }
+        //This checks for Clicking on a Base of Tower and then selecting the tower in the LevelManager
+        if (Input.GetMouseButtonDown(0) && !isPlacing) {
+
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+
+            RaycastHit2D[] hits = Physics2D.RaycastAll(mousePosition, Vector2.zero, LayerMask.GetMask("Tower Base"));
+
+            foreach (RaycastHit2D hit in hits)
+            {
+                GameObject hittedGameObject = hit.collider.gameObject;
+                //If the Base of the Tower got hit
+                if(hittedGameObject.name == "Base") {
+                    //Select as Selected Tower
+                    LevelManager.main.setSelectedTower(hittedGameObject.GetComponentInParent<Tower>());
+                }
+            }
         }
     }
 
@@ -56,7 +76,7 @@ public class BuildManager : MonoBehaviour
         mousePosition.z = 0;
         currentTower = Instantiate(currentTowerPrefab, mousePosition, Quaternion.identity);
         isPlacing = true;
-        LevelManager.main.setSelectedTower(currentTower);
+        LevelManager.main.setSelectedTower(currentTower.GetComponent<Tower>());
     }
 
     void MoveTowerToMousePosition()

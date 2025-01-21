@@ -33,7 +33,8 @@ public static class TargetingCalculator {
                 return enemies[max_index];
 
             case TargetingPriority.EnemyPriority:
-                return null;
+                //TODO Needs implementation
+                return enemies[0];
 
             default:
                 return null;

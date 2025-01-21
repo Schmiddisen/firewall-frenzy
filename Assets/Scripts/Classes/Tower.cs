@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using UnityEditor;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 
 
 [System.Serializable]
@@ -9,6 +10,7 @@ public abstract class Tower : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] public LayerMask enemyMask;
+    [SerializeField] public TargetingPriority targetPrio;
 
     public CircleCollider2D towerBaseCollider;
     public Transform towerRotationPoint;
@@ -47,7 +49,8 @@ public abstract class Tower : MonoBehaviour
 
     public bool isActiv;
     
-    public void setupTower(LayerMask enemyMask, CircleCollider2D towerBaseCollider, Transform towerRotationPoint, Transform towerFiringPoint, ParticleSystem shootingParticlePrefab,
+    public void setupTower(LayerMask enemyMask, TargetingPriority targetPrio, CircleCollider2D towerBaseCollider,
+                            Transform towerRotationPoint, Transform towerFiringPoint, ParticleSystem shootingParticlePrefab,
                             GameObject towerPrefab, LineRenderer rangeIndicator, float rotationSpeed, int baseUpgradeCosts,
                             int buildCost, float baseTargetingRange, int baseDMG, float baseAPS, string name)
     {
@@ -99,11 +102,12 @@ public abstract class Tower : MonoBehaviour
 
     }
 
+
     private void redrawRangeIndicator()
     {
         rangeIndicator.useWorldSpace = false;
         rangeIndicator.loop = true;
-        int segments = 25;
+        int segments = 50;
         float radius = this.currentTargetingRange;
         rangeIndicator.positionCount = segments + 1;
         rangeIndicator.sortingOrder = 10;

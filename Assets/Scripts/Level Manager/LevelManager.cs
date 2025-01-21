@@ -5,10 +5,12 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager main;
 
+    [SerializeField] public MenuTowerDetails towerDetailsUI;
+
     public Transform startPoint;
     public Transform[] path;
 
-    public GameObject selectedTower;
+    public Tower selectedTower;
 
     public int currency = 100;
 
@@ -18,18 +20,27 @@ public class LevelManager : MonoBehaviour
     }
 
 
-    public void setSelectedTower(GameObject tower) {
-        deselectTower();
+    public void setSelectedTower(Tower tower) {
         
+
+        // If its the same tower, just return, so that you can toggle selection
+        if(tower && selectedTower && tower.gameObject == selectedTower.gameObject) {
+            deselectTower();
+            return;
+        }
+        deselectTower();
+
         this.selectedTower = tower;
         
-        selectedTower.GetComponent<Tower>().showRangeIndicator(true);
+        selectedTower.showRangeIndicator(true);
+        towerDetailsUI.showTowerInfos();
     }
     public void deselectTower() {
         if (selectedTower == null) return;
         
-        selectedTower.GetComponent<Tower>().showRangeIndicator(false);
+        selectedTower.showRangeIndicator(false);
         this.selectedTower = null;
+        towerDetailsUI.showTowerInfos();
     }
 
     public void IncreaseCurrency(int amount)
