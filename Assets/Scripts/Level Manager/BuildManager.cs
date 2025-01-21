@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
-using UnityEngine.UI;
+//using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class BuildManager : MonoBehaviour
 {
@@ -9,16 +10,19 @@ public class BuildManager : MonoBehaviour
     private GameObject currentTowerPrefab;
     private GameObject currentTower; 
 
-    [Header("Button References")]
-    public Button[] towerButtons;
+    [Header("UIDocument")]
+    public UIDocument uIDocument;
+
+    private Button[] towerButtons;
 
     private bool isPlacing = false;
 
     void Start()
     {
+        towerButtons = uIDocument.rootVisualElement.Query<Button>().ToList().ToArray();
         foreach (var button in towerButtons)
         {
-            button.onClick.AddListener(() => OnTowerButtonClick(button));
+            button.clicked += () => OnTowerButtonClick(button);
         }
     }
 
