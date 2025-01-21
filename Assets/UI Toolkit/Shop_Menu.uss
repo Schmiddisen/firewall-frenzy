@@ -1,0 +1,4 @@
+.font {
+    -unity-font-definition: url("project://database/Assets/Rajdhani-Bold.ttf?fileID=12800000&guid=fdce0fa83b5c1418ebba6e44589143b8&type=3#Rajdhani-Bold");
+    font-size: 20px;
+}

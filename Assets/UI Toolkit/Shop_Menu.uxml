@@ -1,0 +1,21 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Towers.uss?fileID=7433441132597879392&amp;guid=2a115b068ee954733b9f6bd3afa032c9&amp;type=3#Towers" />
+    <Style src="project://database/Assets/UI%20Toolkit/Shop_Menu.uss?fileID=7433441132597879392&amp;guid=a394506a66bb241008a2b32085dbbb12&amp;type=3#Shop_Menu" />
+    <engine:VisualElement name="Bar" class="font" style="flex-grow: 1; width: 1920px; height: 220px; position: absolute; bottom: 0; background-color: rgb(217, 217, 217); border-top-left-radius: 10px; border-top-right-radius: 10px; flex-direction: row;">
+        <engine:VisualElement name="Tower_Shop" style="flex-grow: 1; width: 50%; align-content: center; flex-direction: row; justify-content: space-evenly; align-items: center;">
+            <engine:Button name="Packet_Defender_Button" class="button">
+                <engine:VisualElement name="Tower_Image" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI%20Toolkit/test123.png?fileID=-7914298234731780746&amp;guid=72446b40574864eeaae96ede115e325b&amp;type=3#test123_0&quot;); display: none; -unity-font-definition: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&amp;guid=e3265ab4bf004d28a9537516768c1c75&amp;type=3#LiberationSans&quot;);" />
+                <engine:Label text="Packet Defender" name="Packet_Defender" class="font" style="align-self: center; align-content: flex-start;" />
+            </engine:Button>
+            <engine:Button name="Firewall_Node" class="button">
+                <engine:VisualElement name="Tower_Image" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI%20Toolkit/test123.png?fileID=-7914298234731780746&amp;guid=72446b40574864eeaae96ede115e325b&amp;type=3#test123_0&quot;); display: none; visibility: visible; opacity: 1;" />
+                <engine:Label text="Firewall Node" name="Firewall_Node" class="font" style="align-self: center; align-content: flex-start;" />
+            </engine:Button>
+            <engine:Button name="Virus_Scanner" class="button">
+                <engine:VisualElement name="Tower_Image" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI%20Toolkit/test123.png?fileID=-7914298234731780746&amp;guid=72446b40574864eeaae96ede115e325b&amp;type=3#test123_0&quot;); display: none; visibility: visible; opacity: 1;" />
+                <engine:Label text="Virus Scanner" name="Virus_Scanner" class="font" style="align-self: center; align-content: flex-start;" />
+            </engine:Button>
+        </engine:VisualElement>
+        <engine:VisualElement name="Tower_Information" style="width: 50%; height: 100%; background-color: rgb(188, 188, 188); border-bottom-left-radius: 10px; border-top-left-radius: 10px; border-left-color: rgb(80, 80, 80); border-right-color: rgb(80, 80, 80); border-top-color: rgb(80, 80, 80); border-bottom-color: rgb(80, 80, 80); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px;" />
+    </engine:VisualElement>
+</engine:UXML>
