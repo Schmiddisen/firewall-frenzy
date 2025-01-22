@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BasicEnemy : Enemy
+public class Virus : Enemy
 {
 
     void Awake() {

@@ -45,6 +45,8 @@ public abstract class Tower : MonoBehaviour
     protected float currentAPS;
     protected float timeUntilFire = 0;
 
+    protected double accumulatedStagger;
+
     protected CircleCollider2D targetingRangeDetetector;
 
     public bool isActiv;
@@ -82,6 +84,8 @@ public abstract class Tower : MonoBehaviour
 
         isActiv = false;
 
+        accumulatedStagger = 0;
+
         redrawRangeIndicator();
     }
 
@@ -94,7 +98,10 @@ public abstract class Tower : MonoBehaviour
 
         //General time until fire advance
         timeUntilFire += Time.deltaTime;
-        if (timeUntilFire >= 1f / this.currentAPS)
+
+        // how stagger works: increases 1f/this.currentAPS by e.g. 20% (if accumulatedStagger = 0.2), 
+        // thus adding 20% to the time until the next attack
+        if (timeUntilFire >= (1f / this.currentAPS) * (1 + accumulatedStagger)) 
         {
             attack();
             timeUntilFire = 0f;
@@ -169,4 +176,13 @@ public abstract class Tower : MonoBehaviour
     public abstract void attack();
     public abstract void upgrade();
 
+    public void addStagger(double stagger){
+        // adds the value of ddos modifier
+        accumulatedStagger += stagger;
+    }
+
+    public void removeStagger(double stagger){
+        // adds the value of ddos modifier
+        accumulatedStagger -= stagger;
+    }
 }
