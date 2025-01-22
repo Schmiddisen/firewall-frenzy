@@ -9,7 +9,6 @@
     border-top-right-radius: 10%;
     border-bottom-right-radius: 10%;
     border-bottom-left-radius: 10%;
-    -unity-font-definition: initial;
     margin-top: 0;
     margin-right: 0;
     margin-bottom: 0;
@@ -22,6 +21,13 @@
     border-right-color: rgb(80, 80, 80);
     border-top-color: rgb(80, 80, 80);
     border-bottom-color: rgb(80, 80, 80);
+    align-self: auto;
+    align-content: flex-start;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: rgb(240, 0, 255);
+    -unity-background-scale-mode: scale-to-fit;
 }
 
 .tower_button:hover {

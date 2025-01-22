@@ -1,6 +1,11 @@
 .font {
     -unity-font-definition: url("project://database/Assets/Rajdhani-Bold.ttf?fileID=12800000&guid=fdce0fa83b5c1418ebba6e44589143b8&type=3#Rajdhani-Bold");
     font-size: 20px;
+    -unity-font-style: bold;
+    -unity-text-outline-width: 1px;
+    -unity-text-outline-color: rgb(0, 200, 198);
+    color: rgb(0, 255, 253);
+    -unity-text-align: middle-center;
 }
 
 .upgrade_button {
@@ -25,6 +30,7 @@
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
+    background-color: rgb(240, 2, 255);
 }
 
 .upgrade_button:hover {
@@ -58,6 +64,7 @@
     align-self: center;
     width: 100%;
     height: 33.3%;
+    background-color: rgb(240, 2, 255);
 }
 
 .attacktype_button:hover {
