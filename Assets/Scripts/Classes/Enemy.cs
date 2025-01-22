@@ -15,17 +15,17 @@ public abstract class Enemy: MonoBehaviour
 
     public Transform[] path;
     public Transform currentPathTarget;
-    public int pathIndex;
+    private int pathIndex;
 
-    public int currentHealth;
-    public float currentMovementSpeed;
+    private int currentHealth;
+    private float currentMovementSpeed;
 
-    public bool isDestroyed;
+    private bool isDestroyed;
 
-    public float distanceTraveled;
+    private float distanceTraveled;
 
 
-    public void setupEnemy(int moveSpeed, int health, int currencyWorth){
+    public void setupEnemy(float moveSpeed, int health, int currencyWorth){
         path = LevelManager.main.path;
         currentPathTarget = path[0];
 
@@ -57,9 +57,11 @@ public abstract class Enemy: MonoBehaviour
         {
             pathIndex++;
 
-            if (pathIndex == path.Length)
+            if (pathIndex == path.Length) // Enemy has crossed the end line
             {
                 this.onDestroy();
+                // call the event to reduce the player's health by the current health of the enemy 
+                LevelManager.main.OnEnemyFinishTrack.Invoke(currentHealth);
             }
             else
             {
@@ -92,7 +94,6 @@ public abstract class Enemy: MonoBehaviour
     public void onDestroy() {
         EnemySpawner.onEnemyDestroy.Invoke();
         Destroy(gameObject);
-        // TODO: change health
     }
 
     public float getDistanceTraveled() {
