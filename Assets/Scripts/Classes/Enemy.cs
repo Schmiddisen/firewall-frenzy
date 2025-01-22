@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Enemy: MonoBehaviour
+public abstract class Enemy: MonoBehaviour
 {
     [Header("References")]
     [SerializeField] public Rigidbody2D rb;
@@ -13,28 +13,33 @@ public class Enemy: MonoBehaviour
 
     
 
-    private Transform[] path;
-    private Transform currentPathTarget;
-    private int pathIndex = 0;
+    public Transform[] path;
+    public Transform currentPathTarget;
+    public int pathIndex;
 
-    private int currentHealth;
-    private float currentMovementSpeed;
+    public int currentHealth;
+    public float currentMovementSpeed;
 
-    private bool isDestroyed = false;
+    public bool isDestroyed;
 
-    private float distanceTraveled;
+    public float distanceTraveled;
 
 
-
-    public void Start() {
+    public void setupEnemy(int moveSpeed, int health, int currencyWorth){
         path = LevelManager.main.path;
         currentPathTarget = path[0];
+
+        this.baseMovementSpeed = moveSpeed;
+        this.baseHealth = health;
+        this.currencyWorth = currencyWorth;
 
         currentHealth = baseHealth;
         currentMovementSpeed = baseMovementSpeed;
 
+        this.pathIndex = 0;
         distanceTraveled = 0;
-    
+
+        this.isDestroyed = false;
     }
 
     public void FixedUpdate() {
@@ -64,9 +69,13 @@ public class Enemy: MonoBehaviour
     }
 
     
-
-    public void interruptMovement(float duration) {
-        
+    public void interruptMovement(bool shouldStop) {
+        if (shouldStop) {
+            this.currentMovementSpeed = 0;
+        }
+        else {
+            this.currentMovementSpeed = baseMovementSpeed;
+        }
     }
 
     public void takeDamage(int dmg) {
@@ -83,6 +92,7 @@ public class Enemy: MonoBehaviour
     public void onDestroy() {
         EnemySpawner.onEnemyDestroy.Invoke();
         Destroy(gameObject);
+        // TODO: change health
     }
 
     public float getDistanceTraveled() {
