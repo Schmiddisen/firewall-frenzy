@@ -402,6 +402,7 @@ GameObject:
   m_Component:
   - component: {fileID: 261552302}
   - component: {fileID: 261552303}
+  - component: {fileID: 261552304}
   m_Layer: 5
   m_Name: Shop_Menu
   m_TagString: Untagged
@@ -443,6 +444,19 @@ MonoBehaviour:
   m_WorldSpaceSizeMode: 1
   m_WorldSpaceWidth: 1920
   m_WorldSpaceHeight: 1080
+--- !u!114 &261552304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 261552301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b59d5f82998fca4ab79d8ecf0284efb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uIDocument: {fileID: 261552303}
 --- !u!1001 &329451423
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1709,6 +1723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerDetailsUI: {fileID: 1368422986}
+  uIDocument: {fileID: 261552303}
   startPoint: {fileID: 1659952454}
   path:
   - {fileID: 1934400909}
@@ -3087,8 +3102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b59d5f82998fca4ab79d8ecf0284efb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detailsText: {fileID: 778324635}
-  dropdown: {fileID: 1519838080}
+  uIDocument: {fileID: 0}
 --- !u!1 &1369053481
 GameObject:
   m_ObjectHideFlags: 0
@@ -3639,8 +3653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b59d5f82998fca4ab79d8ecf0284efb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detailsText: {fileID: 0}
-  dropdown: {fileID: 0}
+  uIDocument: {fileID: 0}
 --- !u!114 &1519838080
 MonoBehaviour:
   m_ObjectHideFlags: 0

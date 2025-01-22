@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
-//using UnityEngine.UI;
 using UnityEngine.UIElements;
+using System.Linq;
 
 public class BuildManager : MonoBehaviour
 {
@@ -18,13 +18,19 @@ public class BuildManager : MonoBehaviour
     private bool isPlacing = false;
 
     void Start()
+{
+    towerButtons = uIDocument.rootVisualElement
+        .Query<Button>()
+        .ToList()
+        .Where(b => b.name.StartsWith("Tower"))
+        .ToArray();
+
+    foreach (var button in towerButtons)
     {
-        towerButtons = uIDocument.rootVisualElement.Query<Button>().ToList().ToArray();
-        foreach (var button in towerButtons)
-        {
-            button.clicked += () => OnTowerButtonClick(button);
-        }
+        Debug.Log(button.name);
+        button.clicked += () => OnTowerButtonClick(button);
     }
+}
 
     void Update()
     {

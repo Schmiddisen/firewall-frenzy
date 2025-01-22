@@ -1,11 +1,10 @@
-.button {
+.tower_button {
     width: 180px;
     height: 180px;
     padding-top: 7px;
     padding-right: 7px;
     padding-bottom: 7px;
     padding-left: 7px;
-    display: flex;
     border-top-left-radius: 10%;
     border-top-right-radius: 10%;
     border-bottom-right-radius: 10%;
@@ -23,4 +22,10 @@
     border-right-color: rgb(80, 80, 80);
     border-top-color: rgb(80, 80, 80);
     border-bottom-color: rgb(80, 80, 80);
+}
+
+.tower_button:hover {
+    transition-property: scale;
+    transition-duration: 0.1s;
+    scale: 1.05 1.05;
 }
