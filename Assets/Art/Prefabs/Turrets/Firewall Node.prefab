@@ -356,6 +356,7 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
+  targetPrio: 0
   towerBaseCollider: {fileID: 3970608505255917725}
   towerRotationPoint: {fileID: 7703636901997338237}
   towerFiringPoint: {fileID: 7703636901997338237}

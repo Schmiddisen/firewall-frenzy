@@ -171,3 +171,8 @@ MonoBehaviour:
   currencyWorth: 20
   path: []
   currentPathTarget: {fileID: 0}
+  staggerRange: 2.5
+  staggerValue: 0.2
+  towerMask:
+    serializedVersion: 2
+    m_Bits: 2048

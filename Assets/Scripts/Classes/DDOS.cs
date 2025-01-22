@@ -3,75 +3,84 @@ using UnityEngine;
 
 public class DDOS : Enemy
 {
-    [SerializeField] int staggerRange;
+    [SerializeField] float staggerRange;
     [SerializeField] double staggerValue;
+    [SerializeField] public LayerMask towerMask;
 
     List<Transform> towerTargets;
-    List<Transform> staggeredTargets;
+    private List<Tower> affectedTowers = new List<Tower>();
     
-
+    
     void Awake()
     {
         setupEnemy(baseMovementSpeed, baseHealth, currencyWorth);
     }
 
-
-    // this function adds towers in range to a list
-    public virtual void OnTriggerEnter2D(Collider2D other)
+    
+    public override void FixedUpdate()
     {
-        //Return if the other object is not in the layer of the affected towers
-        // TODO: implement this
-        // if (((1 << other.gameObject.layer) & enemyMask) == 0) return;
+        base.FixedUpdate();
+        UpdateEffectedTowers();
+    }
 
-        Transform towerTransform = other.transform;
-        if (!towerTargets.Contains(towerTransform)) // Only if the tower is not in the List
+    private void UpdateEffectedTowers()
+    {
+        // Find all towers within the effect radius
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, staggerRange, towerMask);
+        List<Tower> currentTowersInRange = new List<Tower>();
+
+        foreach (Collider2D collider in hitColliders)
+    {
+            Tower tower = collider.GetComponent<Tower>();
+            if (tower != null)
+            {
+                currentTowersInRange.Add(tower);
+                Debug.Log(currentTowersInRange);
+            }
+        }
+
+        // Apply the slowing effect to newly entered towers
+        foreach (Tower tower in currentTowersInRange)
         {
-            towerTargets.Add(towerTransform);
+            if (!affectedTowers.Contains(tower))
+        {
+            affectedTowers.Add(tower);
+            tower.addStagger(staggerValue);
         }
     }
 
-    // this function removes the towers once they exit the range of the ddos enemy
-    public virtual void OnTriggerExit2D(Collider2D other)
+        // Remove the slowing effect from towers that left the range
+        for (int i = affectedTowers.Count - 1; i >= 0; i--)
     {
-        //Return if the other object is not in the layer of the affected towers
-        // TODO: implement this
-        //if (((1 << other.gameObject.layer) & enemyMask) == 0) return;
-
-        Transform towerTransform = other.transform;
-        if (towerTargets.Contains(towerTransform)) // Only if the tower is in the List
+            Tower tower = affectedTowers[i];
+            if (!currentTowersInRange.Contains(tower))
         {
-            towerTransform.gameObject.GetComponent<Tower>().removeStagger(staggerValue);
-            towerTargets.Remove(towerTransform);
-            staggeredTargets.Remove(towerTransform);
+            affectedTowers.Remove(tower);
+            tower.removeStagger(staggerValue);
         }
     }
-
-
-    public void staggerTurrets()
-    {
-        if (towerTargets == null || towerTargets.Count == 0) return;
-        //Make a Copy because maybe an Tower will exit the range right in the time when we iterate the list
-        List<Transform> targetsCopy = new List<Transform>(towerTargets);
-        foreach (Transform target in targetsCopy)
-        {
-            if (target == null) continue;
-            if (staggeredTargets.Contains(target)) continue;
-            target.gameObject.GetComponent<Tower>().addStagger(staggerValue);
-            staggeredTargets.Add(target);
-        }
     }
 
+    public override void onDestroy() {
+        base.onDestroy();
 
-    public void onDestroy() {
         List<Transform> targetsCopy = new List<Transform>(towerTargets);
         foreach (Transform target in targetsCopy)
         {
             if (target == null) continue;
             target.gameObject.GetComponent<Tower>().removeStagger(staggerValue);
-        }
+            }
 
         EnemySpawner.onEnemyDestroy.Invoke();
         Destroy(gameObject);
+    }
+
+
+    private void OnDrawGizmosSelected()
+    {
+        // Visualize the effect radius in the editor
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, staggerRange);
     }
 
 }

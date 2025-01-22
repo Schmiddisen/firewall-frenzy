@@ -42,7 +42,7 @@ public abstract class Enemy: MonoBehaviour
         this.isDestroyed = false;
     }
 
-    public void FixedUpdate() {
+    public virtual void FixedUpdate() {
         move();
     }
 
@@ -91,7 +91,7 @@ public abstract class Enemy: MonoBehaviour
         }
     }
 
-    public void onDestroy() {
+    public virtual void onDestroy() {
         EnemySpawner.onEnemyDestroy.Invoke();
         Destroy(gameObject);
     }
