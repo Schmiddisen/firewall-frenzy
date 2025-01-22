@@ -71,5 +71,5 @@
 }
 
 .hidden {
-    display: flex;
+    display: none;
 }
