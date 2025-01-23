@@ -92,7 +92,6 @@ public abstract class Enemy: MonoBehaviour
     }
 
     public virtual void onDestroy() {
-        EnemySpawner.onEnemyDestroy.Invoke();
         Destroy(gameObject);
     }
 
