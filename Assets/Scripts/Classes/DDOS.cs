@@ -80,7 +80,6 @@ public class DDOS : Enemy
         }
         affectedTowers.Clear();
 
-        EnemySpawner.onEnemyDestroy.Invoke();
         Destroy(gameObject);
     }
 
