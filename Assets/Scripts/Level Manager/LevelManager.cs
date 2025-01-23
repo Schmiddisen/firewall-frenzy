@@ -2,12 +2,16 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UIElements;
 
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager main;
 
     [SerializeField] public MenuTowerDetails towerDetailsUI;
+
+    [Header("UIDocument")]
+    public UIDocument uIDocument;
 
     public Transform startPoint;
     public Transform[] path;
@@ -44,7 +48,7 @@ public class LevelManager : MonoBehaviour
         this.selectedTower = tower;
 
         selectedTower.showRangeIndicator(true);
-        towerDetailsUI.showTowerInfos();
+        towerDetailsUI.showTowerInfos(uIDocument);
     }
     public void deselectTower()
     {
@@ -52,7 +56,7 @@ public class LevelManager : MonoBehaviour
 
         selectedTower.showRangeIndicator(false);
         this.selectedTower = null;
-        towerDetailsUI.showTowerInfos();
+        towerDetailsUI.showTowerInfos(uIDocument);
     }
 
     public void IncreaseCurrency(int amount)

@@ -1,61 +1,68 @@
 using System;
 using System.Collections.Generic;
-using TMPro;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class MenuTowerDetails : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] TMP_Text detailsText;
-    [SerializeField] TMP_Dropdown dropdown;
-    void Start()
+    [Header("UIDocument")]
+    public UIDocument uIDocument;
+
+
+    void OnEnable()
     {
+        Button[] buttons = uIDocument.rootVisualElement
+            .Query<Button>()
+            .ToList()
+            .Where(b => b.name.StartsWith("TS_"))
+            .ToArray();
 
-        List<TMP_Dropdown.OptionData> dropdownOptions = new List<TMP_Dropdown.OptionData>();
-
-        foreach (TargetingPriority prio in Enum.GetValues(typeof(TargetingPriority)))
-        {
-             dropdownOptions.Add(new TMP_Dropdown.OptionData(prio.ToString()));
+        foreach (Button button in buttons)
+        {  
+            button.clicked += () => changePriority(button);
         }
-
-        if (this.dropdown) {
-             dropdown.AddOptions(dropdownOptions);
-             dropdown.onValueChanged.AddListener(changePriority);
-             dropdown.gameObject.SetActive(false);
-        }
-        
     }
 
-    void Update()
-    {
-        
-    }
-
-    public void changePriority(int index) {
+    public void changePriority(Button button) {
+        int index = int.Parse(button.name[3].ToString());
         Tower tower = LevelManager.main.selectedTower;
         tower.targetPrio = (TargetingPriority) Enum.GetValues(typeof(TargetingPriority)).GetValue(index);
+        showTowerInfos(uIDocument);
     }
 
-    public void showTowerInfos() {
-        Tower tower = LevelManager.main.selectedTower;
-        bool isTowerSelected = tower != null;
-
-        dropdown.gameObject.SetActive(isTowerSelected);
-
-        if (!isTowerSelected) {
-            detailsText.text = "Select Tower";
+    public void showTowerInfos(UIDocument doc)
+    {
+        if (doc == null)
+        {
+            Debug.LogError("UIDocument is not selected in LevelManager");
             return;
         }
 
-        int index = 0;
-        foreach (TargetingPriority prio in Enum.GetValues(typeof(TargetingPriority)))
-        {
-            if (prio == tower.targetPrio) break;
-            index++;
-        }
-        dropdown.value = index;
-        dropdown.RefreshShownValue();
+        Tower tower = LevelManager.main.selectedTower;
+        Label TowerLabelName = doc.rootVisualElement.Q<Label>("Label_Tower_Information");
+        Label TowerLabelDMG = doc.rootVisualElement.Q<Label>("Damage_Value");
+        Label TowerLabelPriority = doc.rootVisualElement.Q<Label>("Priority_value");
+        VisualElement bar = doc.rootVisualElement.Q<VisualElement>("Tower_Information_Bottom");
 
-        detailsText.text = tower.name;
+        if (tower == null)
+        {
+            TowerLabelName.text = "No Tower selected";
+            bar.AddToClassList("hidden");
+            return;
+        }
+        bar.RemoveFromClassList("hidden");
+        TowerLabelName.text = tower.name;
+        TowerLabelDMG.text = tower.baseDMG.ToString();
+        int nextCapitalIndex = -1;
+        for (int i = 1; i < tower.targetPrio.ToString().Length; i++)
+        {
+            if (char.IsUpper(tower.targetPrio.ToString()[i]))
+            {
+                nextCapitalIndex = i;
+                break;
+            }
+        }
+        TowerLabelPriority.text = nextCapitalIndex != -1 ? tower.targetPrio.ToString().Substring(0, nextCapitalIndex) : tower.targetPrio.ToString();
     }
 }

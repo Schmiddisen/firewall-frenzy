@@ -444,6 +444,7 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
+  targetPrio: 1
   towerBaseCollider: {fileID: 7409302553797858688}
   towerRotationPoint: {fileID: 5483990413604372803}
   towerFiringPoint: {fileID: 7875497887002927684}
@@ -459,7 +460,6 @@ MonoBehaviour:
   name: Virus Scanner
   isActiv: 0
   bulletPrefab: {fileID: 6831238910303489396, guid: 5328dbb373b6acd41b994dc58a2abe5e, type: 3}
-  targetPrio: 1
 --- !u!120 &-252749510340440125
 LineRenderer:
   serializedVersion: 2
