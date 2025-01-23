@@ -1699,7 +1699,6 @@ GameObject:
   m_Component:
   - component: {fileID: 849018324}
   - component: {fileID: 849018323}
-  - component: {fileID: 849018325}
   - component: {fileID: 849018326}
   - component: {fileID: 849018327}
   - component: {fileID: 849018328}
@@ -1739,6 +1738,7 @@ MonoBehaviour:
   - {fileID: 653859853}
   selectedTower: {fileID: 0}
   currency: 100
+  playerHealth: 300
 --- !u!4 &849018324
 Transform:
   m_ObjectHideFlags: 0
@@ -1754,27 +1754,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &849018325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 849018322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70fd5741a05289e468ad1f1e0ebcbdf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 251907062808809976, guid: b4eaaf196473d3f4c8ee4c6f3b356446, type: 3}
-  - {fileID: 251907062808809976, guid: b4eaaf196473d3f4c8ee4c6f3b356446, type: 3}
-  - {fileID: 251907062808809976, guid: b4eaaf196473d3f4c8ee4c6f3b356446, type: 3}
-  baseEnemies: 8
-  enemiesPerSecond: 0.5
-  timeBetweenWaves: 5
-  difficultyScalingFactor: 0.75
-  enemiesPerSecondCap: 15
 --- !u!114 &849018326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1813,9 +1792,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 849018322}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86f031740ab138140a1f125ad41bea39, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f399fdc130b97650873e766fccd6985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waves:
+  - name: 1
+    enemy: {fileID: 3106164197821595439, guid: 5141747a24e6162a38c66a06024766e1, type: 3}
+    count: 12
+    spawn_delay: 0.21
+  - name: 2
+    enemy: {fileID: 3106164197821595439, guid: 5141747a24e6162a38c66a06024766e1, type: 3}
+    count: 27
+    spawn_delay: 0.21
+  - name: 3
+    enemy: {fileID: 3106164197821595439, guid: 5141747a24e6162a38c66a06024766e1, type: 3}
+    count: 47
+    spawn_delay: 0.21
+  - name: 4
+    enemy: {fileID: 4836559626554665174, guid: 123321576674cbb5b9acc5290df8cf63, type: 3}
+    count: 4
+    spawn_delay: 0.21
+  - name: 5
+    enemy: {fileID: 4836559626554665174, guid: 123321576674cbb5b9acc5290df8cf63, type: 3}
+    count: 4
+    spawn_delay: 0.21
+  spawnPoints:
+  - {fileID: 1659952454}
+  timeBetweenWaves: 0.03
 --- !u!1 &879643282
 GameObject:
   m_ObjectHideFlags: 0
