@@ -13,7 +13,7 @@ public class TargetingTower: Tower {
 
     void Awake() {
         // From Serialized Fields in Unity Editor
-        base.setupTower(enemyMask, targetPrio, towerBaseCollider, towerRotationPoint, towerFiringPoint, shootingParticlePrefab, towerPrefab,
+        base.setupTower(enemyMask, targetPrio,towerBaseCollider, towerRotationPoint, towerFiringPoint, shootingParticlePrefab, towerPrefab,
         rangeIndicator, rotationSpeed, baseUpgradeCosts, buildCost, baseTargetingRange, baseDMG, baseAPS, name);
     }
 
@@ -49,6 +49,8 @@ public class TargetingTower: Tower {
     {
         float angle = Mathf.Atan2(currentTarget.position.y - transform.position.y,
             currentTarget.position.x - transform.position.x) * Mathf.Rad2Deg;
+        //Since the sprite is drawn with a 45 Deg rotation, add this to the calculation
+        angle += 45;
         
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle - 90f));
         base.towerRotationPoint.rotation = Quaternion.RotateTowards(base.towerRotationPoint.rotation, targetRotation,
