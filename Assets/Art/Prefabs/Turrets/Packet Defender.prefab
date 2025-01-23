@@ -377,6 +377,7 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
+  targetPrio: 0
   towerBaseCollider: {fileID: 0}
   towerRotationPoint: {fileID: 5483990413604372803}
   towerFiringPoint: {fileID: 7875497887002927684}
@@ -392,7 +393,6 @@ MonoBehaviour:
   name: Packet Defender
   isActiv: 0
   bulletPrefab: {fileID: 6831238910303489396, guid: 6b143cbb8a90cac44adb21567715a29c, type: 3}
-  targetPrio: 0
 --- !u!120 &534700586347046812
 LineRenderer:
   serializedVersion: 2
