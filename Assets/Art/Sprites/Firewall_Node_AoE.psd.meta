@@ -1,44 +1,7 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 831b065904df9544287855c1720562d8
-=======
-guid: 40c6b5e98d56a6e859a1d6ddd56edb3c
->>>>>>> 81e4f2bb79cd1689313dcb781a90e4287f710e26
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 7095929188621349608
-    second: Firewall_Node_AoE_0
-  - first:
-      213: -4678298116603250700
-    second: Firewall_Node_AoE_1
-  - first:
-      213: 4603993846947721243
-    second: Firewall_Node_AoE_2
-  - first:
-      213: 8991979643866311653
-    second: Firewall_Node_AoE_3
-  - first:
-      213: -9210904141548466129
-    second: Firewall_Node_AoE_4
-  - first:
-      213: -826817070407604646
-    second: Firewall_Node_AoE_5
-  - first:
-      213: 5813548374458106759
-    second: Firewall_Node_AoE_6
-  - first:
-      213: -8436920633800335465
-    second: Firewall_Node_AoE_7
-  - first:
-      213: 3065073200235339212
-    second: Firewall_Node_AoE_8
-  - first:
-      213: 5466070346220536050
-    second: Firewall_Node_AoE_9
-  - first:
-      213: -8465924346630661245
-    second: Firewall_Node_AoE_10
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -76,7 +39,7 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -100,16 +63,16 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 0
+  applyGammaDecoding: 1
   swizzle: 50462976
-  cookieLightType: 0
+  cookieLightType: 2
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -122,7 +85,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -130,13 +93,12 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-<<<<<<< HEAD
   - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -144,40 +106,27 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-=======
->>>>>>> 81e4f2bb79cd1689313dcb781a90e4287f710e26
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-<<<<<<< HEAD
-      name: Firewall_Node_AoE_8
-      rect:
-        serializedVersion: 2
-        x: 1100
-        y: 83
-        width: 348
-        height: 374
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-=======
       name: Firewall_Node_AoE_0
       rect:
         serializedVersion: 2
-        x: 100
-        y: 1194
-        width: 252
-        height: 163
+        x: 1103
+        y: 81
+        width: 360
+        height: 360
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8e2f91f400ec97260800000000000000
-      internalID: 7095929188621349608
+      spriteID: 62c7046bbdc3bb645b8604238c3b3c34
+      internalID: -1768080516
       vertices: []
       indices: 
       edges: []
@@ -186,236 +135,20 @@ TextureImporter:
       name: Firewall_Node_AoE_1
       rect:
         serializedVersion: 2
-        x: 104
-        y: 778
-        width: 338
-        height: 494
+        x: 50
+        y: 600
+        width: 950
+        height: 950
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4f7fb7e46a8531fb0800000000000000
-      internalID: -4678298116603250700
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Firewall_Node_AoE_2
-      rect:
-        serializedVersion: 2
-        x: 238
-        y: 1167
-        width: 480
-        height: 335
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b103763c20ca4ef30800000000000000
-      internalID: 4603993846947721243
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Firewall_Node_AoE_3
-      rect:
-        serializedVersion: 2
-        x: 618
-        y: 872
-        width: 336
-        height: 501
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5ebe13438dde9cc70800000000000000
-      internalID: 8991979643866311653
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Firewall_Node_AoE_4
-      rect:
-        serializedVersion: 2
-        x: 638
-        y: 1256
-        width: 167
-        height: 248
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f2054d61c7b4c2080800000000000000
-      internalID: -9210904141548466129
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Firewall_Node_AoE_5
-      rect:
-        serializedVersion: 2
-        x: 252
-        y: 642
-        width: 165
-        height: 254
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a562020514e8684f0800000000000000
-      internalID: -826817070407604646
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Firewall_Node_AoE_6
-      rect:
-        serializedVersion: 2
-        x: 339
-        y: 653
-        width: 479
-        height: 334
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7830020f17fdda050800000000000000
-      internalID: 5813548374458106759
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Firewall_Node_AoE_7
-      rect:
-        serializedVersion: 2
-        x: 708
-        y: 794
-        width: 251
-        height: 169
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 79fda2062690aea80800000000000000
-      internalID: -8436920633800335465
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Firewall_Node_AoE_8
-      rect:
-        serializedVersion: 2
-        x: 1110
-        y: 97
-        width: 293
-        height: 293
-      alignment: 0
-      pivot: {x: 0, y: 0}
->>>>>>> 81e4f2bb79cd1689313dcb781a90e4287f710e26
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ccdd89e06d3598a20800000000000000
-      internalID: 3065073200235339212
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-<<<<<<< HEAD
-      name: Firewall_Node_AoE_0
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 624
-        width: 896
-        height: 878
-=======
-      name: Firewall_Node_AoE_9
-      rect:
-        serializedVersion: 2
-        x: 1190
-        y: 315
-        width: 122
-        height: 112
->>>>>>> 81e4f2bb79cd1689313dcb781a90e4287f710e26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-<<<<<<< HEAD
       tessellationDetail: 0
       bones: []
-      spriteID: bf9f781194f22244bb5f701dc3159ad6
-      internalID: -2083138499
-=======
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2f085c7f4026bdb40800000000000000
-      internalID: 5466070346220536050
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Firewall_Node_AoE_10
-      rect:
-        serializedVersion: 2
-        x: 1329
-        y: 182
-        width: 112
-        height: 123
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 38b9fbf39aef28a80800000000000000
-      internalID: -8465924346630661245
->>>>>>> 81e4f2bb79cd1689313dcb781a90e4287f710e26
+      spriteID: e52bd972361727648b789c4556cef226
+      internalID: -144288672
       vertices: []
       indices: 
       edges: []
@@ -424,11 +157,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-<<<<<<< HEAD
-    spriteID: 9e8e19b3a94d4cf429d6143aee3bbeb8
-=======
-    spriteID: 
->>>>>>> 81e4f2bb79cd1689313dcb781a90e4287f710e26
+    spriteID: 53b5bb849816a374cbbcf5b87f014a57
     internalID: 0
     vertices: []
     indices: 
@@ -437,14 +166,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-<<<<<<< HEAD
     nameFileIdTable:
-      Firewall_Node_AoE_0: -2083138499
-=======
-    nameFileIdTable: {}
->>>>>>> 81e4f2bb79cd1689313dcb781a90e4287f710e26
+      Firewall_Node_AoE_0: -1768080516
+      Firewall_Node_AoE_1: -144288672
+      Firewall_Node_AoE_2: -63643164
   mipmapLimitGroupName: 
-  pSDRemoveMatte: 0
+  pSDRemoveMatte: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -315,6 +315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2575159403370570756}
   - component: {fileID: 6666080335161459720}
+  - component: {fileID: 6414602892795251911}
   m_Layer: 11
   m_Name: Base Sprite
   m_TagString: Untagged
@@ -381,17 +382,31 @@ SpriteRenderer:
   m_SortingLayerID: -1861431969
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 9217506495511759913, guid: 0ab2056973ef66644a28f6161e678dc3, type: 3}
+  m_Sprite: {fileID: 958177207, guid: 0ab2056973ef66644a28f6161e678dc3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.32, y: 0.32}
+  m_Size: {x: 7.25, y: 7.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6414602892795251911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4697007646768473179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78322c8488966be4f97fc28bed93dad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sp: {fileID: 0}
+  tower: {fileID: 0}
 --- !u!1 &5427145149855544514
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,7 +607,7 @@ Transform:
   m_GameObject: {fileID: 5616294262342070216}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.168, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -608,6 +623,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5483990413604372803}
   - component: {fileID: 7394419757872846907}
+  - component: {fileID: 2964587698843553021}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -624,7 +640,7 @@ Transform:
   m_GameObject: {fileID: 7558766880320543098}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.002, y: 0.031, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -675,17 +691,31 @@ SpriteRenderer:
   m_SortingLayerID: -1861431969
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: -8163568774323745729, guid: 0ab2056973ef66644a28f6161e678dc3, type: 3}
+  m_Sprite: {fileID: 335951442, guid: 0ab2056973ef66644a28f6161e678dc3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.32, y: 0.32}
+  m_Size: {x: 2.5, y: 2.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2964587698843553021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7558766880320543098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78322c8488966be4f97fc28bed93dad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sp: {fileID: 7394419757872846907}
+  tower: {fileID: -8019583124124422244}
 --- !u!1 &8005598851598749195
 GameObject:
   m_ObjectHideFlags: 0

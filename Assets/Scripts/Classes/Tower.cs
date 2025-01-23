@@ -42,10 +42,10 @@ public abstract class Tower : MonoBehaviour
     protected int currentLevel = 1;
     protected float currentTargetingRange;
     protected int currentDMG;
-    protected float currentAPS;
-    protected float timeUntilFire = 0;
+    public float currentAPS;
+    public float timeUntilFire = 0;
 
-    protected double accumulatedStagger;
+    public double accumulatedStagger;
 
     protected CircleCollider2D targetingRangeDetetector;
 
