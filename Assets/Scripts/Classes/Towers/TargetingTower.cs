@@ -62,7 +62,14 @@ public class TargetingTower: Tower {
 
     public virtual void Shoot()
     {
-        GameObject bulletObj = Instantiate(bulletPrefab, base.towerFiringPoint.position, Quaternion.identity);
+        Vector3 direction = (currentTarget.position - base.towerFiringPoint.position).normalized;
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+        GameObject bulletObj = Instantiate(bulletPrefab, base.towerFiringPoint.position, rotation);
+
         Bullet bulletScript = bulletObj.GetComponent<Bullet>();
         bulletScript.setTarget(currentTarget, base.currentDMG);
     }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Playables;
 
 public abstract class Enemy: MonoBehaviour
 {
@@ -70,6 +71,29 @@ public abstract class Enemy: MonoBehaviour
         }
     }
 
+    public void knockback(float knockbackStrength) {
+        Debug.Log("KNOWCKBACK " + this.gameObject);
+        int prevWaypointIndex = pathIndex - 1;
+
+        Transform prevWaypoint;
+
+        if (prevWaypointIndex < 0) {
+            prevWaypoint = LevelManager.main.startPoint;
+        }else {
+            prevWaypoint = path[prevWaypointIndex];
+        }
+
+        
+        Vector2 dir = (prevWaypoint.position - transform.position).normalized;
+
+        Vector2 knockabackDistance = dir * knockbackStrength;
+
+        Vector2 distance = knockabackDistance * Time.deltaTime;
+
+        distanceTraveled -= distance.magnitude;
+
+        transform.position += (Vector3) knockabackDistance * Time.deltaTime;
+    }
     
     public void interruptMovement(bool shouldStop) {
         if (shouldStop) {

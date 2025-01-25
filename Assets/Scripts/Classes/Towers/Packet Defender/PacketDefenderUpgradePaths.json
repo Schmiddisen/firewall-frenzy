@@ -25,21 +25,21 @@
         "upgrades": [
             {
                 "level": 1,
-                "aps": 3.0,
+                "aps": 1,
                 "damage": 2,
                 "range": 4.0
             },
             {
                 "level": 2,
-                "aps": 3.0,
+                "aps": 0.9,
                 "damage": 3,
                 "range": 4.5
             },
             {
                 "level": 3,
-                "aps": 3.0,
-                "damage": 3,
-                "range": 4.5
+                "aps": 0.7,
+                "damage": 5,
+                "range": 5
             }
         ]
     }

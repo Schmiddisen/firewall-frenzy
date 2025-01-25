@@ -504,7 +504,7 @@ MonoBehaviour:
   timeUntilFire: 0
   accumulatedStagger: 0
   isActiv: 0
-  bulletPrefab: {fileID: 6831238910303489396, guid: 6b143cbb8a90cac44adb21567715a29c, type: 3}
+  bulletPrefab: {fileID: 6831238910303489396, guid: 898740e9802c00b43be37c47fb231821, type: 3}
   barrelRotationOffset: 45
   upgradeJson: {fileID: 4900000, guid: 44e131a5f7abe7a46aafbe993d8b6a5d, type: 3}
 --- !u!1 &5616294262342070216
