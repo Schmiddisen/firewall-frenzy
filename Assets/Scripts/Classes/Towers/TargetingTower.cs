@@ -9,6 +9,8 @@ public class TargetingTower: Tower {
     [SerializeField]
     public GameObject bulletPrefab;
 
+    [SerializeField] public float barrelRotationOffset = 0;
+
     private Transform currentTarget;
 
     void Awake() {
@@ -41,23 +43,24 @@ public class TargetingTower: Tower {
         Shoot();
     }
 
-    public override void upgrade() {
+    public override void upgrade(UpgradePath path) {
         //for range upgrades base.upgradeRange(x)
+        Debug.Log("Empty Method body, because upgrade gets implemented for the individual Towers, so if you see this message, the wrong upgrade method gets called");
     }
 
     private void RotateTowardsTarget()
     {
         float angle = Mathf.Atan2(currentTarget.position.y - transform.position.y,
             currentTarget.position.x - transform.position.x) * Mathf.Rad2Deg;
-        //Since the sprite is drawn with a 45 Deg rotation, add this to the calculation
-        angle += 45;
+        
+        angle += this.barrelRotationOffset;
         
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle - 90f));
         base.towerRotationPoint.rotation = Quaternion.RotateTowards(base.towerRotationPoint.rotation, targetRotation,
             base.rotationSpeed * Time.deltaTime);
     }
 
-    private void Shoot()
+    public virtual void Shoot()
     {
         GameObject bulletObj = Instantiate(bulletPrefab, base.towerFiringPoint.position, Quaternion.identity);
         Bullet bulletScript = bulletObj.GetComponent<Bullet>();

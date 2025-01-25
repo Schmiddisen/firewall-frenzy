@@ -1,0 +1,46 @@
+{
+    "PathA": {
+        "upgrades": [
+            {
+                "level": 1,
+                "aps": 3.0,
+                "damage": 1,
+                "range": 3.0
+            },
+            {
+                "level": 2,
+                "aps": 4.0,
+                "damage": 2,
+                "range": 3.0
+            },
+            {
+                "level": 3,
+                "aps": 8.0,
+                "damage": 1,
+                "range": 3.0
+            }
+        ]
+    },
+    "PathB": {
+        "upgrades": [
+            {
+                "level": 1,
+                "aps": 3.0,
+                "damage": 2,
+                "range": 4.0
+            },
+            {
+                "level": 2,
+                "aps": 3.0,
+                "damage": 3,
+                "range": 4.5
+            },
+            {
+                "level": 3,
+                "aps": 3.0,
+                "damage": 3,
+                "range": 4.5
+            }
+        ]
+    }
+}

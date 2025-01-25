@@ -41,7 +41,7 @@ public class AreaOfEffectTower: Tower {
         }
     }
 
-    public override void upgrade() {
+    public override void upgrade(UpgradePath path) {
         //When range Upgrade, increase CircleCollider Range for Particles so that they match the actual tower range
         setParticleColliderRadius(0);
 
