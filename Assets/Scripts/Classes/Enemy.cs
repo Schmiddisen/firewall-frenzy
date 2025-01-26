@@ -1,18 +1,18 @@
 using UnityEngine;
 using UnityEngine.Playables;
 
-public abstract class Enemy: MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] public Rigidbody2D rb;
-    
-    
+
+
     [Header("Attributes")]
     [SerializeField] public float baseMovementSpeed;
     [SerializeField] public int baseHealth;
     [SerializeField] public int currencyWorth;
 
-    
+
 
     public Transform[] path;
     public Transform currentPathTarget;
@@ -25,8 +25,12 @@ public abstract class Enemy: MonoBehaviour
 
     private float distanceTraveled;
 
+    private BurnEffect burnEffect;
 
-    public void setupEnemy(float moveSpeed, int health, int currencyWorth){
+    private float lastBurnTime;
+
+    public void setupEnemy(float moveSpeed, int health, int currencyWorth)
+    {
         path = LevelManager.main.path;
         currentPathTarget = path[0];
 
@@ -41,19 +45,27 @@ public abstract class Enemy: MonoBehaviour
         distanceTraveled = 0;
 
         this.isDestroyed = false;
+        this.burnEffect = null;
+        this.lastBurnTime = Time.time;
     }
 
-    public virtual void FixedUpdate() {
+    public virtual void FixedUpdate()
+    {
         move();
     }
 
-    private void move() {
+    public virtual void Update(){
+        HandleBurnEffect();
+    }
+
+    private void move()
+    {
 
         Vector2 dir = (currentPathTarget.position - transform.position).normalized;
-        rb.linearVelocity =  dir * currentMovementSpeed;
+        rb.linearVelocity = dir * currentMovementSpeed;
 
         distanceTraveled += currentMovementSpeed * Time.deltaTime;
-        
+
         if (Vector2.Distance(currentPathTarget.position, transform.position) <= 0.1f)
         {
             pathIndex++;
@@ -71,19 +83,23 @@ public abstract class Enemy: MonoBehaviour
         }
     }
 
-    public void knockback(float knockbackStrength) {
+    public void knockback(float knockbackStrength)
+    {
         Debug.Log("KNOWCKBACK " + this.gameObject);
         int prevWaypointIndex = pathIndex - 1;
 
         Transform prevWaypoint;
 
-        if (prevWaypointIndex < 0) {
+        if (prevWaypointIndex < 0)
+        {
             prevWaypoint = LevelManager.main.startPoint;
-        }else {
+        }
+        else
+        {
             prevWaypoint = path[prevWaypointIndex];
         }
 
-        
+
         Vector2 dir = (prevWaypoint.position - transform.position).normalized;
 
         Vector2 knockabackDistance = dir * knockbackStrength;
@@ -92,21 +108,24 @@ public abstract class Enemy: MonoBehaviour
 
         distanceTraveled -= distance.magnitude;
 
-        transform.position += (Vector3) knockabackDistance * Time.deltaTime;
+        transform.position += (Vector3)knockabackDistance * Time.deltaTime;
     }
-    
-    public void interruptMovement(bool shouldStop) {
-        if (shouldStop) {
+
+    public void interruptMovement(bool shouldStop)
+    {
+        if (shouldStop)
+        {
             this.currentMovementSpeed = 0;
         }
-        else {
+        else
+        {
             this.currentMovementSpeed = baseMovementSpeed;
         }
     }
 
-    public void takeDamage(int dmg) {
+    public void takeDamage(int dmg)
+    {
         currentHealth -= dmg;
-
         if (currentHealth <= 0 && !isDestroyed)
         {
             LevelManager.main.IncreaseCurrency(currencyWorth);
@@ -115,11 +134,43 @@ public abstract class Enemy: MonoBehaviour
         }
     }
 
-    public virtual void onDestroy() {
+    public virtual void onDestroy()
+    {
         Destroy(gameObject);
     }
 
-    public float getDistanceTraveled() {
+    public float getDistanceTraveled()
+    {
         return this.distanceTraveled;
+    }
+
+    public void ApplyBurnEffect(BurnEffect effect)
+    {
+        burnEffect = effect;
+        Debug.Log("Applying Burn");
+    }
+
+    public void HandleBurnEffect()
+    {
+        if (burnEffect == null) return;
+
+        burnEffect.duration -= Time.deltaTime;
+
+        // remove burnEffect upon expiration
+        if (burnEffect.duration <= 0)
+        {
+            burnEffect = null;
+            return;
+        }
+
+
+        // Check if enough time has passed since last burn
+        if (Time.time - lastBurnTime >= burnEffect.timeBetweenBurns)
+        {
+            // Apply burn effect damage
+            takeDamage(burnEffect.damage);
+            // Update last burn time
+            lastBurnTime = Time.time;
+        }
     }
 }
