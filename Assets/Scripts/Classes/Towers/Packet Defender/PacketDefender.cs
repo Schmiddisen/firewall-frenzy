@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class PacketDefender : TargetingTower
 {
@@ -19,14 +20,7 @@ public class PacketDefender : TargetingTower
     }
     
     public override void updateMethod() {
-        //Make a Copy because maybe an Enemy will exit the range right in the time when we iterate the list
-        List<Transform> targetsCopy = new List<Transform>(base.enemyTargets);
-        currentTarget = TargetingCalculator.getTargetAfterPriority(this.targetPrio, targetsCopy);
-
-        if (currentTarget != null) {
-            base.RotateTowardsTarget();
-        }
-        //Draw Laser if PathA maxlevel
+        base.updateMethod();
         if (base.upgradePath == UpgradePath.PathA && base.currentLevel == 3) {
             drawLaser();
         }
@@ -55,6 +49,12 @@ public class PacketDefender : TargetingTower
         }
         laserLR.enabled = true;
         laserLR.SetPosition(0, towerFiringPoint.position);
-        laserLR.SetPosition(1, currentTarget.position);
+
+        Vector3 targetPosition = currentTarget.position.CloneViaSerialization<Vector3>();
+
+        //Add some Noise in the target position in order to simulate a changing and "firing" laser
+        targetPosition.x = targetPosition.x + Random.Range(-0.1f,0.1f);
+        targetPosition.y = targetPosition.y + Random.Range(-0.1f,0.1f);
+        laserLR.SetPosition(1, targetPosition);
     }
 }
