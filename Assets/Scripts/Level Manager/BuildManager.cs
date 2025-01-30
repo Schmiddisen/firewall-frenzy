@@ -10,6 +10,9 @@ public class BuildManager : MonoBehaviour
     private GameObject currentTowerPrefab;
     private GameObject currentTower; 
 
+    [Header("JSON")]
+    public TextAsset towerInfos;
+
     [Header("UIDocument")]
     public UIDocument uIDocument;
 
@@ -27,7 +30,6 @@ public class BuildManager : MonoBehaviour
 
     foreach (var button in towerButtons)
     {
-        Debug.Log(button.name);
         button.clicked += () => OnTowerButtonClick(button);
     }
 }

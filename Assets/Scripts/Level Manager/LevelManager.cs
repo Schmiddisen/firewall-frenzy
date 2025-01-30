@@ -10,6 +10,9 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] public MenuTowerDetails towerDetailsUI;
 
+    [Header("JSON")]
+    public TextAsset towerInfos;
+
     [Header("UIDocument")]
     public UIDocument uIDocument;
 
@@ -46,9 +49,8 @@ public class LevelManager : MonoBehaviour
         deselectTower();
 
         this.selectedTower = tower;
-
         selectedTower.showRangeIndicator(true);
-        towerDetailsUI.showTowerInfos(uIDocument);
+        towerDetailsUI.showTowerInfos(uIDocument, towerInfos);
     }
     public void deselectTower()
     {
@@ -56,7 +58,7 @@ public class LevelManager : MonoBehaviour
 
         selectedTower.showRangeIndicator(false);
         this.selectedTower = null;
-        towerDetailsUI.showTowerInfos(uIDocument);
+        towerDetailsUI.showTowerInfos(uIDocument, towerInfos);
     }
 
     public void IncreaseCurrency(int amount)
