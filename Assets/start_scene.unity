@@ -279,6 +279,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1133949827383262782, guid: 3ceb9d771d113c84db7bd779def1ca89, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6293613739855368737, guid: 3ceb9d771d113c84db7bd779def1ca89, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -358,6 +362,14 @@ PrefabInstance:
     - target: {fileID: 6293613739855368737, guid: 3ceb9d771d113c84db7bd779def1ca89, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7708454402535426690, guid: 3ceb9d771d113c84db7bd779def1ca89, type: 3}
+      propertyPath: towerInfos
+      value: 
+      objectReference: {fileID: 4900000, guid: 911e222e0c7d84741b03a8e4d9e782fa, type: 3}
+    - target: {fileID: 8149287584596809088, guid: 3ceb9d771d113c84db7bd779def1ca89, type: 3}
+      propertyPath: m_Icon
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8149287584596809088, guid: 3ceb9d771d113c84db7bd779def1ca89, type: 3}
       propertyPath: m_Name
@@ -799,6 +811,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerDetailsUI: {fileID: 766660418}
+  towerInfos: {fileID: 4900000, guid: 911e222e0c7d84741b03a8e4d9e782fa, type: 3}
   uIDocument: {fileID: 257117284}
   startPoint: {fileID: 1659952454}
   path:
@@ -847,6 +860,7 @@ MonoBehaviour:
   - {fileID: 5427145149855544514, guid: 1a71a72eb5f8bb6448020082444f57dd, type: 3}
   - {fileID: 5427145149855544514, guid: 094b8f64a41b9ea4bb607db265e47bb2, type: 3}
   - {fileID: 5427145149855544514, guid: 69347f0fb293b1b43a633a683d05a3e0, type: 3}
+  towerInfos: {fileID: 4900000, guid: 911e222e0c7d84741b03a8e4d9e782fa, type: 3}
   uIDocument: {fileID: 257117284}
 --- !u!114 &849018327
 MonoBehaviour:
