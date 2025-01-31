@@ -13,6 +13,9 @@ public class DDOS : Enemy
     void Awake()
     {
         setupEnemy(baseMovementSpeed, baseHealth, currencyWorth);
+        float adjustedRange = staggerRange * Mathf.Max(transform.lossyScale.x, transform.lossyScale.y);
+        ParticleSystem.ShapeModule psShape = GetComponentInChildren<ParticleSystem>().shape;
+        psShape.radius = adjustedRange;
     }
 
     public override void FixedUpdate()

@@ -32,7 +32,8 @@ Transform:
   m_LocalPosition: {x: -11.7, y: 1.82, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7180079421407052810}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7206738286984310817
@@ -176,3 +177,69 @@ MonoBehaviour:
   towerMask:
     serializedVersion: 2
     m_Bits: 1024
+--- !u!1001 &8506911855901762245
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4836559626554665174}
+    m_Modifications:
+    - target: {fileID: 1561160773648656079, guid: 241bd83d2e6b6644193fd2f19aecbe39, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561160773648656079, guid: 241bd83d2e6b6644193fd2f19aecbe39, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561160773648656079, guid: 241bd83d2e6b6644193fd2f19aecbe39, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561160773648656079, guid: 241bd83d2e6b6644193fd2f19aecbe39, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561160773648656079, guid: 241bd83d2e6b6644193fd2f19aecbe39, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561160773648656079, guid: 241bd83d2e6b6644193fd2f19aecbe39, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561160773648656079, guid: 241bd83d2e6b6644193fd2f19aecbe39, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561160773648656079, guid: 241bd83d2e6b6644193fd2f19aecbe39, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561160773648656079, guid: 241bd83d2e6b6644193fd2f19aecbe39, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561160773648656079, guid: 241bd83d2e6b6644193fd2f19aecbe39, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193996064674229365, guid: 241bd83d2e6b6644193fd2f19aecbe39, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
+    - target: {fileID: 6596988213771948121, guid: 241bd83d2e6b6644193fd2f19aecbe39, type: 3}
+      propertyPath: m_Name
+      value: DDOS Enemy Debuff Particles
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 241bd83d2e6b6644193fd2f19aecbe39, type: 3}
+--- !u!4 &7180079421407052810 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1561160773648656079, guid: 241bd83d2e6b6644193fd2f19aecbe39, type: 3}
+  m_PrefabInstance: {fileID: 8506911855901762245}
+  m_PrefabAsset: {fileID: 0}
