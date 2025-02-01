@@ -13,8 +13,9 @@ public class AreaOfEffectTower : Tower
     [SerializeField] TextAsset upgradeJson;
     TowerPathUpgrades upgradeData;
 
-    // TODO: set this only to true when it is unlocked
     bool burnEffectUnlocked = true;
+
+    BurnEffect currentBurn = new BurnEffect(5,1,1, false);
 
     void Start()
     {
@@ -57,7 +58,7 @@ public class AreaOfEffectTower : Tower
             enemy.takeDamage(base.currentDMG);
 
             if (burnEffectUnlocked){
-                enemy.ApplyBurnEffect(new BurnEffect(5, 1, 1));
+                enemy.ApplyBurnEffect(currentBurn);
             }
         }
     }
@@ -69,10 +70,25 @@ public class AreaOfEffectTower : Tower
         Upgrades upgradeData = path == UpgradePath.PathA ? this.upgradeData.PathA : this.upgradeData.PathB;
 
         //When range Upgrade, increase CircleCollider Range for Particles so that they match the actual tower range
-        float newParticleRange = upgradeData.upgrades[base.currentLevel + 1 > 2 ? 2 : base.currentLevel].range;
+        float newParticleRange = upgradeData.upgrades[getCurrentLevel() + 1 >= 2 ? 2 : getCurrentLevel()].range;
         setParticleColliderRadius(newParticleRange);
 
         base.applyUpgrade(upgradeData, path);
+
+        // ability upgrade logic
+        if (base.upgradePath == UpgradePath.PathA && getCurrentLevel() >= 1){
+            // Path A upgrade logic
+            burnEffectUnlocked = true;
+            // DoT upgrades
+            if (getCurrentLevel() >= 2){
+                currentBurn = new BurnEffect(5, 2, 1, false); //increase burn DoT by 1
+                if(getCurrentLevel() >= 3){
+                   currentBurn = new BurnEffect(5, 2, 1, true); // add bonus dmg effect for enemies having the DoT
+                }
+            }
+        } else if(base.upgradePath == UpgradePath.PathB && getCurrentLevel() >= 1){
+            // Path B upgrade logic
+        }
 
     }
 
@@ -91,10 +107,13 @@ public class BurnEffect
     public int damage;
     public double timeBetweenBurns;
 
-    public BurnEffect(double duration, int damage, double timeBetweenBurns)
+    public bool applyBonusDmg;
+
+    public BurnEffect(double duration, int damage, double timeBetweenBurns, bool applyBonusDmg)
     {
         this.duration = duration;
         this.damage = damage;
         this.timeBetweenBurns = timeBetweenBurns;
+        this.applyBonusDmg = applyBonusDmg;
     }
 }

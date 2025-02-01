@@ -5,6 +5,7 @@ public abstract class Enemy : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] public Rigidbody2D rb;
+    public ParticleSystem flameParticles;
 
 
     [Header("Attributes")]
@@ -147,7 +148,6 @@ public abstract class Enemy : MonoBehaviour
     public void ApplyBurnEffect(BurnEffect effect)
     {
         burnEffect = effect;
-        Debug.Log("Applying Burn");
     }
 
     public void HandleBurnEffect()
@@ -171,6 +171,8 @@ public abstract class Enemy : MonoBehaviour
             takeDamage(burnEffect.damage);
             // Update last burn time
             lastBurnTime = Time.time;
+            Instantiate(flameParticles, this.transform.position, this.transform.rotation);
         }
+        
     }
 }
