@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Playables;
 
@@ -5,7 +6,6 @@ public abstract class Enemy : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] public Rigidbody2D rb;
-    public ParticleSystem flameParticles;
 
 
     [Header("Attributes")]
@@ -30,6 +30,8 @@ public abstract class Enemy : MonoBehaviour
 
     private float lastBurnTime;
 
+    private System.Random rnd;
+
     public void setupEnemy(float moveSpeed, int health, int currencyWorth)
     {
         path = LevelManager.main.path;
@@ -48,6 +50,8 @@ public abstract class Enemy : MonoBehaviour
         this.isDestroyed = false;
         this.burnEffect = null;
         this.lastBurnTime = Time.time;
+
+        this.rnd = new();
     }
 
     public virtual void FixedUpdate()
@@ -126,6 +130,15 @@ public abstract class Enemy : MonoBehaviour
 
     public void takeDamage(int dmg)
     {
+        // check if the burn effect has bonus damage, generate a random number bewteen 1 and 10 and then double the taken damage
+        if (burnEffect != null){
+                    if (burnEffect.applyBonusDmg){
+            if (rnd.Next(1,10) == 1 ){
+                dmg *= 2;
+            }
+        }
+        }
+
         currentHealth -= dmg;
         if (currentHealth <= 0 && !isDestroyed)
         {
@@ -171,7 +184,7 @@ public abstract class Enemy : MonoBehaviour
             takeDamage(burnEffect.damage);
             // Update last burn time
             lastBurnTime = Time.time;
-            Instantiate(flameParticles, this.transform.position, this.transform.rotation);
+            // TODO: spawn burning particles
         }
         
     }

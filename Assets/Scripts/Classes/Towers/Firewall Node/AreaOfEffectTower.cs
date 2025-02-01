@@ -4,18 +4,26 @@ using UnityEditor;
 using UnityEngine.UI;
 using Unity.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 
 public class AreaOfEffectTower : Tower
 {
+    [Header("Ability Attributes")]
+    public int timeBetweenPulses = 5; // in seconds
+    public float knockbackStrength = 4f;
 
     [Header("Upgrade JSON")]
     [SerializeField] TextAsset upgradeJson;
     TowerPathUpgrades upgradeData;
 
-    bool burnEffectUnlocked = true;
+    [Header("AOE Tower Runtime Attributes and Refrences")]
+    protected bool burnEffectUnlocked = false;
+    protected bool knockbackUnlocked = false;
+    protected bool pulsesUnlocked = false;
+    protected float lastPulseTime = 0f;
 
-    BurnEffect currentBurn = new BurnEffect(5,1,1, false);
+    BurnEffect currentBurn = new BurnEffect(5, 1, 1, false);
 
     void Start()
     {
@@ -47,7 +55,24 @@ public class AreaOfEffectTower : Tower
 
     public override void attack()
     {
-        Instantiate(base.shootingParticlePrefab, base.towerRotationPoint.position, this.towerRotationPoint.rotation);
+        bool pulsing = false;
+
+        // Check if enough time has passed since last pulse
+        if (pulsesUnlocked && Time.time - lastPulseTime >= timeBetweenPulses)
+        {
+            // TODO: change color of shooting particles to e.g. purple
+            Instantiate(base.shootingParticlePrefab, base.towerRotationPoint.position, this.towerRotationPoint.rotation);
+            // set pulsing to true to double damage
+            pulsing = true;
+            // Update last pulse time
+            lastPulseTime = Time.time;
+        }
+        else
+        {
+            // default animation
+            Instantiate(base.shootingParticlePrefab, base.towerRotationPoint.position, this.towerRotationPoint.rotation);
+        }
+
         if (base.enemyTargets == null || base.enemyTargets.Count == 0) return;
         //Make a Copy because maybe an Enemy will exit the range right in the time when we iterate the list
         List<Transform> targetsCopy = new List<Transform>(base.enemyTargets);
@@ -55,10 +80,25 @@ public class AreaOfEffectTower : Tower
         {
             if (target == null) continue;
             Enemy enemy = target.gameObject.GetComponent<Enemy>();
-            enemy.takeDamage(base.currentDMG);
 
-            if (burnEffectUnlocked){
+            if (pulsing)
+            {
+                Debug.Log("Double damage");
+                enemy.takeDamage(base.currentDMG * 2); // double damage on pulse
+            }
+            else
+            {
+                enemy.takeDamage(base.currentDMG);
+            }
+
+            if (burnEffectUnlocked)
+            {
                 enemy.ApplyBurnEffect(currentBurn);
+            }
+
+            if (knockbackUnlocked)
+            {
+                enemy.knockback(knockbackStrength);
             }
         }
     }
@@ -73,21 +113,34 @@ public class AreaOfEffectTower : Tower
         float newParticleRange = upgradeData.upgrades[getCurrentLevel() + 1 >= 2 ? 2 : getCurrentLevel()].range;
         setParticleColliderRadius(newParticleRange);
 
-        base.applyUpgrade(upgradeData, path);
+        applyUpgrade(upgradeData, path);
 
         // ability upgrade logic
-        if (base.upgradePath == UpgradePath.PathA && getCurrentLevel() >= 1){
+        if (upgradePath == UpgradePath.PathA && getCurrentLevel() >= 1)
+        {
             // Path A upgrade logic
             burnEffectUnlocked = true;
             // DoT upgrades
-            if (getCurrentLevel() >= 2){
+            if (getCurrentLevel() >= 2)
+            {
                 currentBurn = new BurnEffect(5, 2, 1, false); //increase burn DoT by 1
-                if(getCurrentLevel() >= 3){
-                   currentBurn = new BurnEffect(5, 2, 1, true); // add bonus dmg effect for enemies having the DoT
+                if (getCurrentLevel() >= 3)
+                {
+                    currentBurn = new BurnEffect(5, 2, 1, true); // add bonus dmg effect for enemies having the DoT
                 }
             }
-        } else if(base.upgradePath == UpgradePath.PathB && getCurrentLevel() >= 1){
+        }
+        else if (upgradePath == UpgradePath.PathB && getCurrentLevel() >= 1)
+        {
             // Path B upgrade logic
+            if (getCurrentLevel() >= 2)
+            {
+                knockbackUnlocked = true;
+                if (getCurrentLevel() >= 3)
+                {
+                    pulsesUnlocked = true;
+                }
+            }
         }
 
     }
