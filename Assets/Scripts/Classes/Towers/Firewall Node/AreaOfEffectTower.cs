@@ -12,6 +12,7 @@ public class AreaOfEffectTower : Tower
     [Header("Ability Attributes")]
     public int timeBetweenPulses = 5; // in seconds
     public float knockbackStrength = 4f;
+    public ParticleSystem burnParticleSystem;
 
     [Header("Upgrade JSON")]
     [SerializeField] TextAsset upgradeJson;
@@ -83,7 +84,6 @@ public class AreaOfEffectTower : Tower
 
             if (pulsing)
             {
-                Debug.Log("Double damage");
                 enemy.takeDamage(base.currentDMG * 2); // double damage on pulse
             }
             else
@@ -94,6 +94,7 @@ public class AreaOfEffectTower : Tower
             if (burnEffectUnlocked)
             {
                 enemy.ApplyBurnEffect(currentBurn);
+                ParticleSystem burnEffectParticles = Instantiate(burnParticleSystem, enemy.transform.position, burnParticleSystem.transform.rotation, target);
             }
 
             if (knockbackUnlocked)
