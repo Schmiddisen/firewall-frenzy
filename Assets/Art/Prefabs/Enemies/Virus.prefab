@@ -171,3 +171,10 @@ MonoBehaviour:
   currencyWorth: 3
   path: []
   currentPathTarget: {fileID: 0}
+  toughnessGrade: 5
+  virusColors:
+  - {r: 1, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 1, a: 0}
+  - {r: 0, g: 1, b: 0, a: 0}
+  - {r: 1, g: 1, b: 0, a: 0}
+  - {r: 1, g: 0.05882353, b: 0.7529412, a: 0}

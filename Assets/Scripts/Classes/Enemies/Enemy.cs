@@ -18,17 +18,17 @@ public abstract class Enemy: MonoBehaviour
 
     public Transform[] path;
     public Transform currentPathTarget;
-    private int pathIndex;
+    public int pathIndex;
 
     private int currentHealth;
-    private float currentMovementSpeed;
+    public float currentMovementSpeed;
     private bool isStunned = false;
     private bool isSlowed = false;
     private float slowMultiplier = 1f;
 
     private bool isDestroyed;
 
-    private float distanceTraveled;
+    public float distanceTraveled;
 
 
     public void setupEnemy(float moveSpeed, int health, int currencyWorth){
@@ -132,6 +132,11 @@ public abstract class Enemy: MonoBehaviour
         } else {
             this.currentMovementSpeed = baseMovementSpeed;
         }
+    }
+
+    public virtual void SetToughnessGrade(int grade)
+    {
+        // Default implementation does nothing
     }
 
 

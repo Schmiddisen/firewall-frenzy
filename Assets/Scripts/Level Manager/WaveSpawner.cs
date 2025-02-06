@@ -12,6 +12,7 @@ public class WaveSpawner : MonoBehaviour
 		public Transform enemy;
 		public int count;
 		public float spawn_delay;
+		public int toughnessGrade = 1; // Default is 1, but you can change it in the Inspector
 	}
 
 	public Wave[] waves;
@@ -115,7 +116,8 @@ public class WaveSpawner : MonoBehaviour
 
 		for (int i = 0; i < _wave.count; i++)
 		{
-			SpawnEnemy(_wave.enemy);
+			SpawnEnemy(_wave.enemy, _wave.toughnessGrade);
+
 			yield return new WaitForSeconds(_wave.spawn_delay);
 		}
 
@@ -124,12 +126,28 @@ public class WaveSpawner : MonoBehaviour
 		yield break;
 	}
 
-	void SpawnEnemy(Transform _enemy)
+	void SpawnEnemy(Transform _enemy, int toughnessGrade)
 	{
-		//Debug.Log("Spawning Enemy: " + _enemy.name);
+		// Debug.Log("Spawning Enemy: " + _enemy.name);
 
 		Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
-		Instantiate(_enemy, _sp.position, _sp.rotation);
+
+		// Create an instance of the enemy
+		GameObject enemyInstance = Instantiate(_enemy, _sp.position, _sp.rotation).gameObject;
+
+		// Check if the enemy is of type Virus and set its toughness grade
+		Virus virus = enemyInstance.GetComponent<Virus>();
+		if (virus != null)
+		{
+			virus.SetToughnessGrade(toughnessGrade); // Set the toughness grade for Virus
+			virus.UpdateColor();
+		}
+		
+		// Add checks for other types of enemies here, if needed, to handle their specific setup
+		// For example:
+		// else if (otherEnemyType != null) {
+		//     otherEnemyType.SetToughnessGrade(toughnessGrade);
+		// }
 	}
 
 }
