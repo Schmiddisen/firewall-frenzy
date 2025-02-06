@@ -384,7 +384,18 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sniper Tower_0: 3331064460654838542
+      Sniper Tower_1: -5865591573783552233
+      Sniper Tower_10: -7551902817100604688
+      Sniper Tower_2: 6592703892169822051
+      Sniper Tower_3: 7881881878621872360
+      Sniper Tower_4: 1667342372597120028
+      Sniper Tower_5: 720631850392066774
+      Sniper Tower_6: -7817876909873064700
+      Sniper Tower_7: -7594827130471852626
+      Sniper Tower_8: -3866801821301134704
+      Sniper Tower_9: -2039807608469267672
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
