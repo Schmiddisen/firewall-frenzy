@@ -370,7 +370,7 @@ MonoBehaviour:
   baseTargetingRange: 2
   baseDMG: 1
   baseAPS: 0.5
-  name: Firwall Node
+  name: Firewall Node
   upgradePath: 2
   currentDMG: 0
   currentAPS: 0
