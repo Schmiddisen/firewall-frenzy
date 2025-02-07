@@ -33,7 +33,7 @@ public class PacketDefenderBasicBulletAnimator : MonoBehaviour
         {
             bitString += Random.Range(0,2).ToString();
         }
-        Debug.Log(bitString);
+        //Debug.Log(bitString);
         return bitString;
     }
 }

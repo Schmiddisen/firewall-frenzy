@@ -3,26 +3,23 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Playables;
 
-public abstract class Enemy : MonoBehaviour
-
+public abstract class Enemy: MonoBehaviour
 {
     [Header("References")]
     [SerializeField] public Rigidbody2D rb;
-
-
+    
+    
     [Header("Attributes")]
     [SerializeField] public float baseMovementSpeed;
     [SerializeField] public int baseHealth;
     [SerializeField] public int currencyWorth;
 
-
-
     public Transform[] path;
     public Transform currentPathTarget;
-    private int pathIndex;
+    public int pathIndex;
 
-    private int currentHealth;
-    private float currentMovementSpeed;
+    public int currentHealth;
+    public float currentMovementSpeed;
     private bool isStunned = false;
     private bool isSlowed = false;
     private float slowMultiplier = 1f;
@@ -53,6 +50,7 @@ public abstract class Enemy : MonoBehaviour
         distanceTraveled = 0;
 
         this.isDestroyed = false;
+
         this.burnEffect = null;
         this.lastBurnTime = Time.time;
 
@@ -75,16 +73,14 @@ public abstract class Enemy : MonoBehaviour
         rb.linearVelocity = dir * currentMovementSpeed;
 
         distanceTraveled += currentMovementSpeed * Time.deltaTime;
-
         if (Vector2.Distance(currentPathTarget.position, transform.position) <= 0.1f)
         {
             pathIndex++;
 
             if (pathIndex == path.Length) // Enemy has crossed the end line
             {
+                this.removeplayerHealth();
                 this.onDestroy();
-                // call the event to reduce the player's health by the current health of the enemy 
-                LevelManager.main.OnEnemyFinishTrack.Invoke(currentHealth);
             }
             else
             {
@@ -93,12 +89,11 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
-    public void knockback(float knockbackStrength)
-    {
+    public void knockback(float knockbackStrength) {
         int prevWaypointIndex = pathIndex - 1;
 
         Transform prevWaypoint;
-
+        
         if (prevWaypointIndex < 0)
         {
             prevWaypoint = LevelManager.main.startPoint;
@@ -107,8 +102,6 @@ public abstract class Enemy : MonoBehaviour
         {
             prevWaypoint = path[prevWaypointIndex];
         }
-
-
         Vector2 dir = (prevWaypoint.position - transform.position).normalized;
 
         Vector2 knockabackDistance = dir * knockbackStrength;
@@ -116,8 +109,7 @@ public abstract class Enemy : MonoBehaviour
         Vector2 distance = knockabackDistance * Time.deltaTime;
 
         distanceTraveled -= distance.magnitude;
-
-        transform.position += (Vector3)knockabackDistance * Time.deltaTime;
+        transform.position += (Vector3) knockabackDistance * Time.deltaTime;
     }
     
     public void interruptMovement(float duration) {
@@ -155,6 +147,10 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
+    public virtual void SetToughnessGrade(int grade)
+    {
+        // Default implementation does nothing
+    }
     public void takeDamage(int dmg)
     {
         // check if the burn effect has bonus damage, generate a random number bewteen 1 and 10 and then double the taken damage
@@ -174,10 +170,13 @@ public abstract class Enemy : MonoBehaviour
             onDestroy();
         }
     }
-
     public virtual void onDestroy()
     {
         Destroy(gameObject);
+    }
+    
+    public virtual void removeplayerHealth() {
+        LevelManager.main.OnEnemyFinishTrack.Invoke(currentHealth);
     }
 
     public float getDistanceTraveled()
@@ -213,6 +212,5 @@ public abstract class Enemy : MonoBehaviour
             lastBurnTime = Time.time;
             // TODO: spawn burning particles
         }
-        
     }
 }
