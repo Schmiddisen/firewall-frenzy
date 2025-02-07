@@ -26,7 +26,7 @@ public abstract class Enemy: MonoBehaviour
 
     private bool isDestroyed;
 
-    private float distanceTraveled;
+    public float distanceTraveled;
 
     private BurnEffect burnEffect;
 
