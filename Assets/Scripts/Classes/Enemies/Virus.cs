@@ -30,11 +30,26 @@ public class Virus : Enemy
 
     public override void onDestroy()
     {
+        if (pathIndex >= path.Length)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         if (toughnessGrade > 1) // If not at the weakest form, spawn the next level
         {
             SpawnWeakerVirus();
         }
         base.onDestroy();
+    }
+
+    public override void removeplayerHealth()
+    {
+        // Calculate the total health left at death
+        int totalHealthAtDeath = currentHealth + ((toughnessGrade - 1) * baseHealth);
+        
+        // Deduct the total calculated damage from the player's health
+        LevelManager.main.OnEnemyFinishTrack.Invoke(totalHealthAtDeath);
     }
 
     private void SpawnWeakerVirus()

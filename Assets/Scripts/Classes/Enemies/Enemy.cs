@@ -20,7 +20,7 @@ public abstract class Enemy: MonoBehaviour
     public Transform currentPathTarget;
     public int pathIndex;
 
-    private int currentHealth;
+    public int currentHealth;
     public float currentMovementSpeed;
     private bool isStunned = false;
     private bool isSlowed = false;
@@ -65,9 +65,8 @@ public abstract class Enemy: MonoBehaviour
 
             if (pathIndex == path.Length) // Enemy has crossed the end line
             {
+                this.removeplayerHealth();
                 this.onDestroy();
-                // call the event to reduce the player's health by the current health of the enemy 
-                LevelManager.main.OnEnemyFinishTrack.Invoke(currentHealth);
             }
             else
             {
@@ -153,6 +152,10 @@ public abstract class Enemy: MonoBehaviour
 
     public virtual void onDestroy() {
         Destroy(gameObject);
+    }
+
+    public virtual void removeplayerHealth() {
+        LevelManager.main.OnEnemyFinishTrack.Invoke(currentHealth);
     }
 
     public float getDistanceTraveled() {
