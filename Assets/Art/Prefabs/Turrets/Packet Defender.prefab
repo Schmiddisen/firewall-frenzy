@@ -333,9 +333,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4745782068123731257}
-  - component: {fileID: -8019583124124422244}
   - component: {fileID: 534700586347046812}
-  - component: {fileID: 6497829454662908473}
+  - component: {fileID: -2917399221866685738}
   m_Layer: 10
   m_Name: Packet Defender
   m_TagString: Untagged
@@ -362,37 +361,6 @@ Transform:
   - {fileID: 513512652718665631}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-8019583124124422244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5427145149855544514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a434ee73345d63d489f4774700fa593c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyMask:
-    serializedVersion: 2
-    m_Bits: 64
-  targetPrio: 0
-  towerBaseCollider: {fileID: 0}
-  towerRotationPoint: {fileID: 5483990413604372803}
-  towerFiringPoint: {fileID: 7875497887002927684}
-  shootingParticlePrefab: {fileID: 0}
-  towerPrefab: {fileID: 5427145149855544514}
-  rangeIndicator: {fileID: 534700586347046812}
-  rotationSpeed: 100
-  baseUpgradeCosts: 100
-  buildCost: 100
-  baseTargetingRange: 3
-  baseDMG: 1
-  baseAPS: 2
-  name: Packet Defender
-  isActiv: 0
-  bulletPrefab: {fileID: 6831238910303489396, guid: 6b143cbb8a90cac44adb21567715a29c, type: 3}
 --- !u!120 &534700586347046812
 LineRenderer:
   serializedVersion: 2
@@ -500,7 +468,7 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &6497829454662908473
+--- !u!114 &-2917399221866685738
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -509,38 +477,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 5427145149855544514}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a98125502f715b4b83cfb77b434e436, type: 3}
+  m_Script: {fileID: 11500000, guid: 584de1b0b7954b24b9454b000b9e66eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 64
+  targetPrio: 0
+  towerBaseCollider: {fileID: 4212260237316440055}
+  towerRotationPoint: {fileID: 5483990413604372803}
+  towerFiringPoint: {fileID: 7875497887002927684}
+  shootingParticlePrefab: {fileID: 0}
+  towerPrefab: {fileID: 5427145149855544514}
+  rangeIndicator: {fileID: 534700586347046812}
+  rotationSpeed: 100
+  baseUpgradeCosts: 100
+  buildCost: 100
+  baseTargetingRange: 3
+  baseDMG: 2
+  baseAPS: 1
+  name: Packet Defender
+  currentLevel: 0
+  upgradePath: 2
+  currentDMG: 0
+  currentAPS: 0
+  timeUntilFire: 0
+  accumulatedStagger: 0
+  isActiv: 0
+  bulletPrefab: {fileID: 6831238910303489396, guid: 898740e9802c00b43be37c47fb231821, type: 3}
+  barrelRotationOffset: 44.8
+  upgradeJson: {fileID: 4900000, guid: 44e131a5f7abe7a46aafbe993d8b6a5d, type: 3}
+  knockbackBullet: {fileID: 6831238910303489396, guid: b17af3f70de67a142af1deac724512ec, type: 3}
+  laserBullet: {fileID: 6831238910303489396, guid: d2a01830916c73147beb09391382de60, type: 3}
+  laserLR: {fileID: 4368367372607288966}
 --- !u!1 &5616294262342070216
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,6 +519,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7875497887002927684}
+  - component: {fileID: 4368367372607288966}
   m_Layer: 0
   m_Name: FiringPoint
   m_TagString: Untagged
@@ -572,6 +542,113 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5483990413604372803}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!120 &4368367372607288966
+LineRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5616294262342070216}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 4294967295
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 1, y: 0, z: 1}
+  m_Parameters:
+    serializedVersion: 3
+    widthMultiplier: 1
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0.06394574
+        value: 0.14741531
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 0.2548271, g: 0.8861064, b: 0, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 0
+    textureMode: 2
+    textureScale: {x: 3.99, y: 1}
+    shadowBias: 0.5
+    generateLightingData: 1
+  m_MaskInteraction: 0
+  m_UseWorldSpace: 1
+  m_Loop: 0
+  m_ApplyActiveColorSpace: 1
 --- !u!1 &7558766880320543098
 GameObject:
   m_ObjectHideFlags: 0

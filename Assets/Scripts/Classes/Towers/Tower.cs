@@ -39,9 +39,10 @@ public abstract class Tower : MonoBehaviour
     [Header("Runtime Attributes and Refrences")]
     protected List<Transform> enemyTargets;
     protected int currentUpgradeCosts;
-    protected int currentLevel = 1;
+    public int currentLevel = 0;
+    public UpgradePath upgradePath = UpgradePath.Base;
     protected float currentTargetingRange;
-    protected int currentDMG;
+    public int currentDMG;
     public float currentAPS;
     public float timeUntilFire = 0;
 
@@ -134,10 +135,32 @@ public abstract class Tower : MonoBehaviour
         }
     }
 
-    protected void upgradeRange(float amount) {
-        this.currentTargetingRange += amount;
+    protected void applyUpgrade(Upgrades upgradeData, UpgradePath path) {
+        //Set the path
+        upgradePath = path;
+        
+        if(currentLevel == 3) return;
+
+        currentLevel += 1;
+
+        UpgradeMetrics metrics = upgradeData.upgrades[currentLevel - 1];
+        
+        //for range upgrades base.upgradeRange(x)
+        upgradeRange(metrics.range);
+        upgradeDMG(metrics.damage);
+        upgradeAPS(metrics.aps);
+    }
+
+    protected void upgradeRange(float newAmount) {
+        this.currentTargetingRange = newAmount;
         this.targetingRangeDetetector.radius = currentTargetingRange;
         redrawRangeIndicator();
+    }
+    protected void upgradeDMG(int newAmount) {
+        this.currentDMG = newAmount;
+    }
+    protected void upgradeAPS(float newAmount) {
+        this.currentAPS = newAmount;
     }
 
     public virtual void OnTriggerEnter2D(Collider2D other)
@@ -174,7 +197,7 @@ public abstract class Tower : MonoBehaviour
 
     public abstract void updateMethod();
     public abstract void attack();
-    public abstract void upgrade();
+    public abstract void upgrade(UpgradePath path);
 
     public void addStagger(double stagger){
         // adds the value of ddos modifier
