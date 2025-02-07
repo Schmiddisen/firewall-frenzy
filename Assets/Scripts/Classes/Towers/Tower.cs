@@ -39,7 +39,7 @@ public abstract class Tower : MonoBehaviour
     [Header("Runtime Attributes and Refrences")]
     protected List<Transform> enemyTargets;
     protected int currentUpgradeCosts;
-    public int currentLevel = 0;
+    private int currentLevel = 0;
     public UpgradePath upgradePath = UpgradePath.Base;
     protected float currentTargetingRange;
     public int currentDMG;
@@ -207,5 +207,9 @@ public abstract class Tower : MonoBehaviour
     public void removeStagger(double stagger){
         // adds the value of ddos modifier
         accumulatedStagger -= stagger;
+    }
+
+    public int getCurrentLevel(){
+        return this.currentLevel;
     }
 }

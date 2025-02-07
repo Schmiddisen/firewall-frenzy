@@ -128,8 +128,6 @@ public class WaveSpawner : MonoBehaviour
 
 	void SpawnEnemy(Transform _enemy, int toughnessGrade)
 	{
-		// Debug.Log("Spawning Enemy: " + _enemy.name);
-
 		Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
 
 		// Create an instance of the enemy
