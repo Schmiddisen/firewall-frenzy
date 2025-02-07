@@ -874,9 +874,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - name: 1
-    enemy: {fileID: 3106164197821595439, guid: 5141747a24e6162a38c66a06024766e1, type: 3}
-    count: 12
-    spawn_delay: 0.21
+    enemy: {fileID: 4836559626554665174, guid: 123321576674cbb5b9acc5290df8cf63, type: 3}
+    count: 6
+    spawn_delay: 2
   - name: 2
     enemy: {fileID: 3106164197821595439, guid: 5141747a24e6162a38c66a06024766e1, type: 3}
     count: 27

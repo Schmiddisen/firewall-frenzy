@@ -368,10 +368,19 @@ MonoBehaviour:
   baseUpgradeCosts: 100
   buildCost: 100
   baseTargetingRange: 2
-  baseDMG: 2
+  baseDMG: 1
   baseAPS: 0.5
   name: Firwall Node
+  upgradePath: 2
+  currentDMG: 0
+  currentAPS: 0
+  timeUntilFire: 0
+  accumulatedStagger: 0
   isActiv: 0
+  timeBetweenPulses: 5
+  knockbackStrength: 4
+  burnParticleSystem: {fileID: 7612303654684416140, guid: 4dab0aef739146249bda12a6daa8f786, type: 3}
+  upgradeJson: {fileID: 4900000, guid: 3fbf00b0d79ea4b7cbb64cf5aec014cc, type: 3}
 --- !u!120 &7914309227316524238
 LineRenderer:
   serializedVersion: 2
