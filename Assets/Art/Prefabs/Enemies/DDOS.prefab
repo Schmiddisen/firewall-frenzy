@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 7748976646083950940}
+  flameParticles: {fileID: 5680761716712827247, guid: ef3a0aa4df72e38318287d2fa658a4d0, type: 3}
   baseMovementSpeed: 1
   baseHealth: 20
   currencyWorth: 20

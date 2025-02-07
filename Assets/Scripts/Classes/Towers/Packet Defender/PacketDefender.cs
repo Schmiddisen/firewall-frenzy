@@ -21,7 +21,7 @@ public class PacketDefender : TargetingTower
     
     public override void updateMethod() {
         base.updateMethod();
-        if (base.upgradePath == UpgradePath.PathA && base.currentLevel == 3) {
+        if (base.upgradePath == UpgradePath.PathA && base.getCurrentLevel() == 3) {
             drawLaser();
         }
     }
@@ -33,11 +33,11 @@ public class PacketDefender : TargetingTower
 
         base.applyUpgrade(upgradeData, path);
 
-        if (base.upgradePath == UpgradePath.PathA && base.currentLevel == 3) {
+        if (base.upgradePath == UpgradePath.PathA && base.getCurrentLevel() == 3) {
             base.bulletPrefab = this.laserBullet;
         }
 
-        if (base.upgradePath == UpgradePath.PathB && base.currentLevel == 3) {
+        if (base.upgradePath == UpgradePath.PathB && base.getCurrentLevel() == 3) {
             base.bulletPrefab = this.knockbackBullet;
         }
         
