@@ -5,20 +5,47 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+[Serializable]
+public class TowerJSON
+{
+    public string name;
+    public string imagePath;
+    public string infoText;
+    public Upgrade[] upgrades;
+}
+
+[Serializable]
+public class Upgrade
+{
+    public string description;
+}
+
+[Serializable]
+public class TowerDatabase
+{
+    public TowerJSON[] towers;
+}
+
 public class MenuTowerDetails : MonoBehaviour
 {
     [Header("UIDocument")]
     public UIDocument uIDocument;
 
+    [Header("JSON")]
+    public TextAsset towerInfos;
+    private TowerDatabase towerData;
+
 
     void OnEnable()
     {
+
         Button[] buttons = uIDocument.rootVisualElement
             .Query<Button>()
             .ToList()
             .Where(b => b.name.StartsWith("TS_"))
             .ToArray();
 
+        Debug.Log(towerData);
         foreach (Button button in buttons)
         {  
             button.clicked += () => changePriority(button);
@@ -47,18 +74,20 @@ public class MenuTowerDetails : MonoBehaviour
         tower.upgrade(path);
 
 
-        showTowerInfos(this.uIDocument);
+        showTowerInfos(this.uIDocument, this.towerInfos);
     }
 
     public void changePriority(Button button) {
         int index = int.Parse(button.name[3].ToString());
         Tower tower = LevelManager.main.selectedTower;
         tower.targetPrio = (TargetingPriority) Enum.GetValues(typeof(TargetingPriority)).GetValue(index);
-        showTowerInfos(uIDocument);
+        showTowerInfos(this.uIDocument, this.towerInfos);
     }
 
-    public void showTowerInfos(UIDocument doc)
+    public void showTowerInfos(UIDocument doc, TextAsset towerInfos)
     {
+        towerData = JsonUtility.FromJson<TowerDatabase>(towerInfos.text);
+
         if (doc == null)
         {
             Debug.LogError("UIDocument is not selected in LevelManager");
@@ -66,12 +95,17 @@ public class MenuTowerDetails : MonoBehaviour
         }
 
         //UI References
+        Label UP_1_Info = doc.rootVisualElement.Q<Label>("UP_1_Info");
+        Label UP_2_Info = doc.rootVisualElement.Q<Label>("UP_2_Info");
+        Label Tower_Informations_Text = doc.rootVisualElement.Q<Label>("Tower_Informations_Text");
         Tower tower = LevelManager.main.selectedTower;
         Label TowerLabelName = doc.rootVisualElement.Q<Label>("Label_Tower_Information");
         Label TowerLabelDMG = doc.rootVisualElement.Q<Label>("Damage_Value");
         Label TowerLabelAPS = doc.rootVisualElement.Q<Label>("Firerate_Value");
         Label TowerLabelPriority = doc.rootVisualElement.Q<Label>("Priority_value");
         VisualElement bar = doc.rootVisualElement.Q<VisualElement>("Tower_Information_Bottom");
+        VisualElement Tower_preview = doc.rootVisualElement.Q<VisualElement>("Tower_preview");
+        VisualElement Tower_preview_Image = doc.rootVisualElement.Q<VisualElement>("Tower_preview_Image");
 
         Button btnPathA = doc.rootVisualElement.Q<Button>("UP_1_Button");
         Button btnPathB = doc.rootVisualElement.Q<Button>("UP_2_Button");
@@ -80,12 +114,17 @@ public class MenuTowerDetails : MonoBehaviour
         {
             TowerLabelName.text = "No Tower selected";
             bar.AddToClassList("hidden");
+            Tower_Informations_Text.AddToClassList("hidden");
+            Tower_preview.AddToClassList("hidden");
             return;
         }
         bar.RemoveFromClassList("hidden");
+        Tower_Informations_Text.RemoveFromClassList("hidden");
+        Tower_preview.RemoveFromClassList("hidden");
         TowerLabelName.text = tower.name;
         TowerLabelDMG.text = tower.currentDMG.ToString();
         TowerLabelAPS.text = tower.currentAPS.ToString();
+
 
         //Priority
         int nextCapitalIndex = -1;
@@ -98,8 +137,25 @@ public class MenuTowerDetails : MonoBehaviour
             }
         }
         TowerLabelPriority.text = nextCapitalIndex != -1 ? tower.targetPrio.ToString().Substring(0, nextCapitalIndex) : tower.targetPrio.ToString();
-
         //Upgrade Path
+        TowerJSON towerInfo = towerData.towers.FirstOrDefault(t => t.name == tower.name);
+        if (towerInfo != null)
+        {
+            UP_1_Info.text = towerInfo.upgrades[0].description;
+            UP_2_Info.text = towerInfo.upgrades[1].description;
+        }
+        Tower_Informations_Text.text = towerInfo.infoText;
+        Texture2D texture = Resources.Load<Texture2D>(towerInfo.imagePath);
+        if (texture == null)
+        {
+            Debug.LogError($"Failed to load texture: {towerInfo.imagePath}. Make sure the file is in 'Resources' and is a PNG/JPG.");
+            return;
+        }
+        else
+        {
+            Tower_preview_Image.style.backgroundImage = new StyleBackground(texture);
+
+        }
         if(tower.upgradePath != UpgradePath.Base) {
             //If a path is already selected, enable the correct path, and disable the other
             bool pathA = tower.upgradePath == UpgradePath.PathA;

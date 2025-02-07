@@ -1,0 +1,43 @@
+{
+    "towers": [
+        {
+        "name": "Packet Defender",
+        "imagePath": "Full Art/Basic Tower",
+        "infoText": "A simple tower that fires consistently and is great for early game usage. Cheap and effective for the beginning.",
+            "upgrades": [
+                {
+                "description": "Fire Rate & a little bit of Damage"
+                },
+                {
+                "description": "High Damage, Low APS"
+                }
+            ]
+        },
+        {
+        "name": "Firewall Node",
+        "imagePath": "Full Art/AoE Tower",
+        "infoText": "An AoE Tower, that is great for chokepoints, dealing moderate Damage to a lot of enemies. AoE Damage is in pulses.",
+            "upgrades": [
+                {
+                "description": "Damage over time & AoE"
+                },
+                {
+                "description": "Range & Burst Damage"
+                }
+            ]
+        },
+        {
+        "name": "Malware Scanner",
+        "imagePath": "Full Art/Sniper Tower",
+        "infoText": "A Sniper Turret that is slow firing but does lots of damage in a very long range. Can Crit in its base form.",
+            "upgrades":[
+                {
+                "description": "Fire Rate"
+                },
+                {
+                "description": "Slow & Critical hits"
+                }
+            ]
+        }
+    ]
+}

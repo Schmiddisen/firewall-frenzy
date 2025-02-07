@@ -26,7 +26,7 @@
     align-items: center;
     justify-content: space-around;
     flex-wrap: wrap;
-    background-color: rgb(240, 0, 255);
+    background-color: rgb(227, 225, 217);
     -unity-background-scale-mode: scale-to-fit;
 }
 

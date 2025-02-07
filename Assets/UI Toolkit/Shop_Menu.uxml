@@ -2,23 +2,29 @@
     <Style src="project://database/Assets/UI%20Toolkit/Towers.uss?fileID=7433441132597879392&amp;guid=2a115b068ee954733b9f6bd3afa032c9&amp;type=3#Towers" />
     <Style src="project://database/Assets/UI%20Toolkit/Shop_Menu.uss?fileID=7433441132597879392&amp;guid=a394506a66bb241008a2b32085dbbb12&amp;type=3#Shop_Menu" />
     <engine:VisualElement name="Bar" class="font" style="flex-grow: 1; width: 1920px; height: 220px; position: absolute; bottom: 0; background-color: rgb(217, 217, 217); border-top-left-radius: 10px; border-top-right-radius: 10px; flex-direction: row; border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);">
-        <engine:VisualElement name="Tower_Shop" style="flex-grow: 1; width: 50%; align-content: center; flex-direction: row; justify-content: space-evenly; align-items: center; background-color: rgb(105, 197, 255);">
+        <engine:VisualElement name="Tower_Shop" style="flex-grow: 1; width: 50%; align-content: center; flex-direction: row; justify-content: space-evenly; align-items: center; background-color: rgb(199, 200, 204);">
             <engine:Button name="Tower_Packet_Defender_Button" class="tower_button">
-                <engine:Label text="Packet Defender" name="Packet_Defender" class="font" style="align-self: center; align-content: flex-start;" />
+                <engine:VisualElement style="background-image: url(&quot;project://database/Assets/Art/Full%20Art/Basic%20Tower.psd?fileID=-6076782233491764048&amp;guid=acf27fc31ceccb4b1b076dd1f31bc650&amp;type=3#Layer2&quot;); background-color: rgba(255, 255, 255, 0); width: 100%; height: 100%;" />
             </engine:Button>
             <engine:Button name="Tower_Firewall_Node" class="button tower_button">
-                <engine:Label text="Firewall Node" name="Firewall_Node" class="font" style="align-self: center; align-content: flex-start;" />
+                <engine:VisualElement name="VisualElement" style="background-image: url(&quot;project://database/Assets/Art/Full%20Art/AoE%20Tower.psd?fileID=2535951209920468646&amp;guid=3d10b7af0b5aeedfc8b0f915450c0ae1&amp;type=3#Layer6&quot;); background-color: rgba(255, 255, 255, 0); width: 100%; height: 100%;" />
             </engine:Button>
             <engine:Button name="Tower_Virus_Scanner" class="button tower_button">
-                <engine:Label text="Virus Scanner" name="Virus_Scanner" class="font" style="align-self: center; align-content: flex-start;" />
+                <engine:VisualElement style="background-image: url(&quot;project://database/Assets/Art/Full%20Art/Sniper%20Tower.psd?fileID=6407660491593047361&amp;guid=72740608c2b58f2dabae50c7cc9408c1&amp;type=3#Layer4-1-1&quot;); background-color: rgba(255, 255, 255, 0); width: 100%; height: 100%;" />
             </engine:Button>
         </engine:VisualElement>
-        <engine:VisualElement name="Tower_Information" style="width: 50%; height: 100%; background-color: rgb(105, 197, 255);">
-            <engine:VisualElement name="Tower_Information_Top" style="width: 100%; height: 30px;">
-                <engine:Label text="Tower Information" name="Label_Tower_Information" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; align-items: center; align-self: center; align-content: center; color: rgb(240, 0, 255); -unity-font-style: bold; -unity-text-outline-color: rgb(255, 0, 255);" />
+        <engine:VisualElement name="Tower_Information" style="width: 50%; height: 100%; background-color: rgb(199, 200, 204);">
+            <engine:VisualElement name="Tower_Information_Top" style="width: 100%; height: 100px; flex-direction: row; background-size: 100% 90px;">
+                <engine:VisualElement name="Tower_preview" class="hidden" style="flex-grow: 1; width: 90px; height: 90px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; border-left-color: rgb(80, 80, 80); border-right-color: rgb(80, 80, 80); border-top-color: rgb(80, 80, 80); border-bottom-color: rgb(80, 80, 80); background-color: rgb(227, 225, 217);">
+                    <engine:VisualElement name="Tower_preview_Image" style="flex-grow: 1; background-size: 80px 80px; width: 80px; height: 80px; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0; align-self: center; -unity-background-scale-mode: stretch-to-fill; background-image: none; background-position-y: center 0;" />
+                </engine:VisualElement>
+                <engine:VisualElement name="Tower_text" style="flex-grow: 1; width: 100%; height: 100%; background-size: 100% 100%;">
+                    <engine:Label text="No Tower selected" name="Label_Tower_Information" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; align-items: center; align-self: center; align-content: center;" />
+                    <engine:Label name="Tower_Informations_Text" class="hidden" style="height: 60px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; white-space: normal;" />
+                </engine:VisualElement>
             </engine:VisualElement>
-            <engine:VisualElement name="Tower_Information_Bottom" class="hidden" style="width: 100%; height: 100%; flex-direction: row; background-color: rgba(0, 0, 0, 0);">
-                <engine:VisualElement name="Stats_Box" style="width: 70%; height: 100%; flex-direction: row; flex-shrink: 1; flex-wrap: nowrap; justify-content: flex-start; align-items: stretch; align-content: stretch; border-left-color: rgb(80, 80, 80); border-right-color: rgb(80, 80, 80); border-top-color: rgb(80, 80, 80); border-bottom-color: rgb(80, 80, 80); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; background-color: rgb(240, 2, 255);">
+            <engine:VisualElement name="Tower_Information_Bottom" class="hidden" style="width: 100%; height: 140px; flex-direction: row; background-size: 100% 100px;">
+                <engine:VisualElement name="Stats_Box" style="width: 70%; height: 100%; flex-direction: row; flex-shrink: 1; flex-wrap: nowrap; justify-content: flex-start; align-items: stretch; align-content: stretch; border-left-color: rgb(80, 80, 80); border-right-color: rgb(80, 80, 80); border-top-color: rgb(80, 80, 80); border-bottom-color: rgb(80, 80, 80); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; background-color: rgb(227, 225, 217);">
                     <engine:VisualElement name="Stats_Box_Left" style="flex-grow: 1; align-content: auto; justify-content: space-evenly; align-items: flex-start; align-self: auto; padding-left: 6px; padding-top: 0; padding-right: 0; padding-bottom: 0; width: 50%;">
                         <engine:Label text="Damage:" name="Damage" style="width: 100%;" />
                         <engine:Label text="Firerate:" name="Firerate" style="width: 100%;" />
@@ -30,9 +36,19 @@
                         <engine:Label name="Priority_value" text="-" style="width: 100%;" />
                     </engine:VisualElement>
                 </engine:VisualElement>
-                <engine:VisualElement name="Upgrade_Paths" style="width: 100%; height: 100%; flex-direction: column; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; background-color: rgba(101, 101, 101, 0);">
-                    <engine:Button text="1" name="UP_1_Button" class="upgrade_button" />
-                    <engine:Button text="2&#10;" name="UP_2_Button" class="upgrade_button" />
+                <engine:VisualElement name="Upgrade_Paths" style="width: 100%; height: 100%; flex-direction: column; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 5px; border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; border-left-color: rgb(80, 80, 80); border-right-color: rgb(80, 80, 80); border-top-color: rgb(80, 80, 80); border-bottom-color: rgb(80, 80, 80); background-color: rgb(227, 225, 217);">
+                    <engine:VisualElement name="Upgrade_1" style="flex-grow: 1; flex-direction: row; height: 50%; align-items: center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;">
+                        <engine:Button text="Upgrade" name="UP_1_Button" class="upgrade_button" />
+                        <engine:VisualElement name="Text_UP1" style="flex-grow: 1;">
+                            <engine:Label name="UP_1_Info" style="white-space: normal; -unity-text-align: middle-left; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 10px;" />
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+                    <engine:VisualElement name="Upgrade_2" style="flex-grow: 1; flex-direction: row; height: 50%; align-items: center;">
+                        <engine:Button text="Upgrade" name="UP_2_Button" class="upgrade_button" />
+                        <engine:VisualElement name="Text_UP2" style="flex-grow: 1;">
+                            <engine:Label name="UP_2_Info" style="white-space: normal; -unity-text-align: middle-left; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 10px;" />
+                        </engine:VisualElement>
+                    </engine:VisualElement>
                 </engine:VisualElement>
                 <engine:VisualElement name="Target_Selection" style="width: 100%; height: 100%; flex-direction: column; align-content: auto; align-items: center; justify-content: space-between; align-self: center;">
                     <engine:Button text="Least Distance Traveled" name="TS_0_LeastDistanceTraveled" class="attacktype_button" />
