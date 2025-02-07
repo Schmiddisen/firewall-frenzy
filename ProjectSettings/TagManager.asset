@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -50,7 +51,7 @@ TagManager:
   - name: UI
     uniqueID: 2048555015
     locked: 0
-  - name: New Layer 4
+  - name: Particles
     uniqueID: 802616873
     locked: 0
   m_RenderingLayers:
