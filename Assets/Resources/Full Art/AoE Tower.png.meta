@@ -126,6 +126,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -384,7 +397,18 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      AoE Tower_0: 4689670201351410481
+      AoE Tower_1: -8603432407721378684
+      AoE Tower_10: 8423085176072072501
+      AoE Tower_2: 191138984243952157
+      AoE Tower_3: 4710784139477279325
+      AoE Tower_4: 837582912312632117
+      AoE Tower_5: -6499016249613648959
+      AoE Tower_6: -6628957349661878391
+      AoE Tower_7: 4808135286218984091
+      AoE Tower_8: -8903415545755245046
+      AoE Tower_9: 1661555115072517311
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
