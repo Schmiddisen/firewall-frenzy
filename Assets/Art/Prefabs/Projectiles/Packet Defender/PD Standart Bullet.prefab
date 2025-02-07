@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1460195503579118158}
   - component: {fileID: 310958055770565830}
   m_Layer: 7
-  m_Name: Packet Defender Standart Projectile
+  m_Name: PD Standart Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tmpText: {fileID: 310958055770565830}
-  bitSeriesLength: 5
+  bitSeriesLength: 4
   animationFrequency: 0.1
 --- !u!114 &5374084134579070774
 MonoBehaviour:

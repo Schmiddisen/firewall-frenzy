@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Playables;
 
 public abstract class Enemy : MonoBehaviour
+
 {
     [Header("References")]
     [SerializeField] public Rigidbody2D rb;
@@ -21,6 +22,9 @@ public abstract class Enemy : MonoBehaviour
 
     private int currentHealth;
     private float currentMovementSpeed;
+    private bool isStunned = false;
+    private bool isSlowed = false;
+    private float slowMultiplier = 1f;
 
     private bool isDestroyed;
 
@@ -90,7 +94,6 @@ public abstract class Enemy : MonoBehaviour
 
     public void knockback(float knockbackStrength)
     {
-        Debug.Log("KNOWCKBACK " + this.gameObject);
         int prevWaypointIndex = pathIndex - 1;
 
         Transform prevWaypoint;
@@ -115,15 +118,38 @@ public abstract class Enemy : MonoBehaviour
 
         transform.position += (Vector3)knockabackDistance * Time.deltaTime;
     }
+    
+    public void interruptMovement(float duration) {
+    StartCoroutine(interruptMovementCoroutine(duration));
+    }
 
-    public void interruptMovement(bool shouldStop)
-    {
-        if (shouldStop)
-        {
+    private IEnumerator interruptMovementCoroutine(float duration) {
+        isStunned = true;
+        this.currentMovementSpeed = 0;
+        yield return new WaitForSeconds(duration);
+        isStunned = false;
+        applyMovementDebuff();
+    }
+
+    public void slowMovement(float duration, float slowingRate) {
+        StartCoroutine(slowMovementCoroutine(duration, slowingRate));
+    }
+
+    private IEnumerator slowMovementCoroutine(float duration, float slowingRate) {
+        isSlowed = true;
+        slowMultiplier = slowingRate;
+        applyMovementDebuff();
+        yield return new WaitForSeconds(duration);
+        isSlowed = false;
+        applyMovementDebuff();
+    }  
+
+    private void applyMovementDebuff() {
+        if (isStunned) {
             this.currentMovementSpeed = 0;
-        }
-        else
-        {
+        } else if (isSlowed) {
+            this.currentMovementSpeed = baseMovementSpeed * slowMultiplier; 
+        } else {
             this.currentMovementSpeed = baseMovementSpeed;
         }
     }

@@ -9,6 +9,9 @@ public class Bullet : MonoBehaviour
     [Header("Attributes")] 
     [SerializeField] private float bulletSpeed = 5f;
     [SerializeField] private float knockbackStrength = 0;
+    [SerializeField] private float stunDuration = 0;
+    [SerializeField] private float slowDuration = 0;
+    [SerializeField] private float slowingRate = 0;
     [SerializeField] private float rotaionOffset = 0;
 
     private int bulletDamage;
@@ -59,7 +62,10 @@ public class Bullet : MonoBehaviour
         if (other.collider != target.GetComponent<Collider2D>()) return;
 
         other.gameObject.GetComponent<Enemy>().takeDamage(bulletDamage);
-        other.gameObject.GetComponent<Enemy>().knockback(knockbackStrength);
+        if (knockbackStrength > 0) other.gameObject.GetComponent<Enemy>().knockback(knockbackStrength);
+        if (stunDuration > 0) other.gameObject.GetComponent<Enemy>().interruptMovement(stunDuration);
+        if (slowDuration > 0) other.gameObject.GetComponent<Enemy>().slowMovement(slowDuration, slowingRate);
+
         Destroy(gameObject);
     }
 }

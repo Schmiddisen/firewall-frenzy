@@ -11,7 +11,7 @@ public class TargetingTower: Tower {
 
     [SerializeField] public float barrelRotationOffset = 0;
 
-    private Transform currentTarget;
+    protected Transform currentTarget;
 
     void Awake() {
         // From Serialized Fields in Unity Editor
@@ -48,7 +48,7 @@ public class TargetingTower: Tower {
         Debug.Log("Empty Method body, because upgrade gets implemented for the individual Towers, so if you see this message, the wrong upgrade method gets called");
     }
 
-    private void RotateTowardsTarget()
+    protected void RotateTowardsTarget()
     {
         float angle = Mathf.Atan2(currentTarget.position.y - transform.position.y,
             currentTarget.position.x - transform.position.x) * Mathf.Rad2Deg;
