@@ -170,6 +170,7 @@ public abstract class Enemy: MonoBehaviour
             onDestroy();
         }
     }
+    
     public virtual void onDestroy()
     {
         Destroy(gameObject);
