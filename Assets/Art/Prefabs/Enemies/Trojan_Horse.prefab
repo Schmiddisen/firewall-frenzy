@@ -167,8 +167,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 6494740328794203927}
   baseMovementSpeed: 1
-  baseHealth: 3
-  currencyWorth: 20
+  baseHealth: 200
+  currencyWorth: 100
   path: []
   currentPathTarget: {fileID: 0}
   pathIndex: 0
@@ -176,3 +176,4 @@ MonoBehaviour:
   currentMovementSpeed: 0
   distanceTraveled: 0
   virusPrefab: {fileID: 6132882177054522237, guid: 5141747a24e6162a38c66a06024766e1, type: 3}
+  spawnCount: 5

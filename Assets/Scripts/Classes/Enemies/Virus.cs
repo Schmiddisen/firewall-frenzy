@@ -32,7 +32,7 @@ public class Virus : Enemy
     {
         if (pathIndex >= path.Length)
         {
-            Destroy(gameObject);
+            base.onDestroy();
             return;
         }
 
