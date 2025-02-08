@@ -138,7 +138,7 @@ public class MenuTowerDetails : MonoBehaviour
         }
         TowerLabelPriority.text = nextCapitalIndex != -1 ? tower.targetPrio.ToString().Substring(0, nextCapitalIndex) : tower.targetPrio.ToString();
         //Upgrade Path
-        Debug.Log(tower.name);
+        //Debug.Log(tower.name);
         TowerJSON towerInfo = towerData.towers.FirstOrDefault(t => t.name == tower.name);
         if (towerInfo != null)
         {
