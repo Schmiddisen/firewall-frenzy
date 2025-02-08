@@ -55,7 +55,7 @@ public class Trojan_horse : Enemy
     public override void removeplayerHealth()
     {
         // Calculate the total health left at death
-        int totalHealthAtDeath = currentHealth + (spawnCount * 5 * virusPrefab.GetComponent<Virus>().baseHealth);
+        int totalHealthAtDeath = currentHealth + (spawnCount * 5 * virusPrefab.GetComponent<Virus>().baseHealth); // the 5 represents the toughness grade of the spawned viruses
         
         // Deduct the total calculated damage from the player's health
         LevelManager.main.OnEnemyFinishTrack.Invoke(totalHealthAtDeath);
