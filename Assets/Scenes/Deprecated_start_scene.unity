@@ -1658,6 +1658,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerDetailsUI: {fileID: 1368422986}
+  towerInfos: {fileID: 0}
+  uIDocument: {fileID: 0}
   startPoint: {fileID: 1659952454}
   path:
   - {fileID: 1934400909}
@@ -1673,6 +1675,7 @@ MonoBehaviour:
   - {fileID: 653859853}
   selectedTower: {fileID: 0}
   currency: 100
+  playerHealth: 300
 --- !u!4 &849018324
 Transform:
   m_ObjectHideFlags: 0
@@ -1725,10 +1728,8 @@ MonoBehaviour:
   - {fileID: 5427145149855544514, guid: 1a71a72eb5f8bb6448020082444f57dd, type: 3}
   - {fileID: 5427145149855544514, guid: 094b8f64a41b9ea4bb607db265e47bb2, type: 3}
   - {fileID: 5427145149855544514, guid: 69347f0fb293b1b43a633a683d05a3e0, type: 3}
-  towerButtons:
-  - {fileID: 836867073}
-  - {fileID: 1361811451}
-  - {fileID: 951094974}
+  towerInfos: {fileID: 0}
+  uIDocument: {fileID: 0}
 --- !u!114 &849018327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3039,8 +3040,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b59d5f82998fca4ab79d8ecf0284efb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detailsText: {fileID: 778324635}
-  dropdown: {fileID: 1519838080}
+  uIDocument: {fileID: 0}
+  towerInfos: {fileID: 0}
 --- !u!1 &1369053481
 GameObject:
   m_ObjectHideFlags: 0
@@ -3590,8 +3591,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b59d5f82998fca4ab79d8ecf0284efb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detailsText: {fileID: 0}
-  dropdown: {fileID: 0}
+  uIDocument: {fileID: 0}
+  towerInfos: {fileID: 0}
 --- !u!114 &1519838080
 MonoBehaviour:
   m_ObjectHideFlags: 0
