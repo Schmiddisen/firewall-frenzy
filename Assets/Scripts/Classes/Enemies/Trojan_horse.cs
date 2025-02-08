@@ -18,24 +18,30 @@ public class Trojan_horse : Enemy
 
         float spacing = 0.4f; // Distance between spawned viruses
 
-        // Spawn three Virus enemies at the same path progress
-        for (int i = 0; i < 3; i++)
+        // Spawn three Virus enemies, starting from the same position and moving backwards
+        for (int i = 0; i < 5; i++)
         {
-            GameObject virus = Instantiate(virusPrefab, transform.position + (Vector3)(moveDirection * (i - 1) * spacing), Quaternion.identity);
-            Virus virusScript = virus.GetComponent<Virus>();
+            // Adjust position to spawn viruses behind the Trojan Horse
+            Vector3 spawnPosition = transform.position - (Vector3)(moveDirection * i * spacing); // i * spacing (0, 0.4, 0.8)
 
-            if (virusScript != null)
+            GameObject virus = Instantiate(virusPrefab, spawnPosition, Quaternion.identity);
+            Virus Virus = virus.GetComponent<Virus>();
+
+            if (Virus != null)
             {
-                virusScript.SetToughnessGrade(5);
-                virusScript.setupEnemy(virusScript.baseMovementSpeed, virusScript.baseHealth, virusScript.currencyWorth);
-                
+                Virus.SetToughnessGrade(5);
+                Virus.setupEnemy(Virus.baseMovementSpeed, Virus.baseHealth, Virus.currencyWorth);
+                Virus.distanceTraveled = this.getDistanceTraveled(); // Copy parent's distance
+                Virus.UpdateColor();
+                Virus.currentMovementSpeed = Virus.GetMovementSpeedByToughness(Virus.toughnessGrade);
+
                 // Inherit path progress
-                virusScript.path = this.path;
-                virusScript.pathIndex = this.pathIndex; // Continue from the same path index
-                virusScript.currentPathTarget = this.currentPathTarget;
+                Virus.path = this.path;
+                Virus.pathIndex = this.pathIndex; // Continue from the same path index
+                Virus.currentPathTarget = this.currentPathTarget;
             }
         }
 
-        base.onDestroy();
+        base.onDestroy(); // Destroy the Trojan Horse itself
     }
 }

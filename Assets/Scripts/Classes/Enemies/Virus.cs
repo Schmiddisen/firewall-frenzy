@@ -70,7 +70,7 @@ public class Virus : Enemy
         weakerVirus.currentPathTarget = this.currentPathTarget; // Set correct next target
     }
 
-    private float GetMovementSpeedByToughness(int grade)
+    public float GetMovementSpeedByToughness(int grade)
     {
         switch (grade)
         {
