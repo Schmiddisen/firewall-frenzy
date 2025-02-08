@@ -9,12 +9,19 @@ public class Trojan_horse : Enemy
         setupEnemy(baseMovementSpeed, baseHealth, currencyWorth);
     }
 
-    /*public override void onDestroy()
+    public override void onDestroy()
     {
+        // Determine movement direction
+        Vector2 moveDirection = (pathIndex < path.Length) 
+            ? (path[pathIndex].position - transform.position).normalized 
+            : rb.linearVelocity.normalized;
+
+        float spacing = 0.4f; // Distance between spawned viruses
+
         // Spawn three Virus enemies at the same path progress
         for (int i = 0; i < 3; i++)
         {
-            GameObject virus = Instantiate(virusPrefab, transform.position, Quaternion.identity);
+            GameObject virus = Instantiate(virusPrefab, transform.position + (Vector3)(moveDirection * (i - 1) * spacing), Quaternion.identity);
             Virus virusScript = virus.GetComponent<Virus>();
 
             if (virusScript != null)
@@ -26,13 +33,9 @@ public class Trojan_horse : Enemy
                 virusScript.path = this.path;
                 virusScript.pathIndex = this.pathIndex; // Continue from the same path index
                 virusScript.currentPathTarget = this.currentPathTarget;
-                
-                // Small random offset to avoid stacking
-                Vector2 offset = Random.insideUnitCircle * 0.2f;
-                virus.transform.position += (Vector3)offset;
             }
         }
 
-        base.onDestroy(); // Destroy the TankEnemy itself
-    }*/
+        base.onDestroy();
+    }
 }
