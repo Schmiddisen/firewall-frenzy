@@ -32,7 +32,7 @@ public class Virus : Enemy
     {
         if (pathIndex >= path.Length)
         {
-            Destroy(gameObject);
+            base.onDestroy();
             return;
         }
 
@@ -70,7 +70,7 @@ public class Virus : Enemy
         weakerVirus.currentPathTarget = this.currentPathTarget; // Set correct next target
     }
 
-    private float GetMovementSpeedByToughness(int grade)
+    public float GetMovementSpeedByToughness(int grade)
     {
         switch (grade)
         {

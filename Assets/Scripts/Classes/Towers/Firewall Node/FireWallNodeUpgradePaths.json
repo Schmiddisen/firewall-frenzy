@@ -4,19 +4,19 @@
             {
                 "level": 1,
                 "aps": 0.5,
-                "damage": 2.0,
+                "damage": 20,
                 "range": 2.0
             },
             {
                 "level": 2,
                 "aps": 0.5,
-                "damage": 2.0,
+                "damage": 20,
                 "range": 2.0
             },
             {
                 "level": 3,
                 "aps": 0.5,
-                "damage": 2.0,
+                "damage": 20,
                 "range": 2.0
             }
         ]
@@ -26,19 +26,19 @@
             {
                 "level": 1,
                 "aps": 0.5,
-                "damage": 1.0,
+                "damage": 10,
                 "range": 2.5
             },
             {
                 "level": 2,
                 "aps": 0.5,
-                "damage": 1.0,
+                "damage": 10,
                 "range": 3.0
             },
             {
                 "level": 3,
                 "aps": 0.5,
-                "damage": 1.0,
+                "damage": 10,
                 "range": 3.0
             }
         ]

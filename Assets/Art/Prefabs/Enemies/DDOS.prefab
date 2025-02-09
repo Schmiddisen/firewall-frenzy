@@ -167,12 +167,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 7748976646083950940}
-  flameParticles: {fileID: 5680761716712827247, guid: ef3a0aa4df72e38318287d2fa658a4d0, type: 3}
   baseMovementSpeed: 1
-  baseHealth: 20
+  baseHealth: 200
   currencyWorth: 20
   path: []
   currentPathTarget: {fileID: 0}
+  pathIndex: 0
+  currentHealth: 0
+  currentMovementSpeed: 0
+  distanceTraveled: 0
   staggerRange: 3
   staggerValue: 0.8
   towerMask:

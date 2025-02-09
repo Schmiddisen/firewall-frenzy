@@ -24,7 +24,7 @@ public class AreaOfEffectTower : Tower
     protected bool pulsesUnlocked = false;
     protected float lastPulseTime = 0f;
 
-    BurnEffect currentBurn = new BurnEffect(5, 1, 1, false);
+    BurnEffect currentBurn = new BurnEffect(5, 10, 1, false);
 
     void Start()
     {
@@ -124,10 +124,10 @@ public class AreaOfEffectTower : Tower
             // DoT upgrades
             if (getCurrentLevel() >= 2)
             {
-                currentBurn = new BurnEffect(5, 2, 1, false); //increase burn DoT by 1
+                currentBurn = new BurnEffect(5, 20, 1, false); //increase burn DoT by 1
                 if (getCurrentLevel() >= 3)
                 {
-                    currentBurn = new BurnEffect(5, 2, 1, true); // add bonus dmg effect for enemies having the DoT
+                    currentBurn = new BurnEffect(5, 20, 1, true); // add bonus dmg effect for enemies having the DoT
                 }
             }
         }
