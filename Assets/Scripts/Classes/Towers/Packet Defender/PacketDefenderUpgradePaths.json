@@ -9,13 +9,13 @@
             },
             {
                 "level": 2,
-                "aps": 4.0,
-                "damage": 20,
+                "aps": 5.0,
+                "damage": 10,
                 "range": 3.0
             },
             {
                 "level": 3,
-                "aps": 8.0,
+                "aps": 9.0,
                 "damage": 10,
                 "range": 3.0
             }
