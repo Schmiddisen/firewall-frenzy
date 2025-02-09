@@ -368,7 +368,7 @@ MonoBehaviour:
   baseUpgradeCosts: 100
   buildCost: 100
   baseTargetingRange: 2
-  baseDMG: 1
+  baseDMG: 10
   baseAPS: 0.5
   name: Firewall Node
   upgradePath: 2

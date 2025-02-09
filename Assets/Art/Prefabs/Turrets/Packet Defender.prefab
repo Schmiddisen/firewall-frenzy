@@ -494,10 +494,9 @@ MonoBehaviour:
   baseUpgradeCosts: 100
   buildCost: 100
   baseTargetingRange: 3
-  baseDMG: 2
+  baseDMG: 20
   baseAPS: 1
   name: Packet Defender
-  currentLevel: 0
   upgradePath: 2
   currentDMG: 0
   currentAPS: 0

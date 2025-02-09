@@ -23,7 +23,7 @@ public class LevelManager : MonoBehaviour
 
     public int currency = 100;
 
-    public int playerHealth = 300; // -> 100 health for each node
+    public int playerHealth = 3000; // -> 1000 health for each node
 
     public class EnemyFinishTrackEvent : UnityEvent<int> { }
     public EnemyFinishTrackEvent OnEnemyFinishTrack;

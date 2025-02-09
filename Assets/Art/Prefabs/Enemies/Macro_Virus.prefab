@@ -167,7 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 6494740328794203927}
   baseMovementSpeed: 0.5
-  baseHealth: 700
+  baseHealth: 7000
   currencyWorth: 150
   path: []
   currentPathTarget: {fileID: 0}
