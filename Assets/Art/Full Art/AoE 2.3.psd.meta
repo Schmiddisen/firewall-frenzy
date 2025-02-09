@@ -1,40 +1,19 @@
 fileFormatVersion: 2
-guid: 91b5e56a58e41402db891c119a0044d1
+guid: d48b4cfec826c644089cd67df8d38a53
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3331064460654838542
-    second: Sniper Tower_0
+      213: -7195981116411044504
+    second: AoE 2.3_0
   - first:
-      213: -5865591573783552233
-    second: Sniper Tower_1
+      213: -672647381927115827
+    second: AoE 2.3_1
   - first:
-      213: 6592703892169822051
-    second: Sniper Tower_2
+      213: -1591292563547152491
+    second: AoE 2.3_2
   - first:
-      213: 7881881878621872360
-    second: Sniper Tower_3
-  - first:
-      213: 1667342372597120028
-    second: Sniper Tower_4
-  - first:
-      213: 720631850392066774
-    second: Sniper Tower_5
-  - first:
-      213: -7817876909873064700
-    second: Sniper Tower_6
-  - first:
-      213: -7594827130471852626
-    second: Sniper Tower_7
-  - first:
-      213: -3866801821301134704
-    second: Sniper Tower_8
-  - first:
-      213: -2039807608469267672
-    second: Sniper Tower_9
-  - first:
-      213: -7551902817100604688
-    second: Sniper Tower_10
+      213: -5419933574519215020
+    second: AoE 2.3_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,30 +105,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sniper Tower_5
+      name: AoE 2.3_0
       rect:
         serializedVersion: 2
-        x: 112
-        y: 107
-        width: 868
-        height: 864
+        x: 259
+        y: 410
+        width: 934
+        height: 930
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,8 +124,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6da937099d2300a00800000000000000
-      internalID: 720631850392066774
+      spriteID: 86d96e1fc4db22c90800000000000000
+      internalID: -7195981116411044504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoE 2.3_1
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 71
+        width: 331
+        height: 330
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc3432d15c64aa6f0800000000000000
+      internalID: -672647381927115827
       vertices: []
       indices: 
       edges: []
@@ -168,7 +156,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d46ff545ed87a89419b82d053502b9dd
+    spriteID: e23f91f06779985408e8cf07eb3910fb
     internalID: 0
     vertices: []
     indices: 
@@ -178,17 +166,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Sniper Tower_0: 3331064460654838542
-      Sniper Tower_1: -5865591573783552233
-      Sniper Tower_10: -7551902817100604688
-      Sniper Tower_2: 6592703892169822051
-      Sniper Tower_3: 7881881878621872360
-      Sniper Tower_4: 1667342372597120028
-      Sniper Tower_5: 720631850392066774
-      Sniper Tower_6: -7817876909873064700
-      Sniper Tower_7: -7594827130471852626
-      Sniper Tower_8: -3866801821301134704
-      Sniper Tower_9: -2039807608469267672
+      AoE 2.3_0: -7195981116411044504
+      AoE 2.3_1: -672647381927115827
+      AoE 2.3_2: -1591292563547152491
+      AoE 2.3_3: -5419933574519215020
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

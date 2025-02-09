@@ -1,40 +1,13 @@
 fileFormatVersion: 2
-guid: 91b5e56a58e41402db891c119a0044d1
+guid: c4bb025d535f7a14ab6d3be2b4c9ab5c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3331064460654838542
-    second: Sniper Tower_0
+      213: -2057698540552916100
+    second: Basic Tower 2.2_0
   - first:
-      213: -5865591573783552233
-    second: Sniper Tower_1
-  - first:
-      213: 6592703892169822051
-    second: Sniper Tower_2
-  - first:
-      213: 7881881878621872360
-    second: Sniper Tower_3
-  - first:
-      213: 1667342372597120028
-    second: Sniper Tower_4
-  - first:
-      213: 720631850392066774
-    second: Sniper Tower_5
-  - first:
-      213: -7817876909873064700
-    second: Sniper Tower_6
-  - first:
-      213: -7594827130471852626
-    second: Sniper Tower_7
-  - first:
-      213: -3866801821301134704
-    second: Sniper Tower_8
-  - first:
-      213: -2039807608469267672
-    second: Sniper Tower_9
-  - first:
-      213: -7551902817100604688
-    second: Sniper Tower_10
+      213: 1851206434866528207
+    second: Basic Tower 2.2_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,40 +99,49 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sniper Tower_5
+      name: Basic Tower 2.2_0
       rect:
         serializedVersion: 2
-        x: 112
-        y: 107
-        width: 868
-        height: 864
+        x: 9
+        y: 4
+        width: 399
+        height: 398
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6da937099d2300a00800000000000000
-      internalID: 720631850392066774
+      spriteID: c73f08b54169173e0800000000000000
+      internalID: -2057698540552916100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic Tower 2.2_1
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 192
+        width: 891
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcff224c17ec0b910800000000000000
+      internalID: 1851206434866528207
       vertices: []
       indices: 
       edges: []
@@ -168,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d46ff545ed87a89419b82d053502b9dd
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -178,17 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Sniper Tower_0: 3331064460654838542
-      Sniper Tower_1: -5865591573783552233
-      Sniper Tower_10: -7551902817100604688
-      Sniper Tower_2: 6592703892169822051
-      Sniper Tower_3: 7881881878621872360
-      Sniper Tower_4: 1667342372597120028
-      Sniper Tower_5: 720631850392066774
-      Sniper Tower_6: -7817876909873064700
-      Sniper Tower_7: -7594827130471852626
-      Sniper Tower_8: -3866801821301134704
-      Sniper Tower_9: -2039807608469267672
+      Basic Tower 2.2_0: -2057698540552916100
+      Basic Tower 2.2_1: 1851206434866528207
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
