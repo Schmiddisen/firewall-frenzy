@@ -1,0 +1,37 @@
+.tower_button {
+    width: 180px;
+    height: 180px;
+    padding-top: 7px;
+    padding-right: 7px;
+    padding-bottom: 7px;
+    padding-left: 7px;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    border-bottom-right-radius: 10%;
+    border-bottom-left-radius: 10%;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-left-color: rgb(80, 80, 80);
+    border-right-color: rgb(80, 80, 80);
+    border-top-color: rgb(80, 80, 80);
+    border-bottom-color: rgb(80, 80, 80);
+    align-self: auto;
+    align-content: flex-start;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: rgb(227, 225, 217);
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.tower_button:hover {
+    transition-property: scale;
+    transition-duration: 0.1s;
+    scale: 1.05 1.05;
+}
