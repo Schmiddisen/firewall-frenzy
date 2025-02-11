@@ -3,12 +3,12 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Playables;
 
-public abstract class Enemy: MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] public Rigidbody2D rb;
-    
-    
+
+
     [Header("Attributes")]
     [SerializeField] public float baseMovementSpeed;
     [SerializeField] public int baseHealth;
@@ -28,9 +28,9 @@ public abstract class Enemy: MonoBehaviour
 
     public float distanceTraveled;
 
-    private BurnEffect burnEffect;
+    private BurnEffect burnEffect = new(0, 0, 0, false);
 
-    private float lastBurnTime;
+    public float lastBurnTime;
 
     private System.Random rnd;
 
@@ -51,7 +51,6 @@ public abstract class Enemy: MonoBehaviour
 
         this.isDestroyed = false;
 
-        this.burnEffect = null;
         this.lastBurnTime = Time.time;
 
         this.rnd = new();
@@ -62,7 +61,8 @@ public abstract class Enemy: MonoBehaviour
         move();
     }
 
-    public virtual void Update(){
+    public virtual void Update()
+    {
         HandleBurnEffect();
     }
 
@@ -89,11 +89,12 @@ public abstract class Enemy: MonoBehaviour
         }
     }
 
-    public void knockback(float knockbackStrength) {
+    public void knockback(float knockbackStrength)
+    {
         int prevWaypointIndex = pathIndex - 1;
 
         Transform prevWaypoint;
-        
+
         if (prevWaypointIndex < 0)
         {
             prevWaypoint = LevelManager.main.startPoint;
@@ -109,14 +110,16 @@ public abstract class Enemy: MonoBehaviour
         Vector2 distance = knockabackDistance * Time.deltaTime;
 
         distanceTraveled -= distance.magnitude;
-        transform.position += (Vector3) knockabackDistance * Time.deltaTime;
-    }
-    
-    public void interruptMovement(float duration) {
-    StartCoroutine(interruptMovementCoroutine(duration));
+        transform.position += (Vector3)knockabackDistance * Time.deltaTime;
     }
 
-    private IEnumerator interruptMovementCoroutine(float duration) {
+    public void interruptMovement(float duration)
+    {
+        StartCoroutine(interruptMovementCoroutine(duration));
+    }
+
+    private IEnumerator interruptMovementCoroutine(float duration)
+    {
         isStunned = true;
         this.currentMovementSpeed = 0;
         yield return new WaitForSeconds(duration);
@@ -124,25 +127,33 @@ public abstract class Enemy: MonoBehaviour
         applyMovementDebuff();
     }
 
-    public void slowMovement(float duration, float slowingRate) {
+    public void slowMovement(float duration, float slowingRate)
+    {
         StartCoroutine(slowMovementCoroutine(duration, slowingRate));
     }
 
-    private IEnumerator slowMovementCoroutine(float duration, float slowingRate) {
+    private IEnumerator slowMovementCoroutine(float duration, float slowingRate)
+    {
         isSlowed = true;
         slowMultiplier = slowingRate;
         applyMovementDebuff();
         yield return new WaitForSeconds(duration);
         isSlowed = false;
         applyMovementDebuff();
-    }  
+    }
 
-    private void applyMovementDebuff() {
-        if (isStunned) {
+    private void applyMovementDebuff()
+    {
+        if (isStunned)
+        {
             this.currentMovementSpeed = 0;
-        } else if (isSlowed) {
-            this.currentMovementSpeed = baseMovementSpeed * slowMultiplier; 
-        } else {
+        }
+        else if (isSlowed)
+        {
+            this.currentMovementSpeed = baseMovementSpeed * slowMultiplier;
+        }
+        else
+        {
             this.currentMovementSpeed = baseMovementSpeed;
         }
     }
@@ -154,12 +165,15 @@ public abstract class Enemy: MonoBehaviour
     public void takeDamage(int dmg)
     {
         // check if the burn effect has bonus damage, generate a random number bewteen 1 and 10 and then double the taken damage
-        if (burnEffect != null){
-                    if (burnEffect.applyBonusDmg){
-            if (rnd.Next(1,10) == 1 ){
-                dmg *= 2;
+        if (burnEffect != null)
+        {
+            if (burnEffect.applyBonusDmg)
+            {
+                if (rnd.Next(1, 10) == 1)
+                {
+                    dmg *= 2;
+                }
             }
-        }
         }
 
         currentHealth -= dmg;
@@ -170,13 +184,14 @@ public abstract class Enemy: MonoBehaviour
             onDestroy();
         }
     }
-    
+
     public virtual void onDestroy()
     {
         Destroy(gameObject);
     }
-    
-    public virtual void removeplayerHealth() {
+
+    public virtual void removeplayerHealth()
+    {
         LevelManager.main.OnEnemyFinishTrack.Invoke(currentHealth);
     }
 
@@ -188,6 +203,11 @@ public abstract class Enemy: MonoBehaviour
     public void ApplyBurnEffect(BurnEffect effect)
     {
         burnEffect = effect;
+    }
+
+    public BurnEffect GetBurnEffect()
+    {
+        return burnEffect;
     }
 
     public void HandleBurnEffect()
@@ -211,7 +231,6 @@ public abstract class Enemy: MonoBehaviour
             takeDamage(burnEffect.damage);
             // Update last burn time
             lastBurnTime = Time.time;
-            // TODO: spawn burning particles
         }
     }
 }
