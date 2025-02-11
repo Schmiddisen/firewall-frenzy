@@ -4,7 +4,7 @@
         <engine:VisualElement name="Main_Manu_Box" style="flex-grow: 1; position: absolute; width: 530px; height: 800px; background-color: rgba(217, 217, 217, 0.67); justify-content: space-evenly; align-content: flex-start; align-items: center; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);">
             <engine:Button text="New Game" name="New_Game_Button" class="button" />
             <engine:Button text="Continue Game" name="Continue_Game_Button" class="button" />
-            <engine:Button text="Exit Game" name="Exit_Game-Button" class="button" />
+            <engine:Button text="Exit Game" name="Exit_Game_Button" class="button" />
             <engine:Slider label="Volume&#10;" value="50" name="volume_slider" high-value="100" class="slider" />
             <engine:Slider label="SFX" value="50" high-value="100" name="sfx_slider" class="slider" />
         </engine:VisualElement>
