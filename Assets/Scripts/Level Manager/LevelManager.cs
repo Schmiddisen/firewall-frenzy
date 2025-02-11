@@ -23,7 +23,7 @@ public class LevelManager : MonoBehaviour
 
     public int currency = 100;
 
-    public int playerHealth = 3000; // -> 1000 health for each node
+    public int playerHealth = 5000; // -> 1000 health for each node
 
     public class EnemyFinishTrackEvent : UnityEvent<int> { }
     public EnemyFinishTrackEvent OnEnemyFinishTrack;
@@ -31,7 +31,7 @@ public class LevelManager : MonoBehaviour
     public void Awake()
     {
         main = this;
-
+        towerDetailsUI.updateCurrency(uIDocument, currency);
         OnEnemyFinishTrack ??= new EnemyFinishTrackEvent();
         OnEnemyFinishTrack.AddListener(EnemyFinishTrack);
     }
@@ -64,6 +64,7 @@ public class LevelManager : MonoBehaviour
     public void IncreaseCurrency(int amount)
     {
         currency += amount;
+        towerDetailsUI.updateCurrency(uIDocument, currency);
     }
 
     public void EnemyFinishTrack(int enemyHealth)
