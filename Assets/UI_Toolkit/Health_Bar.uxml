@@ -1,0 +1,23 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI_Toolkit/health_bar.uss?fileID=7433441132597879392&amp;guid=81b7ef8c079074e679ea59437b302733&amp;type=3#health_bar" />
+    <engine:VisualElement name="health_bar_initial" style="flex-grow: 1; position: absolute; right: 0; width: 120px; height: 770px; align-self: flex-end; justify-content: center; align-items: center; bottom: 220px; top: 90px;">
+        <engine:VisualElement name="VisualElement" style="flex-grow: 1; width: 30px; height: 500px; position: absolute; background-color: rgb(217, 217, 217); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);" />
+        <engine:VisualElement style="flex-grow: 1; width: 100px; height: 600px; position: absolute; justify-content: space-evenly;">
+            <engine:VisualElement name="Node_1" style="flex-grow: 1; width: 100px; height: 100px; margin-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; background-image: url(&quot;project://database/Assets/Art/Full%20Art/Node.png?fileID=2800000&amp;guid=2ec04c98fdb244808930685dc2695cda&amp;type=3#Node&quot;); background-size: 100px 100px; align-content: center; justify-content: space-around; align-items: center; align-self: center;">
+                <engine:Label text="X" name="Node_1_broken" class="font hidden" style="align-self: center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-text-align: middle-center;" />
+            </engine:VisualElement>
+            <engine:VisualElement name="Node_2" style="flex-grow: 1; width: 100px; height: 100px; margin-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; background-image: url(&quot;project://database/Assets/Art/Full%20Art/Node.png?fileID=2800000&amp;guid=2ec04c98fdb244808930685dc2695cda&amp;type=3#Node&quot;); background-size: 100px 100px;">
+                <engine:Label text="X" name="Node_2_broken" class="font hidden" style="align-self: center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-text-align: middle-center;" />
+            </engine:VisualElement>
+            <engine:VisualElement name="Node_3" style="flex-grow: 1; width: 100px; height: 100px; margin-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; background-image: url(&quot;project://database/Assets/Art/Full%20Art/Node.png?fileID=2800000&amp;guid=2ec04c98fdb244808930685dc2695cda&amp;type=3#Node&quot;); background-size: 100px 100px;">
+                <engine:Label text="X" name="Node_3_broken" class="font hidden" style="align-self: center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-text-align: middle-center;" />
+            </engine:VisualElement>
+            <engine:VisualElement name="Node_4" style="flex-grow: 1; width: 100px; height: 100px; margin-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; background-image: url(&quot;project://database/Assets/Art/Full%20Art/Node.png?fileID=2800000&amp;guid=2ec04c98fdb244808930685dc2695cda&amp;type=3#Node&quot;); background-size: 100px 100px;">
+                <engine:Label text="X" name="Node_4_broken" class="font hidden" style="align-self: center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-text-align: middle-center;" />
+            </engine:VisualElement>
+            <engine:VisualElement name="Node_5" style="flex-grow: 1; width: 100px; height: 100px; margin-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; background-image: url(&quot;project://database/Assets/Art/Full%20Art/Node.png?fileID=2800000&amp;guid=2ec04c98fdb244808930685dc2695cda&amp;type=3#Node&quot;); background-size: 100px 100px;">
+                <engine:Label text="X" name="Node_5_broken" class="font hidden" style="align-self: center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-text-align: middle-center;" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>
