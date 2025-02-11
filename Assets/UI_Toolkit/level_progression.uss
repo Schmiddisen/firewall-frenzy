@@ -1,0 +1,25 @@
+.add_border {
+    border-top-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    border-bottom-right-radius: 100%;
+    border-bottom-left-radius: 100%;
+}
+
+.level_circle {
+    background-color: rgb(217, 217, 217);
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.font {
+    -unity-font-definition: url("project://database/Assets/Fonts/Rajdhani-Bold.ttf?fileID=12800000&guid=fdce0fa83b5c1418ebba6e44589143b8&type=3#Rajdhani-Bold");
+}

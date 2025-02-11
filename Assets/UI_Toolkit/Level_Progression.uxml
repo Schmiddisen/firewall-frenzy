@@ -1,0 +1,12 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/level_progression.uss?fileID=7433441132597879392&amp;guid=2ef3b298f065b4854aed2e42e06138d7&amp;type=3#level_progression" />
+    <engine:VisualElement class="font" style="flex-grow: 1; width: 1080px; height: 102px; align-self: center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; position: absolute; align-content: stretch; align-items: center; justify-content: center; flex-direction: row; overflow: hidden;">
+        <engine:ProgressBar value="50" title="nimm dem value wert und mache ihn abhängig von 100, also dass Wenn value 50 is (wie jetzt) dann ist 50%" name="ProgressBar" enabled="true" style="width: 1000px; height: 30px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; overflow: hidden; justify-content: center; border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);" />
+        <engine:VisualElement name="current_level_circle" class="add_border level_circle" style="flex-grow: 1; width: 80px; height: 80px; min-width: 80px; min-height: 80px; overflow: hidden; position: absolute; left: 0;">
+            <engine:Label text="1&#10;" name="current_level" style="width: 90%; height: 90%; -unity-text-align: middle-center; font-size: 80%;" />
+        </engine:VisualElement>
+        <engine:VisualElement name="next_level_circle" class="add_border level_circle" style="flex-grow: 1; width: 80px; height: 80px; min-width: 80px; min-height: 80px; overflow: hidden; position: absolute; right: 0;">
+            <engine:Label text="2" name="next_level" style="width: 90%; height: 90%; -unity-text-align: middle-center; font-size: 80%;" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>
