@@ -44,8 +44,6 @@ public class MenuTowerDetails : MonoBehaviour
             .ToList()
             .Where(b => b.name.StartsWith("TS_"))
             .ToArray();
-
-        Debug.Log(towerData);
         foreach (Button button in buttons)
         {  
             button.clicked += () => changePriority(button);

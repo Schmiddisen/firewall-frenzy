@@ -811,8 +811,10 @@ MonoBehaviour:
   towerDetailsUI: {fileID: 766660418}
   healthUI: {fileID: 1443961904}
   towerInfos: {fileID: 4900000, guid: 911e222e0c7d84741b03a8e4d9e782fa, type: 3}
-  shop_uIDocument: {fileID: 257117284}
-  health_uIDocument: {fileID: 1443961903}
+  shopMenuUIDocument: {fileID: 257117284}
+  pauseButtonUIDocument: {fileID: 1366630250}
+  pauseMenuUIDocument: {fileID: 1966435751}
+  healthUIDocument: {fileID: 1443961903}
   startPoint: {fileID: 1659952454}
   path:
   - {fileID: 1934400909}

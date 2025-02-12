@@ -40,7 +40,7 @@ public class LevelManager : MonoBehaviour
     public void Awake()
     {
         main = this;
-        towerDetailsUI.updateCurrency(shop_uIDocument, currency);
+        towerDetailsUI.updateCurrency(shopMenuUIDocument, currency);
         OnEnemyFinishTrack ??= new EnemyFinishTrackEvent();
         OnEnemyFinishTrack.AddListener(EnemyFinishTrack);
     }
@@ -77,15 +77,13 @@ public class LevelManager : MonoBehaviour
     public void IncreaseCurrency(int amount)
     {
         currency += amount;
-        towerDetailsUI.updateCurrency(shop_uIDocument, currency);
+        towerDetailsUI.updateCurrency(shopMenuUIDocument, currency);
     }
 
     public void EnemyFinishTrack(int enemyHealth)
     {
         this.playerHealth -= enemyHealth;
-        Debug.Log("playerHealth: " + playerHealth);
-        healthUI.UpdateHealthBar(healthUIDocument, player
-        );
+        healthUI.UpdateHealthBar(healthUIDocument, playerHealth);
         if (healthUI.CheckIfDefeat(playerHealth))
         {
             Debug.Log("Game Over");
