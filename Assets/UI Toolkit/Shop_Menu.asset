@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 19101, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Level_Progression
+  m_Name: Shop_Menu
   m_EditorClassIdentifier: 
   themeUss: {fileID: -4733365628477956816, guid: c04ee54a2c454448cac0b850749f0648, type: 3}
   m_DisableNoThemeWarning: 0
@@ -23,7 +23,7 @@ MonoBehaviour:
   m_Scale: 1
   m_ReferenceDpi: 96
   m_FallbackDpi: 96
-  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ReferenceResolution: {x: 1920, y: 800}
   m_ScreenMatchMode: 0
   m_Match: 0
   m_SortingOrder: 0
