@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
     public static LevelManager main;
 
     [SerializeField] public MenuTowerDetails towerDetailsUI;
+    [SerializeField] public HealthUI healthUI;
 
     [Header("JSON")]
     public TextAsset towerInfos;
@@ -19,6 +20,8 @@ public class LevelManager : MonoBehaviour
     public UIDocument pauseButtonUIDocument;
     [Header("PauseMenu")]
     public UIDocument pauseMenuUIDocument;
+    [Header("HealthUIDocuments")]
+    public UIDocument healthUIDocument;
 
     public Transform startPoint;
     public Transform[] path;
@@ -27,7 +30,7 @@ public class LevelManager : MonoBehaviour
 
     public int currency = 100;
 
-    public int playerHealth = 3000; // -> 1000 health for each node
+    public int playerHealth = 5000; // -> 1000 health for each node
 
     public class EnemyFinishTrackEvent : UnityEvent<int> { }
     public EnemyFinishTrackEvent OnEnemyFinishTrack;
@@ -37,7 +40,7 @@ public class LevelManager : MonoBehaviour
     public void Awake()
     {
         main = this;
-
+        towerDetailsUI.updateCurrency(shop_uIDocument, currency);
         OnEnemyFinishTrack ??= new EnemyFinishTrackEvent();
         OnEnemyFinishTrack.AddListener(EnemyFinishTrack);
     }
@@ -74,11 +77,19 @@ public class LevelManager : MonoBehaviour
     public void IncreaseCurrency(int amount)
     {
         currency += amount;
+        towerDetailsUI.updateCurrency(shop_uIDocument, currency);
     }
 
     public void EnemyFinishTrack(int enemyHealth)
     {
         this.playerHealth -= enemyHealth;
+        Debug.Log("playerHealth: " + playerHealth);
+        healthUI.UpdateHealthBar(healthUIDocument, player
+        );
+        if (healthUI.CheckIfDefeat(playerHealth))
+        {
+            Debug.Log("Game Over");
+        }
     }
 
     public bool SpendCurrency(int amount)
