@@ -44,6 +44,8 @@ public class MenuTowerDetails : MonoBehaviour
             .ToList()
             .Where(b => b.name.StartsWith("TS_"))
             .ToArray();
+
+        Debug.Log(towerData);
         foreach (Button button in buttons)
         {  
             button.clicked += () => changePriority(button);
@@ -58,6 +60,7 @@ public class MenuTowerDetails : MonoBehaviour
         {  
             button.clicked += () => upgrade(button);
         }
+
     }
 
     public void upgrade(Button button) {
@@ -79,12 +82,6 @@ public class MenuTowerDetails : MonoBehaviour
         Tower tower = LevelManager.main.selectedTower;
         tower.targetPrio = (TargetingPriority) Enum.GetValues(typeof(TargetingPriority)).GetValue(index);
         showTowerInfos(this.uIDocument, this.towerInfos);
-    }
-
-    public void updateCurrency(UIDocument doc, int currency)
-    {
-        Label currencyLabel = doc.rootVisualElement.Q<Label>("Currency_value");
-        currencyLabel.text = currency.ToString();
     }
 
     public void showTowerInfos(UIDocument doc, TextAsset towerInfos)
