@@ -1,0 +1,14 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI_Toolkit/level_progression.uss?fileID=7433441132597879392&amp;guid=2ef3b298f065b4854aed2e42e06138d7&amp;type=3#level_progression" />
+    <engine:VisualElement name="VisualElement" style="flex-grow: 1; width: 200px; background-color: rgba(199, 200, 204, 0); right: auto; position: absolute; height: 100%; align-items: center; left: 0;">
+        <engine:VisualElement name="VisualElement" class="font" style="flex-grow: 1; width: 102px; height: 720px; align-self: center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; position: absolute; align-content: stretch; align-items: center; justify-content: center; flex-direction: row; overflow: hidden; top: 10px;">
+            <engine:ProgressBar value="50" name="ProgressBar" enabled="true" style="width: 650px; height: 30px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; overflow: hidden; justify-content: center; border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); rotate: -90deg;" />
+            <engine:VisualElement name="current_level_circle" class="add_border level_circle" style="flex-grow: 1; width: 80px; height: 80px; min-width: 80px; min-height: 80px; overflow: hidden; position: absolute; left: auto; top: auto; bottom: 0;">
+                <engine:Label text="1" name="current_level" style="width: 90%; height: 90%; -unity-text-align: middle-center; font-size: 60%;" />
+            </engine:VisualElement>
+            <engine:VisualElement name="next_level_circle" class="add_border level_circle" style="flex-grow: 1; width: 80px; height: 80px; min-width: 80px; min-height: 80px; overflow: hidden; position: absolute; right: auto; bottom: auto; top: 0;">
+                <engine:Label text="2" name="next_level" style="width: 90%; height: 90%; -unity-text-align: middle-center; font-size: 60%;" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>
