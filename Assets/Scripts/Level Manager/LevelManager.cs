@@ -9,12 +9,14 @@ public class LevelManager : MonoBehaviour
     public static LevelManager main;
 
     [SerializeField] public MenuTowerDetails towerDetailsUI;
+    [SerializeField] public HealthUI healthUI;
 
     [Header("JSON")]
     public TextAsset towerInfos;
 
-    [Header("UIDocument")]
-    public UIDocument uIDocument;
+    [Header("UIDocuments")]
+    public UIDocument shop_uIDocument;
+    public UIDocument health_uIDocument;
 
     public Transform startPoint;
     public Transform[] path;
@@ -31,7 +33,7 @@ public class LevelManager : MonoBehaviour
     public void Awake()
     {
         main = this;
-        towerDetailsUI.updateCurrency(uIDocument, currency);
+        towerDetailsUI.updateCurrency(shop_uIDocument, currency);
         OnEnemyFinishTrack ??= new EnemyFinishTrackEvent();
         OnEnemyFinishTrack.AddListener(EnemyFinishTrack);
     }
@@ -50,7 +52,7 @@ public class LevelManager : MonoBehaviour
 
         this.selectedTower = tower;
         selectedTower.showRangeIndicator(true);
-        towerDetailsUI.showTowerInfos(uIDocument, towerInfos);
+        towerDetailsUI.showTowerInfos(shop_uIDocument, towerInfos);
     }
     public void deselectTower()
     {
@@ -58,18 +60,23 @@ public class LevelManager : MonoBehaviour
 
         selectedTower.showRangeIndicator(false);
         this.selectedTower = null;
-        towerDetailsUI.showTowerInfos(uIDocument, towerInfos);
+        towerDetailsUI.showTowerInfos(shop_uIDocument, towerInfos);
     }
 
     public void IncreaseCurrency(int amount)
     {
         currency += amount;
-        towerDetailsUI.updateCurrency(uIDocument, currency);
+        towerDetailsUI.updateCurrency(shop_uIDocument, currency);
     }
 
     public void EnemyFinishTrack(int enemyHealth)
     {
         this.playerHealth -= enemyHealth;
+        healthUI.UpdateHealthBar(health_uIDocument, playerHealth);
+        if (healthUI.CheckIfDefeat(playerHealth))
+        {
+            Debug.Log("Game Over");
+        }
     }
 
     public bool SpendCurrency(int amount)

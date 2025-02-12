@@ -809,8 +809,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerDetailsUI: {fileID: 766660418}
+  healthUI: {fileID: 0}
   towerInfos: {fileID: 4900000, guid: 911e222e0c7d84741b03a8e4d9e782fa, type: 3}
-  uIDocument: {fileID: 257117284}
+  shop_uIDocument: {fileID: 257117284}
+  health_uIDocument: {fileID: 1443961903}
   startPoint: {fileID: 1659952454}
   path:
   - {fileID: 1934400909}
@@ -826,7 +828,7 @@ MonoBehaviour:
   - {fileID: 653859853}
   selectedTower: {fileID: 0}
   currency: 100
-  playerHealth: 500
+  playerHealth: 5000
 --- !u!4 &849018324
 Transform:
   m_ObjectHideFlags: 0
