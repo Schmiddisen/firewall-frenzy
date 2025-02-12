@@ -1,0 +1,12 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI_Toolkit/Gameover/gameover.uss?fileID=7433441132597879392&amp;guid=bfd571340dd7342b1a826f028e124793&amp;type=3#gameover" />
+    <engine:VisualElement name="Gameover_init" class="font hidden" style="flex-grow: 1; -unity-background-scale-mode: scale-to-fit; background-color: rgba(0, 0, 0, 0.96); background-image: none; visibility: visible; overflow: visible; background-repeat: repeat repeat; background-size: 100px 100%;">
+        <engine:VisualElement name="Gameover_init_1" style="flex-grow: 1; width: 1000px; align-self: center; padding-top: 300px; align-items: center; justify-content: center;">
+            <engine:Label text="GAME OVER" name="Gameover" class="font" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; align-self: auto; -unity-text-align: middle-center; font-size: 150px; color: rgb(231, 0, 65); -unity-font-style: bold; -unity-text-outline-width: 2px; -unity-text-outline-color: rgb(0, 0, 0); text-shadow: 0 0 500px rgb(209, 0, 0);" />
+            <engine:VisualElement name="Button_Placing" style="flex-grow: 1; background-size: 800px 100%; width: 400px; height: 399px; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;">
+                <engine:Button text="Restart Game" name="restart_game" class="button" />
+                <engine:Button text="Exit Game" name="exit_game" class="button" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

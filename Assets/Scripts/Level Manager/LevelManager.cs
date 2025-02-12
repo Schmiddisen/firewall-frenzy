@@ -22,6 +22,8 @@ public class LevelManager : MonoBehaviour
     public UIDocument pauseMenuUIDocument;
     [Header("HealthUIDocument")]
     public UIDocument healthUIDocument;
+    [Header("GameOverUIDocument")]
+    public UIDocument gameOverUIDocument;
 
     public Transform startPoint;
     public Transform[] path;
@@ -39,6 +41,7 @@ public class LevelManager : MonoBehaviour
 
     public void Awake()
     {
+        pauseGame(false);
         main = this;
         towerDetailsUI.updateCurrency(shopMenuUIDocument, currency);
         OnEnemyFinishTrack ??= new EnemyFinishTrackEvent();
@@ -86,6 +89,8 @@ public class LevelManager : MonoBehaviour
         healthUI.UpdateHealthBar(healthUIDocument, playerHealth);
         if (healthUI.CheckIfDefeat(playerHealth))
         {
+            pauseGame(true);
+            gameOverUIDocument.rootVisualElement.Q<VisualElement>("Gameover_init").RemoveFromClassList("hidden");
             Debug.Log("Game Over");
         }
     }
