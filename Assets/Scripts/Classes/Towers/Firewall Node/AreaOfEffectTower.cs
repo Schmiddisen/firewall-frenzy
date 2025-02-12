@@ -11,7 +11,7 @@ public class AreaOfEffectTower : Tower
 {
     [Header("Ability Attributes")]
     public int timeBetweenPulses = 5; // in seconds
-    public float knockbackStrength = 4f;
+    public int knockbackStrength = 20;
     public ParticleSystem burnParticleSystem;
 
     [Header("Upgrade JSON")]
@@ -24,16 +24,13 @@ public class AreaOfEffectTower : Tower
     protected bool pulsesUnlocked = false;
     protected float lastPulseTime = 0f;
 
-    BurnEffect currentBurn = new BurnEffect(5, 10, 1, false);
+    BurnEffect currentBurn = new(5, 10, 1, false);
 
     void Start()
     {
         // From Serialized Fields in Unity Editor
         base.setupTower(enemyMask, targetPrio, towerBaseCollider, towerRotationPoint, towerFiringPoint, shootingParticlePrefab, towerPrefab,
         rangeIndicator, rotationSpeed, baseUpgradeCosts, buildCost, baseTargetingRange, baseDMG, baseAPS, name);
-
-        //When Start, set CircleCollider Range for Particles so that they match the actual tower range
-        setParticleColliderRadius(base.baseTargetingRange);
 
         this.upgradeData = JsonUtility.FromJson<TowerPathUpgrades>(upgradeJson.text);
     }
@@ -61,8 +58,12 @@ public class AreaOfEffectTower : Tower
         // Check if enough time has passed since last pulse
         if (pulsesUnlocked && Time.time - lastPulseTime >= timeBetweenPulses)
         {
-            // TODO: change color of shooting particles to e.g. purple
-            Instantiate(base.shootingParticlePrefab, base.towerRotationPoint.position, this.towerRotationPoint.rotation);
+            ParticleSystem pulseParticle = Instantiate(base.shootingParticlePrefab, base.towerRotationPoint.position, this.towerRotationPoint.rotation);
+            SetParticleRadius(pulseParticle);
+
+            ParticleSystem.MainModule mainModule = pulseParticle.main;
+            mainModule.startColor = Color.black;
+
             // set pulsing to true to double damage
             pulsing = true;
             // Update last pulse time
@@ -71,7 +72,8 @@ public class AreaOfEffectTower : Tower
         else
         {
             // default animation
-            Instantiate(base.shootingParticlePrefab, base.towerRotationPoint.position, this.towerRotationPoint.rotation);
+            ParticleSystem defaultParticle = Instantiate(base.shootingParticlePrefab, base.towerRotationPoint.position, this.towerRotationPoint.rotation);
+            SetParticleRadius(defaultParticle);
         }
 
         if (base.enemyTargets == null || base.enemyTargets.Count == 0) return;
@@ -110,10 +112,6 @@ public class AreaOfEffectTower : Tower
         //Which path
         Upgrades upgradeData = path == UpgradePath.PathA ? this.upgradeData.PathA : this.upgradeData.PathB;
 
-        //When range Upgrade, increase CircleCollider Range for Particles so that they match the actual tower range
-        float newParticleRange = upgradeData.upgrades[getCurrentLevel() + 1 >= 2 ? 2 : getCurrentLevel()].range;
-        setParticleColliderRadius(newParticleRange);
-
         applyUpgrade(upgradeData, path);
 
         // ability upgrade logic
@@ -127,6 +125,7 @@ public class AreaOfEffectTower : Tower
                 currentBurn = new BurnEffect(5, 20, 1, false); //increase burn DoT by 1
                 if (getCurrentLevel() >= 3)
                 {
+                    Debug.Log("BONUSDMG UNLOCKEED");
                     currentBurn = new BurnEffect(5, 20, 1, true); // add bonus dmg effect for enemies having the DoT
                 }
             }
@@ -139,6 +138,7 @@ public class AreaOfEffectTower : Tower
                 knockbackUnlocked = true;
                 if (getCurrentLevel() >= 3)
                 {
+                    Debug.Log("Knockback UNLOCKEED");
                     pulsesUnlocked = true;
                 }
             }
@@ -147,10 +147,13 @@ public class AreaOfEffectTower : Tower
     }
 
     // increase CircleCollider Range for Particles so that they match the actual tower range
-    private void setParticleColliderRadius(float r)
+    private void SetParticleRadius(ParticleSystem particleInstance)
     {
-        CircleCollider2D collider = base.shootingParticlePrefab.GetComponent<CircleCollider2D>();
-        collider.radius = r;
+        CircleCollider2D collider = particleInstance.GetComponent<CircleCollider2D>();
+        if (collider != null)
+        {
+            collider.radius = currentTargetingRange; // use current tower range
+        }
     }
 }
 

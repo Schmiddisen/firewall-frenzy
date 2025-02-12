@@ -68,6 +68,11 @@ public class Virus : Enemy
         weakerVirus.path = this.path; // Copy path array
         weakerVirus.pathIndex = this.pathIndex; // Continue from current path index
         weakerVirus.currentPathTarget = this.currentPathTarget; // Set correct next target
+
+        // make the children burn too
+        // this might have to be removed if too strong
+        weakerVirus.ApplyBurnEffect(GetBurnEffect());
+        weakerVirus.lastBurnTime = lastBurnTime;
     }
 
     public float GetMovementSpeedByToughness(int grade)
