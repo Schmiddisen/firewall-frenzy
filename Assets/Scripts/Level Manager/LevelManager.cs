@@ -20,7 +20,7 @@ public class LevelManager : MonoBehaviour
     public UIDocument pauseButtonUIDocument;
     [Header("PauseMenu")]
     public UIDocument pauseMenuUIDocument;
-    [Header("HealthUIDocuments")]
+    [Header("HealthUIDocument")]
     public UIDocument healthUIDocument;
 
     public Transform startPoint;
