@@ -9,6 +9,7 @@ public class UpgradeMetrics
     public float aps;
     public int damage;
     public float range;
+    public int cost;
 }
 
 [Serializable]

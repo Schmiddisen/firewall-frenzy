@@ -160,7 +160,12 @@ public class MenuTowerDetails : MonoBehaviour
             Tower_preview_Image.style.backgroundImage = new StyleBackground(texture);
 
         }
-        if(tower.upgradePath != UpgradePath.Base) {
+        //If tower is not yet active (not placed), disable the buttons
+        if (!tower.isActiv) {
+            btnPathA.SetEnabled(false);
+            btnPathB.SetEnabled(false);
+        }
+        else if(tower.upgradePath != UpgradePath.Base) {
             //If a path is already selected, enable the correct path, and disable the other
             bool pathA = tower.upgradePath == UpgradePath.PathA;
             btnPathA.SetEnabled(pathA);

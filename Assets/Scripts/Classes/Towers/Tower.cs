@@ -136,19 +136,27 @@ public abstract class Tower : MonoBehaviour
     }
 
     protected void applyUpgrade(Upgrades upgradeData, UpgradePath path) {
-        //Set the path
-        upgradePath = path;
-        
         if(currentLevel == 3) return;
 
-        currentLevel += 1;
+        //Check if there is enough Money!
+        UpgradeMetrics metrics = upgradeData.upgrades[currentLevel];
+        
+        if (metrics.cost > LevelManager.main.currency) {
+            FloatingTextSpawner.main.spawnFloatingText("Not enough money!", Input.mousePosition);
+            return;
+        }
 
-        UpgradeMetrics metrics = upgradeData.upgrades[currentLevel - 1];
+        //Spend the money
+        LevelManager.main.SpendCurrency(metrics.cost);
+
+        //Set the path
+        upgradePath = path;
         
         //for range upgrades base.upgradeRange(x)
         upgradeRange(metrics.range);
         upgradeDMG(metrics.damage);
         upgradeAPS(metrics.aps);
+        currentLevel += 1;
     }
 
     protected void upgradeRange(float newAmount) {
