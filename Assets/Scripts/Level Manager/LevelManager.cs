@@ -14,9 +14,14 @@ public class LevelManager : MonoBehaviour
     [Header("JSON")]
     public TextAsset towerInfos;
 
-    [Header("UIDocuments")]
-    public UIDocument shop_uIDocument;
-    public UIDocument health_uIDocument;
+    [Header("ShopMenuUIDocument")]
+    public UIDocument shopMenuUIDocument;
+    [Header("PauseButton")]
+    public UIDocument pauseButtonUIDocument;
+    [Header("PauseMenu")]
+    public UIDocument pauseMenuUIDocument;
+    [Header("HealthUIDocuments")]
+    public UIDocument healthUIDocument;
 
     public Transform startPoint;
     public Transform[] path;
@@ -30,6 +35,8 @@ public class LevelManager : MonoBehaviour
     public class EnemyFinishTrackEvent : UnityEvent<int> { }
     public EnemyFinishTrackEvent OnEnemyFinishTrack;
 
+    private bool isPaused = false;
+
     public void Awake()
     {
         main = this;
@@ -38,6 +45,10 @@ public class LevelManager : MonoBehaviour
         OnEnemyFinishTrack.AddListener(EnemyFinishTrack);
     }
 
+    public void pauseGame(bool pause) {
+        isPaused = pause;
+        Time.timeScale = pause ? 0: 1;
+    }
 
     public void setSelectedTower(Tower tower)
     {
@@ -52,7 +63,7 @@ public class LevelManager : MonoBehaviour
 
         this.selectedTower = tower;
         selectedTower.showRangeIndicator(true);
-        towerDetailsUI.showTowerInfos(shop_uIDocument, towerInfos);
+        towerDetailsUI.showTowerInfos(shopMenuUIDocument, towerInfos);
     }
     public void deselectTower()
     {
@@ -60,7 +71,7 @@ public class LevelManager : MonoBehaviour
 
         selectedTower.showRangeIndicator(false);
         this.selectedTower = null;
-        towerDetailsUI.showTowerInfos(shop_uIDocument, towerInfos);
+        towerDetailsUI.showTowerInfos(shopMenuUIDocument, towerInfos);
     }
 
     public void IncreaseCurrency(int amount)
@@ -73,7 +84,8 @@ public class LevelManager : MonoBehaviour
     {
         this.playerHealth -= enemyHealth;
         Debug.Log("playerHealth: " + playerHealth);
-        healthUI.UpdateHealthBar(health_uIDocument, playerHealth);
+        healthUI.UpdateHealthBar(healthUIDocument, player
+        );
         if (healthUI.CheckIfDefeat(playerHealth))
         {
             Debug.Log("Game Over");
