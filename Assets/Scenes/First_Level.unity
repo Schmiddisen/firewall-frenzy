@@ -809,7 +809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerDetailsUI: {fileID: 766660418}
-  healthUI: {fileID: 0}
+  healthUI: {fileID: 1443961904}
   towerInfos: {fileID: 4900000, guid: 911e222e0c7d84741b03a8e4d9e782fa, type: 3}
   shop_uIDocument: {fileID: 257117284}
   health_uIDocument: {fileID: 1443961903}
@@ -1603,6 +1603,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1443961902}
   - component: {fileID: 1443961903}
+  - component: {fileID: 1443961904}
   m_Layer: 5
   m_Name: Health_Bar
   m_TagString: Untagged
@@ -1644,6 +1645,18 @@ MonoBehaviour:
   m_WorldSpaceSizeMode: 1
   m_WorldSpaceWidth: 1920
   m_WorldSpaceHeight: 1080
+--- !u!114 &1443961904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443961901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da6c62d28e16f40f085fdf73dd4ce2b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1474345636 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 377238089268206635, guid: 9627142fe777f044388a9edbfe4accd3, type: 3}

@@ -72,6 +72,7 @@ public class LevelManager : MonoBehaviour
     public void EnemyFinishTrack(int enemyHealth)
     {
         this.playerHealth -= enemyHealth;
+        Debug.Log("playerHealth: " + playerHealth);
         healthUI.UpdateHealthBar(health_uIDocument, playerHealth);
         if (healthUI.CheckIfDefeat(playerHealth))
         {
