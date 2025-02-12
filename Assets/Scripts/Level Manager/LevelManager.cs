@@ -95,6 +95,7 @@ public class LevelManager : MonoBehaviour
         if (amount <= currency)
         {
             currency -= amount;
+            towerDetailsUI.updateCurrency(shopMenuUIDocument, currency);
             return true;
         }
         else
