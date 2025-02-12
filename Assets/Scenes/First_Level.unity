@@ -1038,7 +1038,7 @@ MonoBehaviour:
   - {fileID: 653859853}
   selectedTower: {fileID: 0}
   currency: 100
-  playerHealth: 300
+  playerHealth: 3000
 --- !u!4 &849018324
 Transform:
   m_ObjectHideFlags: 0
