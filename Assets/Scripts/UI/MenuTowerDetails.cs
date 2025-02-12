@@ -44,6 +44,8 @@ public class MenuTowerDetails : MonoBehaviour
             .ToList()
             .Where(b => b.name.StartsWith("TS_"))
             .ToArray();
+
+        Debug.Log(towerData);
         foreach (Button button in buttons)
         {  
             button.clicked += () => changePriority(button);
@@ -58,6 +60,7 @@ public class MenuTowerDetails : MonoBehaviour
         {  
             button.clicked += () => upgrade(button);
         }
+
     }
 
     public void upgrade(Button button) {
@@ -79,12 +82,6 @@ public class MenuTowerDetails : MonoBehaviour
         Tower tower = LevelManager.main.selectedTower;
         tower.targetPrio = (TargetingPriority) Enum.GetValues(typeof(TargetingPriority)).GetValue(index);
         showTowerInfos(this.uIDocument, this.towerInfos);
-    }
-
-    public void updateCurrency(UIDocument doc, int currency)
-    {
-        Label currencyLabel = doc.rootVisualElement.Q<Label>("Currency_value");
-        currencyLabel.text = currency.ToString();
     }
 
     public void showTowerInfos(UIDocument doc, TextAsset towerInfos)
@@ -160,7 +157,12 @@ public class MenuTowerDetails : MonoBehaviour
             Tower_preview_Image.style.backgroundImage = new StyleBackground(texture);
 
         }
-        if(tower.upgradePath != UpgradePath.Base) {
+        //If tower is not yet active (not placed), disable the buttons
+        if (!tower.isActiv) {
+            btnPathA.SetEnabled(false);
+            btnPathB.SetEnabled(false);
+        }
+        else if(tower.upgradePath != UpgradePath.Base) {
             //If a path is already selected, enable the correct path, and disable the other
             bool pathA = tower.upgradePath == UpgradePath.PathA;
             btnPathA.SetEnabled(pathA);

@@ -20,19 +20,24 @@ public class BuildManager : MonoBehaviour
 
     private bool isPlacing = false;
 
-    void Start()
-{
-    towerButtons = uIDocument.rootVisualElement
-        .Query<Button>()
-        .ToList()
-        .Where(b => b.name.StartsWith("Tower"))
-        .ToArray();
+    void Start() {
+        towerButtons = uIDocument.rootVisualElement
+            .Query<Button>()
+            .ToList()
+            .Where(b => b.name.StartsWith("Tower"))
+            .ToArray();
 
-    foreach (var button in towerButtons)
-    {
-        button.clicked += () => OnTowerButtonClick(button);
+        foreach (var button in towerButtons)
+        {
+            button.clicked += () => OnTowerButtonClick(button);
+        }
     }
-}
+
+    void deselectCurrentTower() {
+        if (currentTower == null) return;
+        isPlacing = false;
+        Destroy(currentTower);
+    }
 
     void Update()
     {
@@ -46,6 +51,9 @@ public class BuildManager : MonoBehaviour
 
             TryPlaceTower();
 
+        }
+        if (Input.GetMouseButtonDown(1)) {
+            deselectCurrentTower();
         }
         //This checks for Clicking on a Base of Tower and then selecting the tower in the LevelManager
         if (Input.GetMouseButtonDown(0) && !isPlacing) {
@@ -142,10 +150,18 @@ public class BuildManager : MonoBehaviour
     {
         if (isPlacable())
         {
-            isPlacing = false;
             Tower tower = currentTower.GetComponent<Tower>();
-            LevelManager.main.deselectTower();
-            tower.setActive(true);
+            bool isPurchased = LevelManager.main.SpendCurrency(tower.buildCost);
+            
+            if(isPurchased) {
+                isPlacing = false;
+                LevelManager.main.deselectTower();
+                tower.setActive(true);
+            }else {
+                FloatingTextSpawner.main.spawnFloatingText("Not enough money!", Input.mousePosition);
+            }
+        }else {
+            FloatingTextSpawner.main.spawnFloatingText("Space is occupied!", Input.mousePosition);
         }
     }
 }

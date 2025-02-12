@@ -9,7 +9,6 @@ public class LevelManager : MonoBehaviour
     public static LevelManager main;
 
     [SerializeField] public MenuTowerDetails towerDetailsUI;
-    [SerializeField] public HealthUI healthUI;
 
     [Header("JSON")]
     public TextAsset towerInfos;
@@ -30,25 +29,19 @@ public class LevelManager : MonoBehaviour
 
     public int currency = 100;
 
-    public int playerHealth = 5000; // -> 1000 health for each node
+    public int playerHealth = 3000; // -> 1000 health for each node
 
     public class EnemyFinishTrackEvent : UnityEvent<int> { }
     public EnemyFinishTrackEvent OnEnemyFinishTrack;
 
-    private bool isPaused = false;
-
     public void Awake()
     {
         main = this;
-        towerDetailsUI.updateCurrency(shopMenuUIDocument, currency);
+
         OnEnemyFinishTrack ??= new EnemyFinishTrackEvent();
         OnEnemyFinishTrack.AddListener(EnemyFinishTrack);
     }
 
-    public void pauseGame(bool pause) {
-        isPaused = pause;
-        Time.timeScale = pause ? 0: 1;
-    }
 
     public void setSelectedTower(Tower tower)
     {
@@ -63,7 +56,7 @@ public class LevelManager : MonoBehaviour
 
         this.selectedTower = tower;
         selectedTower.showRangeIndicator(true);
-        towerDetailsUI.showTowerInfos(shopMenuUIDocument, towerInfos);
+        towerDetailsUI.showTowerInfos(uIDocument, towerInfos);
     }
     public void deselectTower()
     {
@@ -71,23 +64,17 @@ public class LevelManager : MonoBehaviour
 
         selectedTower.showRangeIndicator(false);
         this.selectedTower = null;
-        towerDetailsUI.showTowerInfos(shopMenuUIDocument, towerInfos);
+        towerDetailsUI.showTowerInfos(uIDocument, towerInfos);
     }
 
     public void IncreaseCurrency(int amount)
     {
         currency += amount;
-        towerDetailsUI.updateCurrency(shopMenuUIDocument, currency);
     }
 
     public void EnemyFinishTrack(int enemyHealth)
     {
         this.playerHealth -= enemyHealth;
-        healthUI.UpdateHealthBar(healthUIDocument, playerHealth);
-        if (healthUI.CheckIfDefeat(playerHealth))
-        {
-            Debug.Log("Game Over");
-        }
     }
 
     public bool SpendCurrency(int amount)
