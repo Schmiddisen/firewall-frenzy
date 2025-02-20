@@ -96,6 +96,10 @@ public abstract class Tower : MonoBehaviour
     {
         //If tower isnt active yet, return
         if (!isActiv) return;
+
+        // Remove untargetable enemies from the target list dynamically
+        enemyTargets.RemoveAll(enemy => enemy.gameObject.layer == LayerMask.NameToLayer("Untargetable"));
+
         //Tower independent Update method
         this.updateMethod();
 
