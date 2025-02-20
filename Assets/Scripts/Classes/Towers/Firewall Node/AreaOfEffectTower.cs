@@ -30,7 +30,7 @@ public class AreaOfEffectTower : Tower
     {
         // From Serialized Fields in Unity Editor
         base.setupTower(enemyMask, targetPrio, towerBaseCollider, towerRotationPoint, towerFiringPoint, shootingParticlePrefab, towerPrefab,
-        rangeIndicator, rotationSpeed, baseUpgradeCosts, buildCost, baseTargetingRange, baseDMG, baseAPS, name);
+        rangeIndicator, rotationSpeed, baseUpgradeCosts, buildCost, baseTargetingRange, baseDMG, baseAPS, name, canDetectCamouflage);
 
         this.upgradeData = JsonUtility.FromJson<TowerPathUpgrades>(upgradeJson.text);
     }

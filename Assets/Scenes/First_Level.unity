@@ -1143,7 +1143,7 @@ MonoBehaviour:
   waves:
   - name: 1
     enemy: {fileID: 3106164197821595439, guid: 5141747a24e6162a38c66a06024766e1, type: 3}
-    count: 12
+    count: 1
     spawn_delay: 0.21
     toughnessGrade: 5
   - name: 2
