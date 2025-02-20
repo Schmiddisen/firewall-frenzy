@@ -106,6 +106,7 @@ public class MenuTowerDetails : MonoBehaviour
         Label TowerLabelDMG = doc.rootVisualElement.Q<Label>("Damage_Value");
         Label TowerLabelAPS = doc.rootVisualElement.Q<Label>("Firerate_Value");
         Label TowerLabelPriority = doc.rootVisualElement.Q<Label>("Priority_value");
+        VisualElement towerInfoBottom = doc.rootVisualElement.Q<VisualElement>("Tower_Information_Bottom");
         VisualElement bar = doc.rootVisualElement.Q<VisualElement>("Tower_Information_Bottom");
         VisualElement Tower_preview = doc.rootVisualElement.Q<VisualElement>("Tower_preview");
         VisualElement Tower_preview_Image = doc.rootVisualElement.Q<VisualElement>("Tower_preview_Image");
@@ -113,15 +114,19 @@ public class MenuTowerDetails : MonoBehaviour
         Button btnPathA = doc.rootVisualElement.Q<Button>("UP_1_Button");
         Button btnPathB = doc.rootVisualElement.Q<Button>("UP_2_Button");
 
+        Debug.Log(tower);
         if (tower == null)
         {
             TowerLabelName.text = "No Tower selected";
             bar.AddToClassList("hidden");
             Tower_Informations_Text.AddToClassList("hidden");
             Tower_preview.AddToClassList("hidden");
+            towerInfoBottom.AddToClassList("hidden");
+            Debug.Log("Tower is null return");
             return;
         }
         bar.RemoveFromClassList("hidden");
+        towerInfoBottom.RemoveFromClassList("hidden");
         Tower_Informations_Text.RemoveFromClassList("hidden");
         Tower_preview.RemoveFromClassList("hidden");
         TowerLabelName.text = tower.name;
