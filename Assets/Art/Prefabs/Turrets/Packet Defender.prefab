@@ -252,7 +252,7 @@ MonoBehaviour:
   shootingParticlePrefab: {fileID: 0}
   towerPrefab: {fileID: 5427145149855544514}
   rangeIndicator: {fileID: 534700586347046812}
-  rotationSpeed: 100
+  rotationSpeed: 300
   baseUpgradeCosts: 100
   buildCost: 100
   baseTargetingRange: 3
@@ -263,6 +263,7 @@ MonoBehaviour:
   currentDMG: 0
   currentAPS: 0
   timeUntilFire: 0
+  canDetectCamouflage: 0
   accumulatedStagger: 0
   isActiv: 0
   bulletPrefab: {fileID: 6831238910303489396, guid: 898740e9802c00b43be37c47fb231821, type: 3}
