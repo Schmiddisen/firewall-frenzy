@@ -16,7 +16,7 @@ public class FloatingTextSpawner : MonoBehaviour
 
     public void spawnFloatingText(string message, Vector2 position)
     {
-        Debug.Log("spawn Floating text");
+        //Debug.Log("spawn Floating text");
         GameObject instance = Instantiate(floatingTextPrefab, canvas.transform);
         
         RectTransform rectTransform = instance.GetComponent<RectTransform>();
