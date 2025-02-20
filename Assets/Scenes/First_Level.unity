@@ -1052,7 +1052,6 @@ GameObject:
   - component: {fileID: 849018324}
   - component: {fileID: 849018323}
   - component: {fileID: 849018326}
-  - component: {fileID: 849018327}
   - component: {fileID: 849018328}
   m_Layer: 0
   m_Name: LevelManager
@@ -1094,7 +1093,7 @@ MonoBehaviour:
   - {fileID: 498454491}
   - {fileID: 653859853}
   selectedTower: {fileID: 0}
-  currency: 100
+  currency: 10000
   playerHealth: 5000
 --- !u!4 &849018324
 Transform:
@@ -1129,18 +1128,6 @@ MonoBehaviour:
   - {fileID: 5427145149855544514, guid: 69347f0fb293b1b43a633a683d05a3e0, type: 3}
   towerInfos: {fileID: 4900000, guid: 911e222e0c7d84741b03a8e4d9e782fa, type: 3}
   uIDocument: {fileID: 257117284}
---- !u!114 &849018327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 849018322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03cd06754bdcb0f4f8121dd80dac2291, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &849018328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1155,10 +1142,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - name: 1
-    enemy: {fileID: 3106164197821595439, guid: 5141747a24e6162a38c66a06024766e1, type: 3}
-    count: 12
+    enemy: {fileID: 3106164197821595439, guid: 1fbf2b40aae5f394680bf91dd7aaac8e, type: 3}
+    count: 1
     spawn_delay: 0.21
-    toughnessGrade: 5
+    toughnessGrade: 1
   - name: 2
     enemy: {fileID: 3106164197821595439, guid: 5141747a24e6162a38c66a06024766e1, type: 3}
     count: 27
@@ -1859,7 +1846,7 @@ Transform:
   m_GameObject: {fileID: 1320518223}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.4, z: 0}
+  m_LocalPosition: {x: 0, y: 1.4, z: 0.1}
   m_LocalScale: {x: 1.035, y: 1.035, z: 1.035}
   m_ConstrainProportionsScale: 1
   m_Children:
