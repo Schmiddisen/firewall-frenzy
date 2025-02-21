@@ -38,8 +38,8 @@ public class WaveSpawner : MonoBehaviour
 	{
 		get { return state; }
 	}
-
-	void Start()
+	
+    void Start()
 	{
 		if (spawnPoints.Length == 0)
 		{
