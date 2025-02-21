@@ -160,7 +160,7 @@ public abstract class Enemy : MonoBehaviour
     {
         // Default implementation does nothing
     }
-    public void takeDamage(int dmg)
+    public virtual void takeDamage(int dmg)
     {
         // check if the burn effect has bonus damage, generate a random number bewteen 1 and 10 and then double the taken damage
         if (burnEffect != null)
