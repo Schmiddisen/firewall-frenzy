@@ -16,10 +16,7 @@ public class LevelManager : MonoBehaviour
 
     [Header("ShopMenuUIDocument")]
     public UIDocument shopMenuUIDocument;
-    [Header("PauseButton")]
-    public UIDocument pauseButtonUIDocument;
-    [Header("PauseMenu")]
-    public UIDocument pauseMenuUIDocument;
+
     [Header("HealthUIDocument")]
     public UIDocument healthUIDocument;
     [Header("GameOverUIDocument")]
@@ -37,7 +34,7 @@ public class LevelManager : MonoBehaviour
     public class EnemyFinishTrackEvent : UnityEvent<int> { }
     public EnemyFinishTrackEvent OnEnemyFinishTrack;
 
-    private bool isPaused = false;
+    public bool isPaused = false;
 
     public void Awake()
     {
