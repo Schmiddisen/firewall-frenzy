@@ -3,6 +3,7 @@ using System;
 using UnityEditor;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
+using Unity.VisualScripting;
 
 
 [System.Serializable]
@@ -51,6 +52,8 @@ public abstract class Tower : MonoBehaviour
 
     protected CircleCollider2D targetingRangeDetetector;
 
+    private TowerUpgradeHelper upgradeHelper;
+
     public bool isActiv;
     
     public void setupTower(LayerMask enemyMask, TargetingPriority targetPrio, CircleCollider2D towerBaseCollider,
@@ -78,7 +81,6 @@ public abstract class Tower : MonoBehaviour
         currentTargetingRange = this.baseTargetingRange;
         currentDMG = this.baseDMG;
         currentAPS = this.baseAPS;
-
         // Add a Circle Collider for detection
         targetingRangeDetetector = gameObject.AddComponent<CircleCollider2D>();
         targetingRangeDetetector.isTrigger = true;
@@ -88,6 +90,8 @@ public abstract class Tower : MonoBehaviour
         isActiv = false;
 
         accumulatedStagger = 0;
+
+        upgradeHelper = this.AddComponent<TowerUpgradeHelper>();
 
         redrawRangeIndicator();
     }
@@ -163,6 +167,8 @@ public abstract class Tower : MonoBehaviour
         upgradeDMG(metrics.damage);
         upgradeAPS(metrics.aps);
         currentLevel += 1;
+
+        upgradeHelper.UpgradeTower(this, path.ToString(), currentLevel);
     }
 
     protected void upgradeRange(float newAmount) {

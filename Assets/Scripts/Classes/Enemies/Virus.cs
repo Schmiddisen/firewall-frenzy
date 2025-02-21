@@ -104,4 +104,36 @@ public class Virus : Enemy
         }
     }
 
+    public override void takeDamage(int dmg)
+    {
+        base.takeDamage(dmg);
+        DestroySpikes();
+    }
+
+    // this method calculates how many spikes should be destroyed based on the amount of spikes owned and base hp
+    private void DestroySpikes()
+    {
+        int totalSpikes = 0;
+        foreach (Transform child in transform)
+        {
+            if (child.name.Contains("Spike"))
+            {
+                totalSpikes++;
+            }
+        }
+
+        int healthPerSpike = baseHealth / totalSpikes;
+        int spikesDestroyed = baseHealth - currentHealth;
+        spikesDestroyed /= healthPerSpike;
+
+        foreach (Transform child in transform)
+        {
+            if (child.name.Contains("Spike") && spikesDestroyed > 0)
+            {
+                Destroy(child.gameObject);
+                spikesDestroyed--;
+            }
+        }
+    }
+
 }
