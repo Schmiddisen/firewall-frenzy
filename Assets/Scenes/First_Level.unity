@@ -355,7 +355,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4829694522022279492, guid: 3ceb9d771d113c84db7bd779def1ca89, type: 3}
       propertyPath: m_SortingOrder
-      value: 10
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944502066867631016, guid: 3ceb9d771d113c84db7bd779def1ca89, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6293613739855368737, guid: 3ceb9d771d113c84db7bd779def1ca89, type: 3}
       propertyPath: m_Pivot.x
@@ -838,7 +842,7 @@ MonoBehaviour:
   m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PanelSettings: {fileID: 11400000, guid: ae69c253b027f4531a5dc4f5b0fd13e6, type: 2}
+  m_PanelSettings: {fileID: 11400000, guid: 74faf78378ac941fa8c1f5cfd50e0273, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: eb83d8cf9b757481294be4cd77fd554c, type: 3}
   m_SortingOrder: 0
@@ -1052,7 +1056,6 @@ GameObject:
   - component: {fileID: 849018324}
   - component: {fileID: 849018323}
   - component: {fileID: 849018326}
-  - component: {fileID: 849018327}
   - component: {fileID: 849018328}
   m_Layer: 0
   m_Name: LevelManager
@@ -1077,9 +1080,8 @@ MonoBehaviour:
   healthUI: {fileID: 1443961904}
   towerInfos: {fileID: 4900000, guid: 911e222e0c7d84741b03a8e4d9e782fa, type: 3}
   shopMenuUIDocument: {fileID: 257117284}
-  pauseButtonUIDocument: {fileID: 1366630250}
-  pauseMenuUIDocument: {fileID: 1966435751}
   healthUIDocument: {fileID: 1443961903}
+  gameOverUIDocument: {fileID: 1560595845}
   startPoint: {fileID: 1659952454}
   path:
   - {fileID: 1934400909}
@@ -1094,8 +1096,9 @@ MonoBehaviour:
   - {fileID: 498454491}
   - {fileID: 653859853}
   selectedTower: {fileID: 0}
-  currency: 100
+  currency: 10000
   playerHealth: 5000
+  isPaused: 0
 --- !u!4 &849018324
 Transform:
   m_ObjectHideFlags: 0
@@ -1129,18 +1132,6 @@ MonoBehaviour:
   - {fileID: 5427145149855544514, guid: 69347f0fb293b1b43a633a683d05a3e0, type: 3}
   towerInfos: {fileID: 4900000, guid: 911e222e0c7d84741b03a8e4d9e782fa, type: 3}
   uIDocument: {fileID: 257117284}
---- !u!114 &849018327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 849018322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03cd06754bdcb0f4f8121dd80dac2291, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &849018328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1153,17 +1144,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f399fdc130b97650873e766fccd6985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelProgressionUIDocument: {fileID: 672515199}
   waves:
   - name: 1
     enemy: {fileID: 3106164197821595439, guid: 5141747a24e6162a38c66a06024766e1, type: 3}
-    count: 12
+    count: 1
     spawn_delay: 0.21
     toughnessGrade: 5
   - name: 2
     enemy: {fileID: 3106164197821595439, guid: 5141747a24e6162a38c66a06024766e1, type: 3}
     count: 27
     spawn_delay: 0.21
-    toughnessGrade: 1
+    toughnessGrade: 5
   - name: 3
     enemy: {fileID: 3106164197821595439, guid: 5141747a24e6162a38c66a06024766e1, type: 3}
     count: 47
@@ -1859,7 +1851,7 @@ Transform:
   m_GameObject: {fileID: 1320518223}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.4, z: 0}
+  m_LocalPosition: {x: 0, y: 1.4, z: 0.1}
   m_LocalScale: {x: 1.035, y: 1.035, z: 1.035}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1957,7 +1949,7 @@ MonoBehaviour:
   m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PanelSettings: {fileID: 11400000, guid: ae69c253b027f4531a5dc4f5b0fd13e6, type: 2}
+  m_PanelSettings: {fileID: 11400000, guid: 74faf78378ac941fa8c1f5cfd50e0273, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: a1ad826ce48eb482eb80ec8a19434d0b, type: 3}
   m_SortingOrder: 0
@@ -2045,7 +2037,7 @@ MonoBehaviour:
   m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PanelSettings: {fileID: 11400000, guid: ae69c253b027f4531a5dc4f5b0fd13e6, type: 2}
+  m_PanelSettings: {fileID: 11400000, guid: 74faf78378ac941fa8c1f5cfd50e0273, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: 83143a747367e4eec870664ea88e86f7, type: 3}
   m_SortingOrder: 0
@@ -2165,6 +2157,71 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1130741074}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1560595840
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1560595846}
+  - component: {fileID: 1560595845}
+  - component: {fileID: 1560595847}
+  m_Layer: 12
+  m_Name: Gameover
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1560595845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560595840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: 74faf78378ac941fa8c1f5cfd50e0273, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 22a9ab898082b49efa4deaceed5e67eb, type: 3}
+  m_SortingOrder: 11
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+--- !u!4 &1560595846
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560595840}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1560595847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560595840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b8da3c8a598c47eea619234034ce7ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameoverUIDocument: {fileID: 1560595845}
 --- !u!4 &1571765005 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 377238089268206635, guid: 9627142fe777f044388a9edbfe4accd3, type: 3}
@@ -2839,6 +2896,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1966435750}
   - component: {fileID: 1966435751}
+  - component: {fileID: 1966435752}
   m_Layer: 5
   m_Name: Pause_Menu
   m_TagString: Untagged
@@ -2876,10 +2934,24 @@ MonoBehaviour:
   m_PanelSettings: {fileID: 11400000, guid: 74faf78378ac941fa8c1f5cfd50e0273, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: a003c6d1c5ed84c8585439a24c2cf05e, type: 3}
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_WorldSpaceSizeMode: 1
   m_WorldSpaceWidth: 1920
   m_WorldSpaceHeight: 1080
+--- !u!114 &1966435752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966435749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 106a4e8219fbb81419adf5645be0e76b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseButtonUIDocument: {fileID: 1366630250}
+  pauseMenuUIDocument: {fileID: 1966435751}
 --- !u!1001 &1983123114
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3190,6 +3262,7 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1560595846}
   - {fileID: 983653707}
   - {fileID: 849018324}
   - {fileID: 724085816}

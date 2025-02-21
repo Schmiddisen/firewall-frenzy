@@ -106,6 +106,7 @@ public class MenuTowerDetails : MonoBehaviour
         Label TowerLabelDMG = doc.rootVisualElement.Q<Label>("Damage_Value");
         Label TowerLabelAPS = doc.rootVisualElement.Q<Label>("Firerate_Value");
         Label TowerLabelPriority = doc.rootVisualElement.Q<Label>("Priority_value");
+        VisualElement towerInfoBottom = doc.rootVisualElement.Q<VisualElement>("Tower_Information_Bottom");
         VisualElement bar = doc.rootVisualElement.Q<VisualElement>("Tower_Information_Bottom");
         VisualElement Tower_preview = doc.rootVisualElement.Q<VisualElement>("Tower_preview");
         VisualElement Tower_preview_Image = doc.rootVisualElement.Q<VisualElement>("Tower_preview_Image");
@@ -119,9 +120,11 @@ public class MenuTowerDetails : MonoBehaviour
             bar.AddToClassList("hidden");
             Tower_Informations_Text.AddToClassList("hidden");
             Tower_preview.AddToClassList("hidden");
+            towerInfoBottom.AddToClassList("hidden");
             return;
         }
         bar.RemoveFromClassList("hidden");
+        towerInfoBottom.RemoveFromClassList("hidden");
         Tower_Informations_Text.RemoveFromClassList("hidden");
         Tower_preview.RemoveFromClassList("hidden");
         TowerLabelName.text = tower.name;

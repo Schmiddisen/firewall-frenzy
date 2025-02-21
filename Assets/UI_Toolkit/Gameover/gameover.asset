@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 19101, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Level_Progression
+  m_Name: gameover
   m_EditorClassIdentifier: 
   themeUss: {fileID: -4733365628477956816, guid: c04ee54a2c454448cac0b850749f0648, type: 3}
   m_DisableNoThemeWarning: 0
@@ -31,7 +31,7 @@ MonoBehaviour:
   m_BindingLogLevel: 0
   m_ClearDepthStencil: 1
   m_ClearColor: 0
-  m_ColorClearValue: {r: 0, g: 0, b: 0, a: 0}
+  m_ColorClearValue: {r: 0, g: 0, b: 0, a: 1}
   m_VertexBudget: 0
   m_DynamicAtlasSettings:
     m_MinAtlasSize: 64

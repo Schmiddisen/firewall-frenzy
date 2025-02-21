@@ -142,8 +142,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 422081686422388047}
-  bulletSpeed: 4
+  bulletSpeed: 6
   knockbackStrength: 25
+  stunDuration: 0
+  slowDuration: 0
+  slowingRate: 0
   rotaionOffset: 90
   aliveTimeUntilDespawn: 10
 --- !u!23 &1460195503579118158

@@ -7,7 +7,7 @@ public class Trojan_horse : Enemy
 
     void Awake()
     {
-        setupEnemy(baseMovementSpeed, baseHealth, currencyWorth);
+        setupEnemy(baseMovementSpeed, baseHealth, currencyWorth, isCamouflaged);
     }
 
     public override void onDestroy()
@@ -37,7 +37,7 @@ public class Trojan_horse : Enemy
             if (Virus != null)
             {
                 Virus.SetToughnessGrade(5);
-                Virus.setupEnemy(Virus.baseMovementSpeed, Virus.baseHealth, Virus.currencyWorth);
+                Virus.setupEnemy(Virus.baseMovementSpeed, Virus.baseHealth, Virus.currencyWorth, Virus.isCamouflaged);
                 Virus.distanceTraveled = this.getDistanceTraveled(); // Copy parent's distance, relevant for tower targeting
                 Virus.UpdateColor();
                 Virus.currentMovementSpeed = Virus.GetMovementSpeedByToughness(Virus.toughnessGrade);

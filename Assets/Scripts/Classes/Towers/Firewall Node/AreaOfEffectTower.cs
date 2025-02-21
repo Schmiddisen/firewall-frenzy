@@ -30,7 +30,7 @@ public class AreaOfEffectTower : Tower
     {
         // From Serialized Fields in Unity Editor
         base.setupTower(enemyMask, targetPrio, towerBaseCollider, towerRotationPoint, towerFiringPoint, shootingParticlePrefab, towerPrefab,
-        rangeIndicator, rotationSpeed, baseUpgradeCosts, buildCost, baseTargetingRange, baseDMG, baseAPS, name);
+        rangeIndicator, rotationSpeed, baseUpgradeCosts, buildCost, baseTargetingRange, baseDMG, baseAPS, name, canDetectCamouflage);
 
         this.upgradeData = JsonUtility.FromJson<TowerPathUpgrades>(upgradeJson.text);
     }
@@ -125,7 +125,7 @@ public class AreaOfEffectTower : Tower
                 currentBurn = new BurnEffect(5, 20, 1, false); //increase burn DoT by 1
                 if (getCurrentLevel() >= 3)
                 {
-                    Debug.Log("BONUSDMG UNLOCKEED");
+                    //Debug.Log("BONUSDMG UNLOCKEED");
                     currentBurn = new BurnEffect(5, 20, 1, true); // add bonus dmg effect for enemies having the DoT
                 }
             }
@@ -138,7 +138,7 @@ public class AreaOfEffectTower : Tower
                 knockbackUnlocked = true;
                 if (getCurrentLevel() >= 3)
                 {
-                    Debug.Log("Knockback UNLOCKEED");
+                    //Debug.Log("Knockback UNLOCKEED");
                     pulsesUnlocked = true;
                 }
             }

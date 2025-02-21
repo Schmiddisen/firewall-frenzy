@@ -12,7 +12,7 @@ public class DDOS : Enemy
 
     void Awake()
     {
-        setupEnemy(baseMovementSpeed, baseHealth, currencyWorth);
+        setupEnemy(baseMovementSpeed, baseHealth, currencyWorth, isCamouflaged);
         float adjustedRange = staggerRange * Mathf.Max(transform.lossyScale.x, transform.lossyScale.y);
         ParticleSystem.ShapeModule psShape = GetComponentInChildren<ParticleSystem>().shape;
         psShape.radius = adjustedRange;
@@ -95,6 +95,38 @@ public class DDOS : Enemy
         // Visualize the adjusted effect radius
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, adjustedRange);
+    }
+
+    public override void takeDamage(int dmg)
+    {
+        base.takeDamage(dmg);
+        DestroySpikes();
+    }
+
+    // this method calculates how many spikes should be destroyed based on the amount of spikes owned and base hp
+    private void DestroySpikes()
+    {
+        int totalSpikes = 0;
+        foreach (Transform child in transform)
+        {
+            if (child.name.Contains("Spike"))
+            {
+                totalSpikes++;
+            }
+        }
+
+        int healthPerSpike = baseHealth / totalSpikes;
+        int spikesDestroyed = baseHealth - currentHealth;
+        spikesDestroyed /= healthPerSpike;
+
+        foreach (Transform child in transform)
+        {
+            if (child.name.Contains("Spike") && spikesDestroyed > 0)
+            {
+                Destroy(child.gameObject);
+                spikesDestroyed--;
+            }
+        }
     }
 
 }

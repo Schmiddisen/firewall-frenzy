@@ -20,6 +20,7 @@ public abstract class Enemy : MonoBehaviour
 
     public int currentHealth;
     public float currentMovementSpeed;
+    public bool isCamouflaged = false;
     private bool isStunned = false;
     private bool isSlowed = false;
     private float slowMultiplier = 1f;
@@ -28,13 +29,15 @@ public abstract class Enemy : MonoBehaviour
 
     public float distanceTraveled;
 
-    private BurnEffect burnEffect = new(0, 0, 0, false);
+    private BurnEffect burnEffect;
 
     public float lastBurnTime;
 
+    private Coroutine burnEffectCoroutine;
+
     private System.Random rnd;
 
-    public void setupEnemy(float moveSpeed, int health, int currencyWorth)
+    public void setupEnemy(float moveSpeed, int health, int currencyWorth, bool isCamouflaged)
     {
         path = LevelManager.main.path;
         currentPathTarget = path[0];
@@ -42,6 +45,7 @@ public abstract class Enemy : MonoBehaviour
         this.baseMovementSpeed = moveSpeed;
         this.baseHealth = health;
         this.currencyWorth = currencyWorth;
+        this.isCamouflaged = isCamouflaged;
 
         currentHealth = baseHealth;
         currentMovementSpeed = baseMovementSpeed;
@@ -61,10 +65,6 @@ public abstract class Enemy : MonoBehaviour
         move();
     }
 
-    public virtual void Update()
-    {
-        HandleBurnEffect();
-    }
 
     private void move()
     {
@@ -162,7 +162,7 @@ public abstract class Enemy : MonoBehaviour
     {
         // Default implementation does nothing
     }
-    public void takeDamage(int dmg)
+    public virtual void takeDamage(int dmg)
     {
         // check if the burn effect has bonus damage, generate a random number bewteen 1 and 10 and then double the taken damage
         if (burnEffect != null)
@@ -202,7 +202,13 @@ public abstract class Enemy : MonoBehaviour
 
     public void ApplyBurnEffect(BurnEffect effect)
     {
+        if (effect == null) return;
+        if (burnEffectCoroutine != null)
+        {
+            StopCoroutine(burnEffectCoroutine);
+        }
         burnEffect = effect;
+        burnEffectCoroutine = StartCoroutine(BurnEffectCoroutine());
     }
 
     public BurnEffect GetBurnEffect()
@@ -210,27 +216,34 @@ public abstract class Enemy : MonoBehaviour
         return burnEffect;
     }
 
-    public void HandleBurnEffect()
+    private IEnumerator BurnEffectCoroutine()
     {
-        if (burnEffect == null) return;
+        float burnEffectDuration = (float)burnEffect.duration;
+        float lastBurnTime = Time.time;
 
-        burnEffect.duration -= Time.deltaTime;
-
-        // remove burnEffect upon expiration
-        if (burnEffect.duration <= 0)
+        while (burnEffectDuration > 0)
         {
-            burnEffect = null;
-            return;
+            // Check if enough time has passed since last burn
+            if (Time.time - lastBurnTime >= burnEffect.timeBetweenBurns)
+            {
+                // Apply burn effect damage
+                takeDamage(burnEffect.damage);
+                // Update last burn time
+                lastBurnTime = Time.time;
+            }
+
+            // Reduce burn effect duration
+            burnEffectDuration -= Time.deltaTime;
+
+            yield return null;
         }
 
-
-        // Check if enough time has passed since last burn
-        if (Time.time - lastBurnTime >= burnEffect.timeBetweenBurns)
+        // Remove burn effect upon expiration
+        burnEffect = null;
+        // Remove the visual burn effect
+        foreach (ParticleSystem particleSystem in GetComponentsInChildren<ParticleSystem>())
         {
-            // Apply burn effect damage
-            takeDamage(burnEffect.damage);
-            // Update last burn time
-            lastBurnTime = Time.time;
+            Destroy(particleSystem.gameObject);
         }
     }
 }
