@@ -45,6 +45,7 @@ public abstract class Tower : MonoBehaviour
     public int currentDMG;
     public float currentAPS;
     public float timeUntilFire = 0;
+    public bool canDetectCamouflage = false;
 
     public double accumulatedStagger;
 
@@ -55,7 +56,7 @@ public abstract class Tower : MonoBehaviour
     public void setupTower(LayerMask enemyMask, TargetingPriority targetPrio, CircleCollider2D towerBaseCollider,
                             Transform towerRotationPoint, Transform towerFiringPoint, ParticleSystem shootingParticlePrefab,
                             GameObject towerPrefab, LineRenderer rangeIndicator, float rotationSpeed, int baseUpgradeCosts,
-                            int buildCost, float baseTargetingRange, int baseDMG, float baseAPS, string name)
+                            int buildCost, float baseTargetingRange, int baseDMG, float baseAPS, string name, bool canDetectCamouflage)
     {
         this.enemyMask = enemyMask;
         this.towerBaseCollider = towerBaseCollider;
@@ -71,6 +72,7 @@ public abstract class Tower : MonoBehaviour
         this.baseDMG = baseDMG;
         this.baseAPS = baseAPS;
         this.name = name;
+        this.canDetectCamouflage = canDetectCamouflage;
         enemyTargets = new List<Transform>();
         currentUpgradeCosts = this.baseUpgradeCosts;
         currentTargetingRange = this.baseTargetingRange;
@@ -94,6 +96,10 @@ public abstract class Tower : MonoBehaviour
     {
         //If tower isnt active yet, return
         if (!isActiv) return;
+
+        // Remove untargetable enemies from the target list dynamically
+        enemyTargets.RemoveAll(enemy => enemy.gameObject.layer == LayerMask.NameToLayer("Untargetable"));
+
         //Tower independent Update method
         this.updateMethod();
 
@@ -176,10 +182,18 @@ public abstract class Tower : MonoBehaviour
         //Return if the other object is not in the layer of the Hit-Able enemies
         if (((1 << other.gameObject.layer) & enemyMask) == 0) return;
         
-        Transform enemyTransform = other.transform;
-        if (!enemyTargets.Contains(enemyTransform)) // Only if the Enemy is not in the List
+        Enemy enemyScript = other.GetComponent<Enemy>();
+
+        if (enemyScript != null)
         {
-            enemyTargets.Add(enemyTransform);
+            // If the enemy is camouflaged and the tower cannot detect camouflage, ignore it
+            if (enemyScript.isCamouflaged && !canDetectCamouflage) return;
+
+            Transform enemyTransform = other.transform;
+            if (!enemyTargets.Contains(enemyTransform)) 
+            {
+                enemyTargets.Add(enemyTransform);
+            }
         }
     }
 
@@ -219,5 +233,15 @@ public abstract class Tower : MonoBehaviour
 
     public int getCurrentLevel(){
         return this.currentLevel;
+    }
+
+    public void enableCamouflageDetection()
+    {
+        canDetectCamouflage = true;
+    }
+
+    public void disableCamouflageDetection()
+    {
+        canDetectCamouflage = false;
     }
 }

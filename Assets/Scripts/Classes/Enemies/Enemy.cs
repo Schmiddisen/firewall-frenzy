@@ -20,6 +20,7 @@ public abstract class Enemy : MonoBehaviour
 
     public int currentHealth;
     public float currentMovementSpeed;
+    public bool isCamouflaged = false;
     private bool isStunned = false;
     private bool isSlowed = false;
     private float slowMultiplier = 1f;
@@ -34,7 +35,7 @@ public abstract class Enemy : MonoBehaviour
 
     private System.Random rnd;
 
-    public void setupEnemy(float moveSpeed, int health, int currencyWorth)
+    public void setupEnemy(float moveSpeed, int health, int currencyWorth, bool isCamouflaged)
     {
         path = LevelManager.main.path;
         currentPathTarget = path[0];
@@ -42,6 +43,7 @@ public abstract class Enemy : MonoBehaviour
         this.baseMovementSpeed = moveSpeed;
         this.baseHealth = health;
         this.currencyWorth = currencyWorth;
+        this.isCamouflaged = isCamouflaged;
 
         currentHealth = baseHealth;
         currentMovementSpeed = baseMovementSpeed;

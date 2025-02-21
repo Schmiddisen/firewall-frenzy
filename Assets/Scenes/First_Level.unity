@@ -1096,7 +1096,7 @@ MonoBehaviour:
   - {fileID: 498454491}
   - {fileID: 653859853}
   selectedTower: {fileID: 0}
-  currency: 600
+  currency: 10000
   playerHealth: 5000
   isPaused: 0
 --- !u!4 &849018324
@@ -1148,7 +1148,7 @@ MonoBehaviour:
   waves:
   - name: 1
     enemy: {fileID: 3106164197821595439, guid: 5141747a24e6162a38c66a06024766e1, type: 3}
-    count: 6
+    count: 1
     spawn_delay: 0.21
     toughnessGrade: 5
   - name: 2
