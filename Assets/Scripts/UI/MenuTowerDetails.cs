@@ -114,7 +114,6 @@ public class MenuTowerDetails : MonoBehaviour
         Button btnPathA = doc.rootVisualElement.Q<Button>("UP_1_Button");
         Button btnPathB = doc.rootVisualElement.Q<Button>("UP_2_Button");
 
-        Debug.Log(tower);
         if (tower == null)
         {
             TowerLabelName.text = "No Tower selected";
@@ -122,7 +121,6 @@ public class MenuTowerDetails : MonoBehaviour
             Tower_Informations_Text.AddToClassList("hidden");
             Tower_preview.AddToClassList("hidden");
             towerInfoBottom.AddToClassList("hidden");
-            Debug.Log("Tower is null return");
             return;
         }
         bar.RemoveFromClassList("hidden");

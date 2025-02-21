@@ -32,7 +32,6 @@ public class PauseMenu : MonoBehaviour
 
     void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            Debug.Log("ESCAPE");
             if (LevelManager.main.isPaused) {
                 closePauseMenu();
             } else {
@@ -54,7 +53,7 @@ public class PauseMenu : MonoBehaviour
     }
 
     private void restarGame() {
-        Debug.Log("Restart Game");
+        //Function for restarting the game
     }
 
     private void exitGame() {

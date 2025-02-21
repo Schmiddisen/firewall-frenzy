@@ -88,7 +88,6 @@ public class LevelManager : MonoBehaviour
         {
             pauseGame(true);
             gameOverUIDocument.rootVisualElement.Q<VisualElement>("Gameover_init").RemoveFromClassList("hidden");
-            Debug.Log("Game Over");
         }
     }
 
