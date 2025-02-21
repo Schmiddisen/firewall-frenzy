@@ -54,6 +54,7 @@ public class BuildManager : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(1)) {
             deselectCurrentTower();
+            LevelManager.main.deselectTower();
         }
         //This checks for Clicking on a Base of Tower and then selecting the tower in the LevelManager
         if (Input.GetMouseButtonDown(0) && !isPlacing) {
@@ -157,6 +158,7 @@ public class BuildManager : MonoBehaviour
                 isPlacing = false;
                 LevelManager.main.deselectTower();
                 tower.setActive(true);
+                currentTower = null;
             }else {
                 FloatingTextSpawner.main.spawnFloatingText("Not enough money!", Input.mousePosition);
             }

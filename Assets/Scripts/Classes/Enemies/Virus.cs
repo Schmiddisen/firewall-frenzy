@@ -8,7 +8,7 @@ public class Virus : Enemy
 
     void Awake()
     {
-        setupEnemy(baseMovementSpeed, baseHealth, currencyWorth);
+        setupEnemy(baseMovementSpeed, baseHealth, currencyWorth, isCamouflaged);
         
         // Ensure we get the SpriteRenderer from the same GameObject
         spriteRenderer = GetComponent<SpriteRenderer>();
