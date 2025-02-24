@@ -12,6 +12,7 @@ public class TowerJSON
     public string imagePath;
     public string infoText;
     public Upgrade[] upgrades;
+    public string cost;
 }
 
 [Serializable]
@@ -37,7 +38,12 @@ public class MenuTowerDetails : MonoBehaviour
 
 
     void OnEnable()
-    {
+    {   
+        towerData = JsonUtility.FromJson<TowerDatabase>(towerInfos.text);
+        
+        Label PacketDefenderCost = uIDocument.rootVisualElement.Q<Label>("Packet_Defender_Cost");
+        Label FirewallNodeCost = uIDocument.rootVisualElement.Q<Label>("Firewall_Node_Cost");
+        Label MalwareScannerCost = uIDocument.rootVisualElement.Q<Label>("Malware_Scanner_Cost");
 
         Button[] buttons = uIDocument.rootVisualElement
             .Query<Button>()
@@ -45,7 +51,7 @@ public class MenuTowerDetails : MonoBehaviour
             .Where(b => b.name.StartsWith("TS_"))
             .ToArray();
         foreach (Button button in buttons)
-        {  
+        {
             button.clicked += () => changePriority(button);
         }
 
@@ -55,18 +61,23 @@ public class MenuTowerDetails : MonoBehaviour
             .Where(b => b.name.StartsWith("UP_"))
             .ToArray();
         foreach (Button button in upgradeButtons)
-        {  
+        {
             button.clicked += () => upgrade(button);
         }
+
+        PacketDefenderCost.text = towerData.towers[0].cost;
+        FirewallNodeCost.text = towerData.towers[1].cost;
+        MalwareScannerCost.text = towerData.towers[2].cost;
     }
 
-    public void upgrade(Button button) {
+    public void upgrade(Button button)
+    {
         String btnName = button.name;
 
         UpgradePath path = btnName == "UP_1_Button" ? UpgradePath.PathA : UpgradePath.PathB;
 
         Tower tower = LevelManager.main.selectedTower;
-        if(tower == null) return;
+        if (tower == null) return;
 
         tower.upgrade(path);
 
@@ -74,10 +85,11 @@ public class MenuTowerDetails : MonoBehaviour
         showTowerInfos(this.uIDocument, this.towerInfos);
     }
 
-    public void changePriority(Button button) {
+    public void changePriority(Button button)
+    {
         int index = int.Parse(button.name[3].ToString());
         Tower tower = LevelManager.main.selectedTower;
-        tower.targetPrio = (TargetingPriority) Enum.GetValues(typeof(TargetingPriority)).GetValue(index);
+        tower.targetPrio = (TargetingPriority)Enum.GetValues(typeof(TargetingPriority)).GetValue(index);
         showTowerInfos(this.uIDocument, this.towerInfos);
     }
 
@@ -161,19 +173,22 @@ public class MenuTowerDetails : MonoBehaviour
         else
         {
             Tower_preview_Image.style.backgroundImage = new StyleBackground(texture);
-
         }
         //If tower is not yet active (not placed), disable the buttons
-        if (!tower.isActiv) {
+        if (!tower.isActiv)
+        {
             btnPathA.SetEnabled(false);
             btnPathB.SetEnabled(false);
         }
-        else if(tower.upgradePath != UpgradePath.Base) {
+        else if (tower.upgradePath != UpgradePath.Base)
+        {
             //If a path is already selected, enable the correct path, and disable the other
             bool pathA = tower.upgradePath == UpgradePath.PathA;
             btnPathA.SetEnabled(pathA);
             btnPathB.SetEnabled(!pathA);
-        }else {
+        }
+        else
+        {
             btnPathA.SetEnabled(true);
             btnPathB.SetEnabled(true);
         }
