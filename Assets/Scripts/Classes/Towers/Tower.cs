@@ -36,6 +36,7 @@ public abstract class Tower : MonoBehaviour
     public float baseAPS;
     public string name;
 
+    public TowerPathUpgrades upgradeData;
 
     [Header("Runtime Attributes and Refrences")]
     protected List<Transform> enemyTargets;

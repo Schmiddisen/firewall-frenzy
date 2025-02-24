@@ -36,11 +36,12 @@ public class MenuTowerDetails : MonoBehaviour
     public TextAsset towerInfos;
     private TowerDatabase towerData;
 
+    UpgradePath path;
 
     void OnEnable()
-    {   
+    {
         towerData = JsonUtility.FromJson<TowerDatabase>(towerInfos.text);
-        
+
         Label PacketDefenderCost = uIDocument.rootVisualElement.Q<Label>("Packet_Defender_Cost");
         Label FirewallNodeCost = uIDocument.rootVisualElement.Q<Label>("Firewall_Node_Cost");
         Label MalwareScannerCost = uIDocument.rootVisualElement.Q<Label>("Malware_Scanner_Cost");
@@ -74,7 +75,7 @@ public class MenuTowerDetails : MonoBehaviour
     {
         String btnName = button.name;
 
-        UpgradePath path = btnName == "UP_1_Button" ? UpgradePath.PathA : UpgradePath.PathB;
+        path = btnName == "UP_1_Button" ? UpgradePath.PathA : UpgradePath.PathB;
 
         Tower tower = LevelManager.main.selectedTower;
         if (tower == null) return;
@@ -143,7 +144,6 @@ public class MenuTowerDetails : MonoBehaviour
         TowerLabelDMG.text = tower.currentDMG.ToString();
         TowerLabelAPS.text = tower.currentAPS.ToString();
 
-
         //Priority
         int nextCapitalIndex = -1;
         for (int i = 1; i < tower.targetPrio.ToString().Length; i++)
@@ -191,6 +191,21 @@ public class MenuTowerDetails : MonoBehaviour
         {
             btnPathA.SetEnabled(true);
             btnPathB.SetEnabled(true);
+        }
+
+        try {
+            if (tower.getCurrentLevel() < 3)
+        {
+            btnPathA.text = tower.upgradeData.PathA.upgrades[tower.getCurrentLevel()].cost.ToString();
+            btnPathB.text = tower.upgradeData.PathB.upgrades[tower.getCurrentLevel()].cost.ToString();
+        }
+        } catch {} //getting index out of bound when first selecting tower, could not figure it out so this workaround... 
+
+        if(tower.getCurrentLevel() == 3){
+            btnPathA.text = "Max.";
+            btnPathB.text = "Max.";
+            btnPathA.SetEnabled(false);
+            btnPathB.SetEnabled(false);
         }
     }
 }

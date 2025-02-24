@@ -16,7 +16,7 @@ public class AreaOfEffectTower : Tower
 
     [Header("Upgrade JSON")]
     [SerializeField] TextAsset upgradeJson;
-    TowerPathUpgrades upgradeData;
+    
 
     [Header("AOE Tower Runtime Attributes and Refrences")]
     protected bool burnEffectUnlocked = false;
@@ -32,7 +32,7 @@ public class AreaOfEffectTower : Tower
         base.setupTower(enemyMask, targetPrio, towerBaseCollider, towerRotationPoint, towerFiringPoint, shootingParticlePrefab, towerPrefab,
         rangeIndicator, rotationSpeed, baseUpgradeCosts, buildCost, baseTargetingRange, baseDMG, baseAPS, name, canDetectCamouflage);
 
-        this.upgradeData = JsonUtility.FromJson<TowerPathUpgrades>(upgradeJson.text);
+        base.upgradeData = JsonUtility.FromJson<TowerPathUpgrades>(upgradeJson.text);
     }
 
 
@@ -110,7 +110,7 @@ public class AreaOfEffectTower : Tower
     {
 
         //Which path
-        Upgrades upgradeData = path == UpgradePath.PathA ? this.upgradeData.PathA : this.upgradeData.PathB;
+        Upgrades upgradeData = path == UpgradePath.PathA ? base.upgradeData.PathA : base.upgradeData.PathB;
 
         applyUpgrade(upgradeData, path);
 
