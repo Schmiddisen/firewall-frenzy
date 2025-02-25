@@ -42,6 +42,8 @@ public class Game_Builder : MonoBehaviour
     private void LoadGameScene()
     {
         SceneManager.LoadScene("First_Level");
+        AudioManager.main.isLevelMusic = true;
+        AudioManager.main.playLevelMusic();
     }
 
     private void ExitGame()

@@ -26,5 +26,7 @@ public class Gameover : MonoBehaviour
     void exitGame()
     {
         SceneManager.LoadScene("Main_Menu");
+        AudioManager.main.isLevelMusic = false;
+        AudioManager.main.playMainTheme();
     }
 }

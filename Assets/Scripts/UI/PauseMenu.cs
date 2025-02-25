@@ -58,6 +58,8 @@ public class PauseMenu : MonoBehaviour
 
     private void exitGame() {
         SceneManager.LoadScene("Main_Menu");
+        AudioManager.main.isLevelMusic = false;
+        AudioManager.main.playMainTheme();
     }
 
 }
