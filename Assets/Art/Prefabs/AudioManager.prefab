@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   music:
-  - name: Level_Music_1
+  - name: Main_Title_Theme
     clip: {fileID: 8300000, guid: 0f55bd39507b2b044843e5cd1af3e31c, type: 3}
   - name: Level_Music_2
     clip: {fileID: 8300000, guid: 3f75ba5863364654ab6594b9ed639372, type: 3}
@@ -188,13 +188,27 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 039596c8c0486674b8fd882dfcd2483c, type: 3}
   - name: Level_Music_6
     clip: {fileID: 8300000, guid: b63e3e9e1b64a854aa54ce48e8a2ae03, type: 3}
-  sfx: []
+  sfx:
+  - name: button_click_1
+    clip: {fileID: 8300000, guid: 2881a76b8737c704fbcd949047535db9, type: 3}
+  - name: cash_register
+    clip: {fileID: 8300000, guid: c0eebd0d540da5248934a9f1de53fef4, type: 3}
+  - name: upgrade_sound
+    clip: {fileID: 8300000, guid: b0172d58405e1544b876638d6c57cfbb, type: 3}
+  - name: didnt_work
+    clip: {fileID: 8300000, guid: 086cf60b587bf5b4d8586b425f2764e8, type: 3}
+  - name: lost_game_sound
+    clip: {fileID: 8300000, guid: 0bab8676c01555f4b8f68bca4ef29b5c, type: 3}
+  - name: game_win
+    clip: {fileID: 8300000, guid: ecf52d546e9a52f428ad464cdd1584de, type: 3}
+  - name: wave_complete
+    clip: {fileID: 8300000, guid: 65d3252e97762434bb88c5e561330485, type: 3}
   mainTitle:
     name: Main_Title
     clip: {fileID: 8300000, guid: f5b551a3c16513649b2851d58216083b, type: 3}
   musicSource: {fileID: 8660604060894508669}
   sfxSource: {fileID: 2446845003069025280}
-  isLevelMusic: 0
+  isLevelMusic: 1
 --- !u!1 &6424219686993258305
 GameObject:
   m_ObjectHideFlags: 0

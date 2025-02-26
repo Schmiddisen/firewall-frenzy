@@ -31,6 +31,8 @@ public class LevelManager : MonoBehaviour
 
     public int playerHealth = 5000; // -> 1000 health for each node
 
+    public bool gameOver = false;
+
     public class EnemyFinishTrackEvent : UnityEvent<int> { }
     public EnemyFinishTrackEvent OnEnemyFinishTrack;
 
@@ -88,6 +90,9 @@ public class LevelManager : MonoBehaviour
         {
             pauseGame(true);
             gameOverUIDocument.rootVisualElement.Q<VisualElement>("Gameover_init").RemoveFromClassList("hidden");
+
+            gameOver = true;
+            AudioManager.main.playLostGameSound();
         }
     }
 

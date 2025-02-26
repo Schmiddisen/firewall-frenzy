@@ -19,6 +19,8 @@ public abstract class Tower : MonoBehaviour
 
     public ParticleSystem shootingParticlePrefab;
 
+    public Sound shootingSound;
+
     public GameObject towerPrefab;
 
     public LineRenderer rangeIndicator;
@@ -114,8 +116,12 @@ public abstract class Tower : MonoBehaviour
         // thus adding 20% to the time until the next attack
         if (timeUntilFire >= (1f / this.currentAPS) * (1 + accumulatedStagger)) 
         {
-            attack();
-            timeUntilFire = 0f;
+            //Only Attack if there is an Enemy
+            if (enemyTargets.Count > 0) {
+                attack();
+                AudioManager.main.playSFX(shootingSound);
+                timeUntilFire = 0f;
+            }
         }
 
     }
@@ -153,11 +159,15 @@ public abstract class Tower : MonoBehaviour
         
         if (metrics.cost > LevelManager.main.currency) {
             FloatingTextSpawner.main.spawnFloatingText("Not enough money!", Input.mousePosition);
+            AudioManager.main.playDidntWorkSound();
             return;
         }
 
         //Spend the money
         LevelManager.main.SpendCurrency(metrics.cost);
+        
+        //Play the upgrade sound
+        AudioManager.main.playUpgradeSound();
 
         //Set the path
         upgradePath = path;

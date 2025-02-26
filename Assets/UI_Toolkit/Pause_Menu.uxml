@@ -5,8 +5,8 @@
             <engine:Button text="Continue Game" name="Continue_Game_Button" class="button" />
             <engine:Button text="Restart Game" name="Restart_Game_Button" class="button" />
             <engine:Button text="Exit Game" name="Exit_Game_Button" class="button" />
-            <engine:Slider label="Volume&#10;" value="50" name="volume_slider" high-value="100" class="slider" />
-            <engine:Slider label="SFX" value="50" high-value="100" name="sfx_slider" class="slider" />
+            <engine:Slider label="Volume&#10;" value="50" name="volume_slider" high-value="1" class="slider" />
+            <engine:Slider label="SFX" value="50" high-value="1" name="sfx_slider" class="slider" />
         </engine:VisualElement>
     </engine:VisualElement>
 </engine:UXML>

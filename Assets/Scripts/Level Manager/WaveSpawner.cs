@@ -112,6 +112,7 @@ public class WaveSpawner : MonoBehaviour
 
 	void WaveCompleted()
 	{
+		AudioManager.main.playWaveCompleteSound();
 		//Debug.Log("Wave Completed!");
 
 		state = SpawnState.COUNTING;
@@ -121,6 +122,8 @@ public class WaveSpawner : MonoBehaviour
 		{
 			nextWave = 0;
 			Debug.Log("ALL WAVES COMPLETE! Looping...");
+			//Im prinzip ist das Game hier gewonnen oder?? => Game winning sound
+			AudioManager.main.playGameWinSound();
 		}
 		else
 		{
@@ -148,6 +151,9 @@ public class WaveSpawner : MonoBehaviour
 
 	IEnumerator SpawnWave(Wave _wave)
 	{
+		AudioManager.main.playWaveStartSound();
+
+
 		state = SpawnState.SPAWNING;
 
 		for (int i = 0; i < _wave.count; i++)

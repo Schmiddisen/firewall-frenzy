@@ -78,6 +78,8 @@ public class BuildManager : MonoBehaviour
 
     void OnTowerButtonClick(Button button)
     {
+        AudioManager.main.playButtonClick();
+
         int towerIndex = System.Array.IndexOf(towerButtons, button);
 
         if (!isPlacing && towerIndex >= 0)
@@ -155,14 +157,17 @@ public class BuildManager : MonoBehaviour
             bool isPurchased = LevelManager.main.SpendCurrency(tower.buildCost);
             
             if(isPurchased) {
+                AudioManager.main.playCashSound();
                 isPlacing = false;
                 LevelManager.main.deselectTower();
                 tower.setActive(true);
                 currentTower = null;
             }else {
+                AudioManager.main.playDidntWorkSound();
                 FloatingTextSpawner.main.spawnFloatingText("Not enough money!", Input.mousePosition);
             }
         }else {
+            AudioManager.main.playDidntWorkSound();
             FloatingTextSpawner.main.spawnFloatingText("Space is occupied!", Input.mousePosition);
         }
     }

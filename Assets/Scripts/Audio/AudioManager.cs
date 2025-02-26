@@ -13,6 +13,10 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager main;
 
+    private float musicVolume = 1f;
+    private float sfxVolume = 1f;
+
+
     private void Awake() {
         if (main == null) {
             main = this;
@@ -31,6 +35,21 @@ public class AudioManager : MonoBehaviour
         }else {
             playMainTheme();
         }
+    }
+
+    public void setMusicVolume(float vol) {
+        this.musicVolume = vol;
+        musicSource.volume = vol;
+    }
+    public float getMusicVolume() {
+        return this.musicVolume;
+    }
+    public void setSFXVolume(float vol) {
+        this.sfxVolume = vol;
+        sfxSource.volume = vol;
+    }
+    public float getSFXVolume() {
+        return this.sfxVolume;
     }
 
     
@@ -83,8 +102,54 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        sfxSource.clip = s.clip;
-        sfxSource.Play();
+        //sfxSource.clip = s.clip;
+        sfxSource.PlayOneShot(s.clip);
+    }
+
+    public void playSFX(Sound s) {
+        if (s == null) {
+            Debug.Log("Sound Not Found");
+            return;
+        }
+
+        //sfxSource.clip = s.clip;
+        sfxSource.PlayOneShot(s.clip);
+    }
+
+    public void playButtonClick() {
+        playSFX("button_click_1");
+    }
+
+    public void playCashSound() {
+        playSFX("cash_register");
+    }
+
+    public void playUpgradeSound() {
+        playSFX("upgrade_sound");
+    }
+
+    public void playDidntWorkSound() {
+        playSFX("didnt_work");
+    }
+
+    public void playLostGameSound() {
+        playSFX("lost_game_sound");
+    }
+
+    public void playGameWinSound() {
+        playSFX("game_win");
+    } 
+
+    public void playWaveCompleteSound() {
+        playSFX("wave_complete");
+    } 
+
+    public void playWaveStartSound() {
+        playSFX("wave_start_1");
+        playSFX("wave_start_2");
+    }
+    public void playEnemyDead() {
+        playSFX("enemy_dead");
     }
 
 }

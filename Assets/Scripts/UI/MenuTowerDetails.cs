@@ -75,6 +75,7 @@ public class MenuTowerDetails : MonoBehaviour
     }
 
     public void changePriority(Button button) {
+        AudioManager.main.playButtonClick();
         int index = int.Parse(button.name[3].ToString());
         Tower tower = LevelManager.main.selectedTower;
         tower.targetPrio = (TargetingPriority) Enum.GetValues(typeof(TargetingPriority)).GetValue(index);

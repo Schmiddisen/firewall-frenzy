@@ -250,6 +250,9 @@ MonoBehaviour:
   towerRotationPoint: {fileID: 5483990413604372803}
   towerFiringPoint: {fileID: 7875497887002927684}
   shootingParticlePrefab: {fileID: 0}
+  shootingSound:
+    name: packet_defender_shooting_sound
+    clip: {fileID: 8300000, guid: a428ff8810acbb647923b81dbe665804, type: 3}
   towerPrefab: {fileID: 5427145149855544514}
   rangeIndicator: {fileID: 534700586347046812}
   rotationSpeed: 300
