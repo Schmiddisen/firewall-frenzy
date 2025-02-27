@@ -95,6 +95,8 @@ public class AudioManager : MonoBehaviour
     }
 
     private void playSFX(string name) {
+        //If not in level dont play sounds
+        if (!isLevelMusic) return; 
         Sound s = Array.Find(sfx, x => x.name == name);
 
         if (s == null) {
@@ -107,6 +109,9 @@ public class AudioManager : MonoBehaviour
     }
 
     public void playSFX(Sound s) {
+        //If not in level dont play sounds
+        if (!isLevelMusic) return; 
+        
         if (s == null) {
             Debug.Log("Sound Not Found");
             return;
