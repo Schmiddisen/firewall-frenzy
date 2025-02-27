@@ -203,12 +203,18 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: ecf52d546e9a52f428ad464cdd1584de, type: 3}
   - name: wave_complete
     clip: {fileID: 8300000, guid: 65d3252e97762434bb88c5e561330485, type: 3}
+  - name: wave_start_1
+    clip: {fileID: 8300000, guid: fe53d00d95d8f32449229e8b37537437, type: 3}
+  - name: wave_start_2
+    clip: {fileID: 8300000, guid: bd3d3e03eb40c1746b5d3268527a45e6, type: 3}
+  - name: enemy_dead
+    clip: {fileID: 8300000, guid: 010171fd95e34d14c83911c20f4f961b, type: 3}
   mainTitle:
     name: Main_Title
     clip: {fileID: 8300000, guid: f5b551a3c16513649b2851d58216083b, type: 3}
   musicSource: {fileID: 8660604060894508669}
   sfxSource: {fileID: 2446845003069025280}
-  isLevelMusic: 1
+  isLevelMusic: 0
 --- !u!1 &6424219686993258305
 GameObject:
   m_ObjectHideFlags: 0

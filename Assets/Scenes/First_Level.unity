@@ -3316,34 +3316,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
-    - target: {fileID: 6664596400605299268, guid: ffa11478f35490846acbe9dc41741691, type: 3}
-      propertyPath: sfx.Array.size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6664596400605299268, guid: ffa11478f35490846acbe9dc41741691, type: 3}
-      propertyPath: sfx.Array.data[7].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: fe53d00d95d8f32449229e8b37537437, type: 3}
-    - target: {fileID: 6664596400605299268, guid: ffa11478f35490846acbe9dc41741691, type: 3}
-      propertyPath: sfx.Array.data[7].name
-      value: wave_start_1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6664596400605299268, guid: ffa11478f35490846acbe9dc41741691, type: 3}
-      propertyPath: sfx.Array.data[8].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: bd3d3e03eb40c1746b5d3268527a45e6, type: 3}
-    - target: {fileID: 6664596400605299268, guid: ffa11478f35490846acbe9dc41741691, type: 3}
-      propertyPath: sfx.Array.data[8].name
-      value: wave_start_2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6664596400605299268, guid: ffa11478f35490846acbe9dc41741691, type: 3}
-      propertyPath: sfx.Array.data[9].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 010171fd95e34d14c83911c20f4f961b, type: 3}
-    - target: {fileID: 6664596400605299268, guid: ffa11478f35490846acbe9dc41741691, type: 3}
-      propertyPath: sfx.Array.data[9].name
-      value: enemy_dead
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
