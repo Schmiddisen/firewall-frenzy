@@ -1,8 +1,9 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.IO;
 using System.Threading;
 using UnityEngine.UIElements;
-
 
 // most of this code is from the brackeys wavespawner tutorial: https://www.youtube.com/watch?v=q0SBfDFn2Bs
 public class WaveSpawner : MonoBehaviour
@@ -10,55 +11,41 @@ public class WaveSpawner : MonoBehaviour
 	[Header("Level Progression UIDocument")]
 	public UIDocument levelProgressionUIDocument;
 
-	[System.Serializable]
-	public class Wave
-	{
-		public string name;
-		public Transform enemy;
-		public int count;
-		public float spawn_delay;
-		public int toughnessGrade = 1; // Default is 1, but you can change it in the Inspector;
-	}
+	[Header("Wave Configuration")]
+    public TextAsset waveConfigFile; // Assign the JSON file in Unity Inspector
+    private List<WaveData> waves;
+    private int nextWave = 0;
 
-	public Wave[] waves;
-	private int nextWave = 0;
-	public int NextWave
-	{
-		get { return nextWave + 1; }
-	}
+    public Transform[] spawnPoints;
+    public float timeBetweenWaves = 5f;
+    private float waveCountdown;
 
-	public Transform[] spawnPoints;
+    private float searchCountdown = 1f;
+    private float wave_progression;
 
-	public float timeBetweenWaves = 5f;
-	private float waveCountdown;
-	public float WaveCountdown
-	{
-		get { return waveCountdown; }
-	}
+    private SpawnState state = SpawnState.COUNTING;
+    private ProgressBar waveProgressionBar;
+    private Label current_level;
+    private Label next_level;
 
-	private float searchCountdown = 1f;
-	private float wave_progression;
+    public SpawnState State => state;
 
-	private SpawnState state = SpawnState.COUNTING;
-	private ProgressBar waveProgressionBar;
-	private Label current_level;
-	private Label next_level;
-
-    public SpawnState State
-	{
-		get { return state; }
-	}
     void Start()
 	{
 		waveProgressionBar = levelProgressionUIDocument.rootVisualElement.Q<ProgressBar>("ProgressBar");
 		current_level = levelProgressionUIDocument.rootVisualElement.Q<Label>("current_level");
 		next_level = levelProgressionUIDocument.rootVisualElement.Q<Label>("next_level");
-		if (spawnPoints.Length == 0)
-		{
-			Debug.LogError("No spawn points referenced.");
-		}
 
-		waveCountdown = timeBetweenWaves;
+		if (waveConfigFile != null)
+        {
+            LoadWaves();
+        }
+        else
+        {
+            Debug.LogError("Wave configuration file is missing!");
+        }
+
+        waveCountdown = timeBetweenWaves;
 	}
 
 	void Update()
@@ -77,7 +64,7 @@ public class WaveSpawner : MonoBehaviour
 		}
 		if (waveCountdown <= 0)
 		{
-			if (state != SpawnState.SPAWNING)
+			if (state != SpawnState.SPAWNING && nextWave < waves.Count)
 			{
 				StartCoroutine(SpawnWave(waves[nextWave]));
 			}
@@ -88,6 +75,26 @@ public class WaveSpawner : MonoBehaviour
 		}
 	}
 
+	private void LoadWaves()
+	{
+		if (waveConfigFile == null)
+		{
+			Debug.LogError("Wave configuration file is missing!");
+			return;
+		}
+
+		string jsonText = waveConfigFile.text;
+		WaveCollection waveCollection = JsonUtility.FromJson<WaveCollection>(jsonText);
+
+		if (waveCollection == null || waveCollection.waves == null)
+		{
+			Debug.LogError("Failed to load waves. Check the JSON format.");
+			return;
+		}
+
+		waves = waveCollection.waves;
+	}
+
 	public void UpdateWaveProgression()
 	{
 		if (levelProgressionUIDocument == null)
@@ -95,7 +102,7 @@ public class WaveSpawner : MonoBehaviour
 			Debug.LogError("UIDocument is not selected in LevelManager");
 			return;
 		}
-		waveProgressionBar.value = (waves[nextWave].count - GameObject.FindGameObjectsWithTag("Enemy").Length) * wave_progression;
+		waveProgressionBar.value = (waves[nextWave].enemies.Count - GameObject.FindGameObjectsWithTag("Enemy").Length) * wave_progression;
 	}
 
 	public void CalculateWaveProgressionParam(int count)
@@ -106,7 +113,7 @@ public class WaveSpawner : MonoBehaviour
 		}
 		else
 		{
-			wave_progression = 100 / count;
+			wave_progression = 100f / count;
 		}
 	}
 
@@ -117,7 +124,7 @@ public class WaveSpawner : MonoBehaviour
 		state = SpawnState.COUNTING;
 		waveCountdown = timeBetweenWaves;
 
-		if (nextWave + 1 > waves.Length - 1)
+		if (nextWave + 1 >= waves.Count)
 		{
 			nextWave = 0;
 			Debug.Log("ALL WAVES COMPLETE! Looping...");
@@ -125,63 +132,70 @@ public class WaveSpawner : MonoBehaviour
 		else
 		{
 			nextWave++;
-			current_level.text = (NextWave + 0).ToString();
-			next_level.text = (int.Parse(current_level.text) + 1).ToString();
-			waveProgressionBar.value = 0;
+            current_level.text = (nextWave + 1).ToString();
+            next_level.text = (nextWave + 2).ToString();
+            waveProgressionBar.value = 0;
 		}
 	}
 
 	bool EnemyIsAlive()
 	{
 		searchCountdown -= Time.deltaTime;
-		if (searchCountdown <= 0f)
-		{
-			searchCountdown = 1f;
-			// ALL enemy prefabs MUST have the Enemy tag
-			if (GameObject.FindGameObjectWithTag("Enemy") == null)
-			{
-				return false;
-			}
-		}
-		return true;
+        if (searchCountdown <= 0f)
+        {
+            searchCountdown = 1f;
+            if (GameObject.FindGameObjectWithTag("Enemy") == null)
+            {
+                return false;
+            }
+        }
+        return true;
 	}
 
-	IEnumerator SpawnWave(Wave _wave)
+	IEnumerator SpawnWave(WaveData wave)
 	{
 		state = SpawnState.SPAWNING;
 
-		for (int i = 0; i < _wave.count; i++)
-		{
-			SpawnEnemy(_wave.enemy, _wave.toughnessGrade);
+		int totalEnemies = 0;
+        foreach (EnemySpawnInfo enemyInfo in wave.enemies)
+        {
+            totalEnemies += enemyInfo.count;
+        }
 
-			yield return new WaitForSeconds(_wave.spawn_delay);
-		}
-		CalculateWaveProgressionParam(_wave.count);
+        CalculateWaveProgressionParam(totalEnemies);
+
+		foreach (EnemySpawnInfo enemyInfo in wave.enemies)
+        {
+            for (int i = 0; i < enemyInfo.count; i++)
+            {
+                SpawnEnemy(enemyInfo);
+                yield return new WaitForSeconds(enemyInfo.spawnDelay);
+            }
+        }
+
 		state = SpawnState.WAITING;
-
 		yield break;
 	}
 
-	void SpawnEnemy(Transform _enemy, int toughnessGrade)
-	{
-		Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
+	void SpawnEnemy(EnemySpawnInfo enemyInfo)
+    {
+        Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        GameObject enemyPrefab = EnemyFactory.GetEnemyPrefab(enemyInfo.enemyType);
 
-		// Create an instance of the enemy
-		GameObject enemyInstance = Instantiate(_enemy, _sp.position, _sp.rotation).gameObject;
-
-		// Check if the enemy is of type Virus and set its toughness grade
-		Virus virus = enemyInstance.GetComponent<Virus>();
-		if (virus != null)
-		{
-			virus.SetToughnessGrade(toughnessGrade); // Set the toughness grade for Virus
-			virus.UpdateColor();
-		}
-		
-		// Add checks for other types of enemies here, if needed, to handle their specific setup
-		// For example:
-		// else if (otherEnemyType != null) {
-		//     otherEnemyType.SetToughnessGrade(toughnessGrade);
-		// }
-	}
+        if (enemyPrefab != null)
+        {
+            GameObject enemyInstance = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+            Virus virus = enemyInstance.GetComponent<Virus>();
+            if (virus != null)
+            {
+                virus.SetToughnessGrade(enemyInfo.toughnessGrade);
+                virus.UpdateColor();
+            }
+        }
+        else
+        {
+            Debug.LogError($"Enemy type {enemyInfo.enemyType} not found!");
+        }
+    }
 
 }

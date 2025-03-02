@@ -1,0 +1,30 @@
+{
+    "waves": [
+        {
+            "enemies": [
+                {
+                    "enemyType": "Virus",
+                    "count": 5,
+                    "spawnDelay": 1.5,
+                    "toughnessGrade": 2
+                },
+                {
+                    "enemyType": "Glitch",
+                    "count": 3,
+                    "spawnDelay": 2.0,
+                    "toughnessGrade": 1
+                }
+            ]
+        },
+        {
+            "enemies": [
+                {
+                    "enemyType": "Worm",
+                    "count": 2,
+                    "spawnDelay": 3.0,
+                    "toughnessGrade": 4
+                }
+            ]
+        }
+    ]
+}
