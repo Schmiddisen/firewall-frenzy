@@ -2359,7 +2359,6 @@ MonoBehaviour:
   gameOverUIDocument: {fileID: 1560595845}
   startPoint: {fileID: 1659952454}
   path:
-  - {fileID: 1659952454}
   - {fileID: 1934400909}
   - {fileID: 1527278136}
   - {fileID: 65491291}
@@ -2383,6 +2382,7 @@ MonoBehaviour:
   selectedTower: {fileID: 0}
   currency: 10000
   playerHealth: 5000
+  gameOver: 0
   isPaused: 0
 --- !u!4 &849018324
 Transform:
