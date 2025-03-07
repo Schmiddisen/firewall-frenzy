@@ -11,7 +11,8 @@
                 {
                 "description": "High Damage, Knockback"
                 }
-            ]
+            ],
+          "cost" : "100"
         },
         {
         "name": "Firewall Node",
@@ -24,7 +25,8 @@
                 {
                 "description": "Higher Range"
                 }
-            ]
+            ],
+          "cost" : "100"
         },
         {
         "name": "Malware Scanner",
@@ -37,7 +39,8 @@
                 {
                 "description": "Critical Hits, Enemy Movement Inflictions"
                 }
-            ]
+            ],
+          "cost" : "150"
         }
     ]
 }
