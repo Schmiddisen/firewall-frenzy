@@ -13,14 +13,17 @@
                 <engine:Label text="Malware Scanner" name="Malware_Scanner_Label" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; width: 180px;" />
             </engine:VisualElement>
             <engine:VisualElement name="Tower_Shop_Bot" style="flex-grow: 1; width: 100%; align-content: center; flex-direction: row; justify-content: space-evenly; align-items: flex-start; background-color: rgb(199, 200, 204); height: 190px;">
-                <engine:Button name="Tower_Packet_Defender_Button" class="tower_button">
-                    <engine:VisualElement style="background-image: url(&quot;project://database/Assets/Art/Full%20Art/Basic%20Tower.psd?fileID=-6076782233491764048&amp;guid=acf27fc31ceccb4b1b076dd1f31bc650&amp;type=3#Layer2&quot;); background-color: rgba(255, 255, 255, 0); width: 100%; height: 100%;" />
+                <engine:Button name="Tower_Packet_Defender_Button" class="tower_button" style="flex-direction: row; align-items: flex-start; justify-content: space-around; -unity-text-align: middle-center;">
+                    <engine:Label text="Label" name="Packet_Defender_Cost" />
+                    <engine:VisualElement style="background-image: url(&quot;project://database/Assets/Art/Full%20Art/Basic%20Tower.psd?fileID=-6076782233491764048&amp;guid=acf27fc31ceccb4b1b076dd1f31bc650&amp;type=3#Layer2&quot;); background-color: rgba(255, 255, 255, 0); width: 80%; height: 80%;" />
                 </engine:Button>
-                <engine:Button name="Tower_Firewall_Node" class="button tower_button">
-                    <engine:VisualElement name="VisualElement" style="background-image: url(&quot;project://database/Assets/Art/Full%20Art/AoE%20Tower.psd?fileID=2535951209920468646&amp;guid=3d10b7af0b5aeedfc8b0f915450c0ae1&amp;type=3#Layer6&quot;); background-color: rgba(255, 255, 255, 0); width: 100%; height: 100%;" />
+                <engine:Button name="Tower_Firewall_Node" class="button tower_button" style="flex-direction: row;">
+                    <engine:Label text="Label" name="Firewall_Node_Cost" />
+                    <engine:VisualElement name="VisualElement" style="background-image: url(&quot;project://database/Assets/Art/Full%20Art/AoE%20Tower.psd?fileID=2535951209920468646&amp;guid=3d10b7af0b5aeedfc8b0f915450c0ae1&amp;type=3#Layer6&quot;); background-color: rgba(255, 255, 255, 0); width: 80%; height: 80%;" />
                 </engine:Button>
-                <engine:Button name="Tower_Virus_Scanner" class="button tower_button">
-                    <engine:VisualElement style="background-image: url(&quot;project://database/Assets/Art/Full%20Art/Sniper%20Tower.psd?fileID=6407660491593047361&amp;guid=72740608c2b58f2dabae50c7cc9408c1&amp;type=3#Layer4-1-1&quot;); background-color: rgba(255, 255, 255, 0); width: 100%; height: 100%;" />
+                <engine:Button name="Tower_Malware_Scanner" class="button tower_button" style="flex-direction: row;">
+                    <engine:Label text="Label" name="Malware_Scanner_Cost" />
+                    <engine:VisualElement style="background-image: url(&quot;project://database/Assets/Art/Full%20Art/Sniper%20Tower.psd?fileID=6407660491593047361&amp;guid=72740608c2b58f2dabae50c7cc9408c1&amp;type=3#Layer4-1-1&quot;); background-color: rgba(255, 255, 255, 0); width: 80%; height: 80%;" />
                 </engine:Button>
             </engine:VisualElement>
         </engine:VisualElement>
