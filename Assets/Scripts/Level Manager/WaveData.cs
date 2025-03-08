@@ -9,6 +9,7 @@ public class WaveCollection
 [System.Serializable]
 public class WaveData
 {
+    public string waveName;
     public List<EnemySpawnInfo> enemies;
 }
 

@@ -1,6 +1,7 @@
 {
     "waves": [
         {
+            "waveName": "Wave 1",
             "enemies": [
                 {
                     "enemyType": "Virus",
@@ -17,6 +18,7 @@
             ]
         },
         {
+            "waveName": "Wave 2",
             "enemies": [
                 {
                     "enemyType": "Worm",
