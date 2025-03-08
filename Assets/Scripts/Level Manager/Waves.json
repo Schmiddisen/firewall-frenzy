@@ -418,14 +418,252 @@
                     "enemyType": "Virus",
                     "count": 20,
                     "firstSpawnDelay": 0,
-                    "spawnDelay": 0.6,
+                    "spawnDelay": 0.5425,
+                    "toughnessGrade": 3
+                },
+                {
+                    "enemyType": "Virus",
+                    "count": 20,
+                    "firstSpawnDelay": 0.2,
+                    "spawnDelay": 0.5425,
+                    "toughnessGrade": 3
+                },
+                {
+                    "enemyType": "Virus",
+                    "count": 8,
+                    "firstSpawnDelay": 14.59,
+                    "spawnDelay": 0.1788,
+                    "toughnessGrade": 4
+                }
+            ]
+        },
+        {
+            "waveName": "Wave 17",
+            "enemies": [
+                {
+                    "enemyType": "Worm",
+                    "count": 5,
+                    "firstSpawnDelay": 0,
+                    "spawnDelay": 0.4167,
+                    "toughnessGrade": 1
+                }
+            ]
+        },
+        {
+            "waveName": "Wave 18",
+            "enemies": [
+                {
+                    "enemyType": "Virus",
+                    "count": 60,
+                    "firstSpawnDelay": 0,
+                    "spawnDelay": 0.4167,
+                    "toughnessGrade": 3
+                },
+                {
+                    "enemyType": "Virus",
+                    "count": 20,
+                    "firstSpawnDelay": 25.0,
+                    "spawnDelay": 0.091,
+                    "toughnessGrade": 3
+                }
+            ]
+        },
+        {
+            "waveName": "Wave 19",
+            "enemies": [
+                {
+                    "enemyType": "Virus",
+                    "count": 10,
+                    "firstSpawnDelay": 0,
+                    "spawnDelay": 0.289,
+                    "toughnessGrade": 3
+                },
+                {
+                    "enemyType": "Worm",
+                    "count": 4,
+                    "firstSpawnDelay": 2.85,
+                    "spawnDelay": 0.468,
+                    "toughnessGrade": 4
+                },
+                {
+                    "enemyType": "Virus",
+                    "count": 15,
+                    "firstSpawnDelay": 5.96,
+                    "spawnDelay": 0.5073,
                     "toughnessGrade": 5
                 },
                 {
-                    "enemyType": "Glitch",
-                    "count": 10,
+                    "enemyType": "Virus",
+                    "count": 4,
+                    "firstSpawnDelay": 13.48,
+                    "spawnDelay": 0.57,
+                    "toughnessGrade": 4
+                }
+            ]
+        },
+        {
+            "waveName": "Wave 20",
+            "enemies": [
+                {
+                    "enemyType": "Virus",
+                    "count": 40,
                     "firstSpawnDelay": 0,
-                    "spawnDelay": 1.0,
+                    "spawnDelay": 0.4,
+                    "toughnessGrade": 2
+                },
+                {
+                    "enemyType": "Virus",
+                    "count": 10,
+                    "firstSpawnDelay": 15.0,
+                    "spawnDelay": 0.33,
+                    "toughnessGrade": 4
+                }
+            ]
+        },
+        {
+            "waveName": "Wave 21",
+            "enemies": [
+                {
+                    "enemyType": "Virus",
+                    "count": 30,
+                    "firstSpawnDelay": 0,
+                    "spawnDelay": 0.5,
+                    "toughnessGrade": 1
+                },
+                {
+                    "enemyType": "Virus",
+                    "count": 20,
+                    "firstSpawnDelay": 10.0,
+                    "spawnDelay": 0.6,
+                    "toughnessGrade": 3
+                }
+            ]
+        },
+        {
+            "waveName": "Wave 22",
+            "enemies": [
+                {
+                    "enemyType": "Virus",
+                    "count": 15,
+                    "firstSpawnDelay": 0,
+                    "spawnDelay": 0.55,
+                    "toughnessGrade": 4
+                },
+                {
+                    "enemyType": "Virus",
+                    "count": 10,
+                    "firstSpawnDelay": 7.0,
+                    "spawnDelay": 0.45,
+                    "toughnessGrade": 3
+                }
+            ]
+        },
+        {
+            "waveName": "Wave 23",
+            "enemies": [
+                {
+                    "enemyType": "Virus",
+                    "count": 50,
+                    "firstSpawnDelay": 0,
+                    "spawnDelay": 0.3,
+                    "toughnessGrade": 5
+                }
+            ]
+        },
+        {
+            "waveName": "Wave 24",
+            "enemies": [
+                {
+                    "enemyType": "Virus",
+                    "count": 40,
+                    "firstSpawnDelay": 0,
+                    "spawnDelay": 0.2,
+                    "toughnessGrade": 4
+                },
+                {
+                    "enemyType": "Virus",
+                    "count": 20,
+                    "firstSpawnDelay": 25.0,
+                    "spawnDelay": 0.25,
+                    "toughnessGrade": 5
+                }
+            ]
+        },
+        {
+            "waveName": "Wave 25",
+            "enemies": [
+                {
+                    "enemyType": "Virus",
+                    "count": 60,
+                    "firstSpawnDelay": 0,
+                    "spawnDelay": 0.3,
+                    "toughnessGrade": 4
+                },
+                {
+                    "enemyType": "Virus",
+                    "count": 10,
+                    "firstSpawnDelay": 25.0,
+                    "spawnDelay": 0.7,
+                    "toughnessGrade": 5
+                }
+            ]
+        },
+        {
+            "waveName": "Wave 26",
+            "enemies": [
+                {
+                    "enemyType": "Virus",
+                    "count": 50,
+                    "firstSpawnDelay": 0,
+                    "spawnDelay": 0.5,
+                    "toughnessGrade": 5
+                }
+            ]
+        },
+        {
+            "waveName": "Wave 27",
+            "enemies": [
+                {
+                    "enemyType": "Virus",
+                    "count": 50,
+                    "firstSpawnDelay": 0,
+                    "spawnDelay": 0.3,
+                    "toughnessGrade": 5
+                }
+            ]
+        },
+        {
+            "waveName": "Wave 28",
+            "enemies": [
+                {
+                    "enemyType": "Virus",
+                    "count": 80,
+                    "firstSpawnDelay": 0,
+                    "spawnDelay": 0.4,
+                    "toughnessGrade": 5
+                }
+            ]
+        },
+        {
+            "waveName": "Wave 29",
+            "enemies": [
+                {
+                    "enemyType": "Virus",
+                    "count": 80,
+                    "firstSpawnDelay": 0,
+                    "spawnDelay": 0.2,
+                    "toughnessGrade": 5
+                }
+            ]
+        },
+        {
+            "waveName": "Wave 30",
+            "enemies": [
+                {
+                    "enemyType": "Virus",
+                    "count": 120,
+                    "firstSpawnDelay": 0,
+                    "spawnDelay": 0.25,
                     "toughnessGrade": 5
                 }
             ]

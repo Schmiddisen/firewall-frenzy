@@ -1097,7 +1097,7 @@ MonoBehaviour:
   - {fileID: 653859853}
   selectedTower: {fileID: 0}
   currency: 10000
-  playerHealth: 5000
+  playerHealth: 500
   isPaused: 0
 --- !u!4 &849018324
 Transform:
