@@ -10,6 +10,9 @@ public static class EnemyFactory
         if (enemyPrefabs.Count == 0)
         {
             enemyPrefabs["Virus"] = Resources.Load<GameObject>("Prefabs/Virus");
+            enemyPrefabs["DDOS"] = Resources.Load<GameObject>("Prefabs/DDOS");
+            enemyPrefabs["Trojan_Horse"] = Resources.Load<GameObject>("Prefabs/Trojan_Horse");
+            enemyPrefabs["Macro_Virus"] = Resources.Load<GameObject>("Prefabs/Macro_Virus");
             enemyPrefabs["Worm"] = Resources.Load<GameObject>("Prefabs/Worm");
             enemyPrefabs["Glitch"] = Resources.Load<GameObject>("Prefabs/Glitch");
         }
