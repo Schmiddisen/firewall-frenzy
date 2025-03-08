@@ -163,7 +163,9 @@ public class WaveSpawner : MonoBehaviour
 
 		int totalEnemies = 0;
 		enemiesDefeatedThisWave = 0;
-		
+
+		List<Coroutine> spawnCoroutines = new List<Coroutine>();
+
         foreach (EnemySpawnInfo enemyInfo in wave.enemies)
 		{
 			if (enemyInfo.enemyType == "Trojan_Horse")
@@ -185,17 +187,34 @@ public class WaveSpawner : MonoBehaviour
 		totalEnemiesThisWave = totalEnemies;
         CalculateWaveProgressionParam(totalEnemiesThisWave);
 
+		// Spawn the enemies with their first spawn delay
 		foreach (EnemySpawnInfo enemyInfo in wave.enemies)
-        {
-            for (int i = 0; i < enemyInfo.count; i++)
-            {
-                SpawnEnemy(enemyInfo);
-                yield return new WaitForSeconds(enemyInfo.spawnDelay);
-            }
-        }
+		{
+			// Start spawning the enemy based on its firstSpawnDelay
+			spawnCoroutines.Add(StartCoroutine(SpawnEnemyWithDelay(enemyInfo)));
+		}
+
+		// Wait for all enemy spawning to finish
+		foreach (var coroutine in spawnCoroutines)
+		{
+			yield return coroutine;
+		}
 
 		state = SpawnState.WAITING;
 		yield break;
+	}
+
+	IEnumerator SpawnEnemyWithDelay(EnemySpawnInfo enemyInfo)
+	{
+		// Wait for the first spawn delay
+		yield return new WaitForSeconds(enemyInfo.firstSpawnDelay);
+
+		// Then spawn the enemy
+		for (int i = 0; i < enemyInfo.count; i++)
+		{
+			SpawnEnemy(enemyInfo);
+			yield return new WaitForSeconds(enemyInfo.spawnDelay);
+		}
 	}
 
 	void SpawnEnemy(EnemySpawnInfo enemyInfo)

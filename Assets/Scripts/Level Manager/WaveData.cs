@@ -18,6 +18,7 @@ public class EnemySpawnInfo
 {
     public string enemyType;
     public int count;
+    public float firstSpawnDelay;
     public float spawnDelay;
     public int toughnessGrade;
 }

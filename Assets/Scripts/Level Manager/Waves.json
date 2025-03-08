@@ -5,8 +5,9 @@
             "enemies": [
                 {
                     "enemyType": "Virus",
-                    "count": 5,
-                    "spawnDelay": 1.5,
+                    "count": 20,
+                    "firstSpawnDelay": 0,
+                    "spawnDelay": 0.8755,
                     "toughnessGrade": 1
                 }
             ]
@@ -16,9 +17,10 @@
             "enemies": [
                 {
                     "enemyType": "Virus",
-                    "count": 7,
-                    "spawnDelay": 1.3,
-                    "toughnessGrade": 2
+                    "count": 35,
+                    "firstSpawnDelay": 0,
+                    "spawnDelay": 0.5429,
+                    "toughnessGrade": 1
                 }
             ]
         },
@@ -26,16 +28,25 @@
             "waveName": "Wave 3",
             "enemies": [
                 {
-                    "enemyType": "Glitch",
-                    "count": 3,
-                    "spawnDelay": 2.0,
+                    "enemyType": "Virus",
+                    "count": 10,
+                    "firstSpawnDelay": 0,
+                    "spawnDelay": 0.51,
                     "toughnessGrade": 1
                 },
                 {
                     "enemyType": "Virus",
                     "count": 5,
-                    "spawnDelay": 1.5,
+                    "firstSpawnDelay": 5.7,
+                    "spawnDelay": 0.45,
                     "toughnessGrade": 2
+                },
+                {
+                    "enemyType": "Virus",
+                    "count": 15,
+                    "firstSpawnDelay": 9.71,
+                    "spawnDelay": 0.4667,
+                    "toughnessGrade": 1
                 }
             ]
         },
@@ -45,12 +56,14 @@
                 {
                     "enemyType": "Worm",
                     "count": 2,
+                    "firstSpawnDelay": 0,
                     "spawnDelay": 3.0,
                     "toughnessGrade": 3
                 },
                 {
                     "enemyType": "Virus",
                     "count": 5,
+                    "firstSpawnDelay": 0,
                     "spawnDelay": 1.5,
                     "toughnessGrade": 3
                 }
@@ -62,12 +75,14 @@
                 {
                     "enemyType": "Trojan_Horse",
                     "count": 1,
+                    "firstSpawnDelay": 4.0,
                     "spawnDelay": 4.0,
                     "toughnessGrade": 4
                 },
                 {
                     "enemyType": "Glitch",
                     "count": 4,
+                    "firstSpawnDelay": 0,
                     "spawnDelay": 1.8,
                     "toughnessGrade": 2
                 }
@@ -79,12 +94,14 @@
                 {
                     "enemyType": "Virus",
                     "count": 8,
+                    "firstSpawnDelay": 0,
                     "spawnDelay": 1.2,
                     "toughnessGrade": 2
                 },
                 {
                     "enemyType": "Worm",
                     "count": 3,
+                    "firstSpawnDelay": 0,
                     "spawnDelay": 2.5,
                     "toughnessGrade": 3
                 }
@@ -96,12 +113,14 @@
                 {
                     "enemyType": "Glitch",
                     "count": 5,
+                    "firstSpawnDelay": 0,
                     "spawnDelay": 1.5,
                     "toughnessGrade": 2
                 },
                 {
                     "enemyType": "DDOS",
                     "count": 2,
+                    "firstSpawnDelay": 0,
                     "spawnDelay": 3.0,
                     "toughnessGrade": 4
                 }
@@ -113,12 +132,14 @@
                 {
                     "enemyType": "Virus",
                     "count": 10,
+                    "firstSpawnDelay": 0,
                     "spawnDelay": 1.0,
                     "toughnessGrade": 3
                 },
                 {
                     "enemyType": "Trojan_Horse",
                     "count": 2,
+                    "firstSpawnDelay": 4.0,
                     "spawnDelay": 4.0,
                     "toughnessGrade": 5
                 }
@@ -130,12 +151,14 @@
                 {
                     "enemyType": "Macro_Virus",
                     "count": 3,
+                    "firstSpawnDelay": 0,
                     "spawnDelay": 2.2,
                     "toughnessGrade": 4
                 },
                 {
                     "enemyType": "Glitch",
                     "count": 6,
+                    "firstSpawnDelay": 0,
                     "spawnDelay": 1.3,
                     "toughnessGrade": 3
                 }
@@ -147,12 +170,14 @@
                 {
                     "enemyType": "DDOS",
                     "count": 3,
+                    "firstSpawnDelay": 0,
                     "spawnDelay": 3.5,
                     "toughnessGrade": 5
                 },
                 {
                     "enemyType": "Virus",
                     "count": 12,
+                    "firstSpawnDelay": 0,
                     "spawnDelay": 0.8,
                     "toughnessGrade": 3
                 }
@@ -164,12 +189,14 @@
                 {
                     "enemyType": "Trojan_Horse",
                     "count": 3,
+                    "firstSpawnDelay": 3.0,
                     "spawnDelay": 3.0,
                     "toughnessGrade": 5
                 },
                 {
                     "enemyType": "Glitch",
                     "count": 5,
+                    "firstSpawnDelay": 0,
                     "spawnDelay": 1.5,
                     "toughnessGrade": 4
                 }
@@ -181,12 +208,14 @@
                 {
                     "enemyType": "Worm",
                     "count": 5,
+                    "firstSpawnDelay": 0,
                     "spawnDelay": 2.8,
                     "toughnessGrade": 4
                 },
                 {
                     "enemyType": "Virus",
                     "count": 15,
+                    "firstSpawnDelay": 0,
                     "spawnDelay": 0.8,
                     "toughnessGrade": 3
                 }
@@ -198,12 +227,14 @@
                 {
                     "enemyType": "Macro_Virus",
                     "count": 4,
+                    "firstSpawnDelay": 0,
                     "spawnDelay": 2.0,
                     "toughnessGrade": 5
                 },
                 {
                     "enemyType": "Glitch",
                     "count": 7,
+                    "firstSpawnDelay": 0,
                     "spawnDelay": 1.2,
                     "toughnessGrade": 4
                 }
@@ -215,12 +246,14 @@
                 {
                     "enemyType": "DDOS",
                     "count": 4,
+                    "firstSpawnDelay": 0,
                     "spawnDelay": 3.2,
                     "toughnessGrade": 5
                 },
                 {
                     "enemyType": "Virus",
                     "count": 18,
+                    "firstSpawnDelay": 0,
                     "spawnDelay": 0.7,
                     "toughnessGrade": 4
                 }
@@ -232,12 +265,14 @@
                 {
                     "enemyType": "Trojan_Horse",
                     "count": 5,
+                    "firstSpawnDelay": 3.5,
                     "spawnDelay": 3.5,
                     "toughnessGrade": 5
                 },
                 {
                     "enemyType": "Macro_Virus",
                     "count": 5,
+                    "firstSpawnDelay": 0,
                     "spawnDelay": 1.8,
                     "toughnessGrade": 5
                 }
@@ -249,12 +284,14 @@
                 {
                     "enemyType": "Virus",
                     "count": 20,
+                    "firstSpawnDelay": 0,
                     "spawnDelay": 0.6,
                     "toughnessGrade": 5
                 },
                 {
                     "enemyType": "Glitch",
                     "count": 10,
+                    "firstSpawnDelay": 0,
                     "spawnDelay": 1.0,
                     "toughnessGrade": 5
                 }
