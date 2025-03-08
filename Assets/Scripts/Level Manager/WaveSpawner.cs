@@ -25,13 +25,17 @@ public class WaveSpawner : MonoBehaviour
 
     private SpawnState state = SpawnState.COUNTING;
     private ProgressBar waveProgressionBar;
+	private int totalEnemiesThisWave;
+	private int enemiesDefeatedThisWave = 0;
     private Label current_level;
     private Label next_level;
 
     public SpawnState State => state;
+	public static WaveSpawner instance;
 
     void Start()
 	{
+		instance = this;
 		waveProgressionBar = levelProgressionUIDocument.rootVisualElement.Q<ProgressBar>("ProgressBar");
 		current_level = levelProgressionUIDocument.rootVisualElement.Q<Label>("current_level");
 		next_level = levelProgressionUIDocument.rootVisualElement.Q<Label>("next_level");
@@ -102,7 +106,8 @@ public class WaveSpawner : MonoBehaviour
 			Debug.LogError("UIDocument is not selected in LevelManager");
 			return;
 		}
-		waveProgressionBar.value = (waves[nextWave].enemies.Count - GameObject.FindGameObjectsWithTag("Enemy").Length) * wave_progression;
+
+		waveProgressionBar.value = enemiesDefeatedThisWave * wave_progression;
 	}
 
 	public void CalculateWaveProgressionParam(int count)
@@ -162,7 +167,8 @@ public class WaveSpawner : MonoBehaviour
             totalEnemies += enemyInfo.count;
         }
 
-        CalculateWaveProgressionParam(totalEnemies);
+		totalEnemiesThisWave = totalEnemies;
+        CalculateWaveProgressionParam(totalEnemiesThisWave);
 
 		foreach (EnemySpawnInfo enemyInfo in wave.enemies)
         {
@@ -197,5 +203,11 @@ public class WaveSpawner : MonoBehaviour
             Debug.LogError($"Enemy type {enemyInfo.enemyType} not found!");
         }
     }
+
+	public void EnemyDefeated()
+	{
+		enemiesDefeatedThisWave++;
+		UpdateWaveProgression();
+	}
 
 }
