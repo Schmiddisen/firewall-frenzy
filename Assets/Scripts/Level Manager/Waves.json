@@ -80,17 +80,24 @@
             "waveName": "Wave 5",
             "enemies": [
                 {
-                    "enemyType": "Trojan_Horse",
-                    "count": 1,
-                    "firstSpawnDelay": 4.0,
-                    "spawnDelay": 4.0,
-                    "toughnessGrade": 4
+                    "enemyType": "Virus",
+                    "count": 12,
+                    "firstSpawnDelay": 0,
+                    "spawnDelay": 0.4283,
+                    "toughnessGrade": 2
                 },
                 {
-                    "enemyType": "Glitch",
-                    "count": 4,
-                    "firstSpawnDelay": 0,
-                    "spawnDelay": 1.8,
+                    "enemyType": "Virus",
+                    "count": 5,
+                    "firstSpawnDelay": 5.7,
+                    "spawnDelay": 0.456,
+                    "toughnessGrade": 1
+                },
+                {
+                    "enemyType": "Virus",
+                    "count": 15,
+                    "firstSpawnDelay": 8.6,
+                    "spawnDelay": 0.5267,
                     "toughnessGrade": 2
                 }
             ]
@@ -100,17 +107,24 @@
             "enemies": [
                 {
                     "enemyType": "Virus",
-                    "count": 8,
+                    "count": 4,
                     "firstSpawnDelay": 0,
-                    "spawnDelay": 1.2,
-                    "toughnessGrade": 2
+                    "spawnDelay": 0.4275,
+                    "toughnessGrade": 3
                 },
                 {
-                    "enemyType": "Worm",
-                    "count": 3,
-                    "firstSpawnDelay": 0,
-                    "spawnDelay": 2.5,
-                    "toughnessGrade": 3
+                    "enemyType": "Virus",
+                    "count": 15,
+                    "firstSpawnDelay": 5.33,
+                    "spawnDelay": 0.3333,
+                    "toughnessGrade": 1
+                },
+                {
+                    "enemyType": "Virus",
+                    "count": 15,
+                    "firstSpawnDelay": 10.8,
+                    "spawnDelay": 0.5267,
+                    "toughnessGrade": 2
                 }
             ]
         },
@@ -118,18 +132,32 @@
             "waveName": "Wave 7",
             "enemies": [
                 {
-                    "enemyType": "Glitch",
-                    "count": 5,
+                    "enemyType": "Virus",
+                    "count": 10,
                     "firstSpawnDelay": 0,
-                    "spawnDelay": 1.5,
+                    "spawnDelay": 0.514,
                     "toughnessGrade": 2
                 },
                 {
-                    "enemyType": "DDOS",
-                    "count": 2,
-                    "firstSpawnDelay": 0,
-                    "spawnDelay": 3.0,
-                    "toughnessGrade": 4
+                    "enemyType": "Virus",
+                    "count": 5,
+                    "firstSpawnDelay": 5.7,
+                    "spawnDelay": 0.99,
+                    "toughnessGrade": 3
+                },
+                {
+                    "enemyType": "Virus",
+                    "count": 20,
+                    "firstSpawnDelay": 11.81,
+                    "spawnDelay": 0.542,
+                    "toughnessGrade": 1
+                },
+                {
+                    "enemyType": "Virus",
+                    "count": 10,
+                    "firstSpawnDelay": 22.81,
+                    "spawnDelay": 0.399,
+                    "toughnessGrade": 2
                 }
             ]
         },
@@ -138,17 +166,31 @@
             "enemies": [
                 {
                     "enemyType": "Virus",
-                    "count": 10,
+                    "count": 20,
                     "firstSpawnDelay": 0,
-                    "spawnDelay": 1.0,
+                    "spawnDelay": 0.542,
+                    "toughnessGrade": 2
+                },
+                {
+                    "enemyType": "Virus",
+                    "count": 2,
+                    "firstSpawnDelay": 11.42,
+                    "spawnDelay": 0.285,
                     "toughnessGrade": 3
                 },
                 {
-                    "enemyType": "Trojan_Horse",
-                    "count": 2,
-                    "firstSpawnDelay": 4.0,
-                    "spawnDelay": 4.0,
-                    "toughnessGrade": 5
+                    "enemyType": "Virus",
+                    "count": 10,
+                    "firstSpawnDelay": 14.03,
+                    "spawnDelay": 0.197,
+                    "toughnessGrade": 1
+                },
+                {
+                    "enemyType": "Virus",
+                    "count": 12,
+                    "firstSpawnDelay": 18.27,
+                    "spawnDelay": 0.8833,
+                    "toughnessGrade": 3
                 }
             ]
         },
@@ -156,17 +198,10 @@
             "waveName": "Wave 9",
             "enemies": [
                 {
-                    "enemyType": "Macro_Virus",
-                    "count": 3,
+                    "enemyType": "Virus",
+                    "count": 30,
                     "firstSpawnDelay": 0,
-                    "spawnDelay": 2.2,
-                    "toughnessGrade": 4
-                },
-                {
-                    "enemyType": "Glitch",
-                    "count": 6,
-                    "firstSpawnDelay": 0,
-                    "spawnDelay": 1.3,
+                    "spawnDelay": 0.6317,
                     "toughnessGrade": 3
                 }
             ]
@@ -175,18 +210,25 @@
             "waveName": "Wave 10",
             "enemies": [
                 {
-                    "enemyType": "DDOS",
-                    "count": 3,
+                    "enemyType": "Virus",
+                    "count": 60,
                     "firstSpawnDelay": 0,
-                    "spawnDelay": 3.5,
-                    "toughnessGrade": 5
+                    "spawnDelay": 0.5833,
+                    "toughnessGrade": 2
                 },
                 {
                     "enemyType": "Virus",
-                    "count": 12,
-                    "firstSpawnDelay": 0,
-                    "spawnDelay": 0.8,
-                    "toughnessGrade": 3
+                    "count": 20,
+                    "firstSpawnDelay": 35.0,
+                    "spawnDelay": 0.45,
+                    "toughnessGrade": 2
+                },
+                {
+                    "enemyType": "Virus",
+                    "count": 22,
+                    "firstSpawnDelay": 44.0,
+                    "spawnDelay": 0.1814,
+                    "toughnessGrade": 2
                 }
             ]
         },
@@ -194,18 +236,32 @@
             "waveName": "Wave 11",
             "enemies": [
                 {
-                    "enemyType": "Trojan_Horse",
+                    "enemyType": "Virus",
                     "count": 3,
-                    "firstSpawnDelay": 3.0,
-                    "spawnDelay": 3.0,
-                    "toughnessGrade": 5
+                    "firstSpawnDelay": 0,
+                    "spawnDelay": 0.3333,
+                    "toughnessGrade": 4
                 },
                 {
-                    "enemyType": "Glitch",
-                    "count": 5,
-                    "firstSpawnDelay": 0,
-                    "spawnDelay": 1.5,
-                    "toughnessGrade": 4
+                    "enemyType": "Virus",
+                    "count": 12,
+                    "firstSpawnDelay": 4.47,
+                    "spawnDelay": 0.5233,
+                    "toughnessGrade": 3
+                },
+                {
+                    "enemyType": "Virus",
+                    "count": 10,
+                    "firstSpawnDelay": 10.87,
+                    "spawnDelay": 0.38,
+                    "toughnessGrade": 2
+                },
+                {
+                    "enemyType": "Virus",
+                    "count": 10,
+                    "firstSpawnDelay": 14.59,
+                    "spawnDelay": 0.457,
+                    "toughnessGrade": 1
                 }
             ]
         },
@@ -213,18 +269,25 @@
             "waveName": "Wave 12",
             "enemies": [
                 {
-                    "enemyType": "Worm",
-                    "count": 5,
+                    "enemyType": "Virus",
+                    "count": 10,
                     "firstSpawnDelay": 0,
-                    "spawnDelay": 2.8,
-                    "toughnessGrade": 4
+                    "spawnDelay": 0.513,
+                    "toughnessGrade": 3
                 },
                 {
                     "enemyType": "Virus",
                     "count": 15,
-                    "firstSpawnDelay": 0,
-                    "spawnDelay": 0.8,
-                    "toughnessGrade": 3
+                    "firstSpawnDelay": 5.7,
+                    "spawnDelay": 0.4047,
+                    "toughnessGrade": 2
+                },
+                {
+                    "enemyType": "Virus",
+                    "count": 5,
+                    "firstSpawnDelay": 14.27,
+                    "spawnDelay": 0.624,
+                    "toughnessGrade": 4
                 }
             ]
         },
@@ -232,18 +295,18 @@
             "waveName": "Wave 13",
             "enemies": [
                 {
-                    "enemyType": "Macro_Virus",
-                    "count": 4,
+                    "enemyType": "Virus",
+                    "count": 50,
                     "firstSpawnDelay": 0,
-                    "spawnDelay": 2.0,
-                    "toughnessGrade": 5
+                    "spawnDelay": 0.6,
+                    "toughnessGrade": 2
                 },
                 {
-                    "enemyType": "Glitch",
-                    "count": 7,
-                    "firstSpawnDelay": 0,
-                    "spawnDelay": 1.2,
-                    "toughnessGrade": 4
+                    "enemyType": "Virus",
+                    "count": 23,
+                    "firstSpawnDelay": 2.21,
+                    "spawnDelay": 0.7667,
+                    "toughnessGrade": 3
                 }
             ]
         },
@@ -251,17 +314,59 @@
             "waveName": "Wave 14",
             "enemies": [
                 {
-                    "enemyType": "DDOS",
-                    "count": 4,
-                    "firstSpawnDelay": 0,
-                    "spawnDelay": 3.2,
-                    "toughnessGrade": 5
-                },
-                {
                     "enemyType": "Virus",
                     "count": 18,
                     "firstSpawnDelay": 0,
-                    "spawnDelay": 0.7,
+                    "spawnDelay": 0.5394,
+                    "toughnessGrade": 1
+                },
+                {
+                    "enemyType": "Virus",
+                    "count": 5,
+                    "firstSpawnDelay": 2.85,
+                    "spawnDelay": 0.224,
+                    "toughnessGrade": 2
+                },
+                {
+                    "enemyType": "Virus",
+                    "count": 5,
+                    "firstSpawnDelay": 5.71,
+                    "spawnDelay": 0.224,
+                    "toughnessGrade": 3
+                },
+                {
+                    "enemyType": "Virus",
+                    "count": 4,
+                    "firstSpawnDelay": 8.56,
+                    "spawnDelay": 0.235,
+                    "toughnessGrade": 4
+                },              
+                {
+                    "enemyType": "Virus",
+                    "count": 31,
+                    "firstSpawnDelay": 9.5,
+                    "spawnDelay": 0.5526,
+                    "toughnessGrade": 1
+                },
+                {
+                    "enemyType": "Virus",
+                    "count": 10,
+                    "firstSpawnDelay": 15.96,
+                    "spawnDelay": 0.138,
+                    "toughnessGrade": 2
+                },
+                {
+                    "enemyType": "Virus",
+                    "count": 5,
+                    "firstSpawnDelay": 19.84,
+                    "spawnDelay": 0.276,
+                    "toughnessGrade": 3
+                },
+                {
+                    "enemyType": "Virus",
+                    "count": 5,
+                    "firstSpawnDelay": 23.71,
+                    "spawnDelay": 0.31,
                     "toughnessGrade": 4
                 }
             ]
@@ -270,17 +375,38 @@
             "waveName": "Wave 15",
             "enemies": [
                 {
-                    "enemyType": "Trojan_Horse",
-                    "count": 5,
-                    "firstSpawnDelay": 3.5,
-                    "spawnDelay": 3.5,
-                    "toughnessGrade": 5
+                    "enemyType": "Virus",
+                    "count": 20,
+                    "firstSpawnDelay": 0,
+                    "spawnDelay": 1.25,
+                    "toughnessGrade": 1
                 },
                 {
-                    "enemyType": "Macro_Virus",
+                    "enemyType": "Virus",
+                    "count": 15,
+                    "firstSpawnDelay": 2.78,
+                    "spawnDelay": 1.3333,
+                    "toughnessGrade": 2
+                },
+                {
+                    "enemyType": "Virus",
+                    "count": 12,
+                    "firstSpawnDelay": 5.68,
+                    "spawnDelay": 1.25,
+                    "toughnessGrade": 3
+                },
+                {
+                    "enemyType": "Virus",
+                    "count": 10,
+                    "firstSpawnDelay": 8.87,
+                    "spawnDelay": 1.2,
+                    "toughnessGrade": 4
+                },
+                {
+                    "enemyType": "Virus",
                     "count": 5,
-                    "firstSpawnDelay": 0,
-                    "spawnDelay": 1.8,
+                    "firstSpawnDelay": 17.55,
+                    "spawnDelay": 0.6,
                     "toughnessGrade": 5
                 }
             ]

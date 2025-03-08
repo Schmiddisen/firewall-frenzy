@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 
+// this document as orientation for the wave config: https://topper64.co.uk/nk/btd6/rounds/regular
+
 [System.Serializable]
 public class WaveCollection
 {
