@@ -162,10 +162,25 @@ public class WaveSpawner : MonoBehaviour
 		state = SpawnState.SPAWNING;
 
 		int totalEnemies = 0;
+		enemiesDefeatedThisWave = 0;
+		
         foreach (EnemySpawnInfo enemyInfo in wave.enemies)
-        {
-            totalEnemies += enemyInfo.count;
-        }
+		{
+			if (enemyInfo.enemyType == "Trojan_Horse")
+			{
+				// Each Trojan Horse counts as 6 initial enemies + 5 additional enemies (Virus toughness grade)
+				totalEnemies += enemyInfo.count * 26;  // Trojan_Horse counts as 1 + 5 for each of the 5 spawned Viruses
+			}
+			else if (enemyInfo.enemyType == "Virus")
+			{
+				// For each Virus, multiply by its toughness grade to count how many "hits" are required
+				totalEnemies += enemyInfo.count * enemyInfo.toughnessGrade;
+			}
+			else
+			{
+				totalEnemies += enemyInfo.count;  // Normal enemies
+			}
+		}
 
 		totalEnemiesThisWave = totalEnemies;
         CalculateWaveProgressionParam(totalEnemiesThisWave);
