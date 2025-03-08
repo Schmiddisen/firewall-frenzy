@@ -54,18 +54,25 @@
             "waveName": "Wave 4",
             "enemies": [
                 {
-                    "enemyType": "Worm",
-                    "count": 2,
+                    "enemyType": "Virus",
+                    "count": 25,
                     "firstSpawnDelay": 0,
-                    "spawnDelay": 3.0,
-                    "toughnessGrade": 3
+                    "spawnDelay": 0.48,
+                    "toughnessGrade": 1
                 },
                 {
                     "enemyType": "Virus",
-                    "count": 5,
-                    "firstSpawnDelay": 0,
-                    "spawnDelay": 1.5,
-                    "toughnessGrade": 3
+                    "count": 18,
+                    "firstSpawnDelay": 7.9,
+                    "spawnDelay": 0.1389,
+                    "toughnessGrade": 2
+                },
+                {
+                    "enemyType": "Virus",
+                    "count": 10,
+                    "firstSpawnDelay": 14.51,
+                    "spawnDelay": 0.28,
+                    "toughnessGrade": 1
                 }
             ]
         },
