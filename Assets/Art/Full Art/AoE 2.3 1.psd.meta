@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 0e14e633dd4126d508f5eea11c72d7bb
+guid: e2e8b6f92763c9446acf7ba0f2d028a9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1046444227985733684
-    second: map2_0
+      213: -4365915738188529511
+    second: AoE 2.3 1_0
+  - first:
+      213: 4978357256622746612
+    second: AoE 2.3 1_1
+  - first:
+      213: -7806887699838099186
+    second: AoE 2.3 1_2
+  - first:
+      213: 3238952958877742836
+    second: AoE 2.3 1_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1000
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,23 +109,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: map2_0
+      name: AoE 2.3 1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1920
-        height: 1080
+        x: 459
+        y: 612
+        width: 931
+        height: 929
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cc707a9d4884a71f0800000000000000
-      internalID: -1046444227985733684
+      spriteID: 9904cf984c62963c0800000000000000
+      internalID: -4365915738188529511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoE 2.3 1_1
+      rect:
+        serializedVersion: 2
+        x: 1488
+        y: 135
+        width: 331
+        height: 330
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fbacf56c8da61540800000000000000
+      internalID: 4978357256622746612
       vertices: []
       indices: 
       edges: []
@@ -125,7 +156,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 2b700d9b58917fa479474955443c4041
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +166,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      map2_0: -1046444227985733684
+      AoE 2.3 1_0: -4365915738188529511
+      AoE 2.3 1_1: 4978357256622746612
+      AoE 2.3 1_2: -7806887699838099186
+      AoE 2.3 1_3: 3238952958877742836
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
