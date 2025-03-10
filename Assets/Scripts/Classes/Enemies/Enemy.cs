@@ -180,6 +180,7 @@ public abstract class Enemy : MonoBehaviour
         if (currentHealth <= 0 && !isDestroyed)
         {
             LevelManager.main.IncreaseCurrency(currencyWorth);
+            WaveSpawner.instance.EnemyDefeated();
             isDestroyed = true;
             onDestroy();
         }

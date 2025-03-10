@@ -1,0 +1,31 @@
+using System.Collections.Generic;
+
+// this document as orientation for the wave config: https://topper64.co.uk/nk/btd6/rounds/regular
+
+// Waves that still have to be looked at: 20, 22, 23
+
+// Currency per enemy maybe also has to be adjusted
+
+[System.Serializable]
+public class WaveCollection
+{
+    public List<WaveData> waves;
+}
+
+[System.Serializable]
+public class WaveData
+{
+    public string waveName;
+    public List<EnemySpawnInfo> enemies;
+}
+
+[System.Serializable]
+public class EnemySpawnInfo
+{
+    public string enemyType;
+    public int count;
+    public float firstSpawnDelay;
+    public float spawnDelay;
+    public int toughnessGrade;
+}
+
