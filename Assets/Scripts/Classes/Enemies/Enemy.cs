@@ -188,6 +188,7 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual void onDestroy()
     {
+        AudioManager.main.playEnemyDead();
         Destroy(gameObject);
     }
 

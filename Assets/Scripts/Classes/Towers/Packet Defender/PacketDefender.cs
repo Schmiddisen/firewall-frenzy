@@ -12,11 +12,10 @@ public class PacketDefender : TargetingTower
     [SerializeField] GameObject laserBullet;
     [SerializeField] LineRenderer laserLR;
  
-    TowerPathUpgrades upgradeData;
 
     
     public void Start() {
-        this.upgradeData = JsonUtility.FromJson<TowerPathUpgrades>(upgradeJson.text);
+        base.upgradeData = JsonUtility.FromJson<TowerPathUpgrades>(upgradeJson.text);
     }
     
     public override void updateMethod() {
@@ -29,7 +28,7 @@ public class PacketDefender : TargetingTower
     public override void upgrade(UpgradePath path)
     {
         //Which path
-        Upgrades upgradeData = path == UpgradePath.PathA ? this.upgradeData.PathA : this.upgradeData.PathB;
+        Upgrades upgradeData = path == UpgradePath.PathA ? base.upgradeData.PathA : base.upgradeData.PathB;
 
         base.applyUpgrade(upgradeData, path);
 

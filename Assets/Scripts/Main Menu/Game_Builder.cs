@@ -37,15 +37,36 @@ public class Game_Builder : MonoBehaviour
 
         newGameButton.clicked += LoadGameScene;
         exitGameButton.clicked += ExitGame;
+
+        Slider musicSlider = uIDocument.rootVisualElement.Q<Slider>("volume_slider");
+        Slider sfxSlider = uIDocument.rootVisualElement.Q<Slider>("sfx_slider");
+
+        musicSlider.value = AudioManager.main.getMusicVolume();
+        sfxSlider.value = AudioManager.main.getSFXVolume();
+        
+        musicSlider.RegisterValueChangedCallback(evt =>
+        {
+            AudioManager.main.setMusicVolume(evt.newValue);
+        });
+
+        sfxSlider.RegisterValueChangedCallback(evt =>
+        {
+            AudioManager.main.setSFXVolume(evt.newValue);
+        });
+
     }
 
     private void LoadGameScene()
     {
+        AudioManager.main.playButtonClick();
         SceneManager.LoadScene("First_Level");
+        AudioManager.main.isLevelMusic = true;
+        AudioManager.main.playLevelMusic();
     }
 
     private void ExitGame()
     {
+        AudioManager.main.playButtonClick();
         #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
         #else
