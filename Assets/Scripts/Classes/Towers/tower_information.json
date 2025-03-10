@@ -1,46 +1,46 @@
 {
-    "towers": [
+  "towers": [
+    {
+      "name": "Packet Defender",
+      "imagePath": "Full Art/Basic Tower",
+      "infoText": "A simple tower that fires consistently and is great for early game usage. Cheap and effective.",
+      "upgrades": [
         {
-        "name": "Packet Defender",
-        "imagePath": "Full Art/Basic Tower",
-        "infoText": "A simple tower that fires consistently and is great for early game usage. Cheap and effective.",
-            "upgrades": [
-                {
-                "description": "Extremely High Firerate"
-                },
-                {
-                "description": "High Damage, Knockback"
-                }
-            ],
-          "cost" : "100"
+          "description": "Extremely High Firerate"
         },
         {
-        "name": "Firewall Node",
-        "imagePath": "Full Art/AoE Tower",
-        "infoText": "An AoE Tower, that is great for chokepoints, dealing moderate Damage to a lot of enemies. AoE Damage is in pulses.",
-            "upgrades": [
-                {
-                "description": "Damage over time & Vulnerability"
-                },
-                {
-                "description": "Higher Range"
-                }
-            ],
-          "cost" : "100"
-        },
-        {
-        "name": "Malware Scanner",
-        "imagePath": "Full Art/Sniper Tower",
-        "infoText": "A Sniper Turret that is slow firing but does lots of damage in a very long range. Can Crit in its base form.",
-            "upgrades":[
-                {
-                "description": "High Fire Rate"
-                },
-                {
-                "description": "Critical Hits, Enemy Movement Inflictions"
-                }
-            ],
-          "cost" : "150"
+          "description": "High Damage, Knockback"
         }
-    ]
+      ],
+      "cost": "100$"
+    },
+    {
+      "name": "Firewall Node",
+      "imagePath": "Full Art/AoE Tower",
+      "infoText": "An AoE Tower, that is great for chokepoints, dealing moderate Damage to a lot of enemies. AoE Damage is in pulses.",
+      "upgrades": [
+        {
+          "description": "Damage over time & Vulnerability"
+        },
+        {
+          "description": "Higher Range"
+        }
+      ],
+      "cost": "100$"
+    },
+    {
+      "name": "Malware Scanner",
+      "imagePath": "Full Art/Sniper Tower",
+      "infoText": "A Sniper Turret that is slow firing but does lots of damage in a very long range. Can Crit in its base form.",
+      "upgrades": [
+        {
+          "description": "High Fire Rate"
+        },
+        {
+          "description": "Critical Hits, Enemy Movement Inflictions"
+        }
+      ],
+      "cost": "150$"
+    }
+  ]
 }

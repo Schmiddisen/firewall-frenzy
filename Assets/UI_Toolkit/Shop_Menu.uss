@@ -1,13 +1,3 @@
-.font {
-    -unity-font-definition: url("project://database/Assets/Fonts/Rajdhani-Bold.ttf?fileID=12800000&guid=fdce0fa83b5c1418ebba6e44589143b8&type=3#Rajdhani-Bold");
-    font-size: 20px;
-    -unity-font-style: bold;
-    -unity-text-outline-width: 0.5px;
-    -unity-text-outline-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    -unity-text-align: middle-center;
-}
-
 .upgrade_button {
     height: 50px;
     margin-top: 0;
@@ -75,6 +65,16 @@
 
 .disable_info {
     display: flex;
+}
+
+.font {
+    -unity-font-definition: url("project://database/Assets/Fonts/Rajdhani-Bold.ttf?fileID=12800000&guid=fdce0fa83b5c1418ebba6e44589143b8&type=3#Rajdhani-Bold");
+    font-size: 20px;
+    -unity-font-style: bold;
+    -unity-text-outline-width: 0.5px;
+    -unity-text-outline-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    -unity-text-align: middle-center;
 }
 
 .hidden {
