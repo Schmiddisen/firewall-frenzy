@@ -8,6 +8,7 @@ public class HealthUI : MonoBehaviour
     private Label Node_3_broken;
     private Label Node_4_broken;
     private Label Node_5_broken;
+    private Label Health_Label;
 
     public void UpdateHealthBar(UIDocument health_uIDocument, int health)
     {
@@ -17,12 +18,19 @@ public class HealthUI : MonoBehaviour
         Node_3_broken = root.Q<Label>("Node_3_broken");
         Node_4_broken = root.Q<Label>("Node_4_broken");
         Node_5_broken = root.Q<Label>("Node_5_broken");
+        Health_Label = root.Q<Label>("current_health");
 
         checkHealth(health);
     }
 
     private void checkHealth(int health)
     {
+        if (Health_Label == null)
+        {
+            Debug.LogError("Health Label ist null! Stelle sicher, dass der Name in UI Toolkit stimmt.");
+            return;
+        }
+        Health_Label.text = ((float)health / 5000 * 100) + "%";
         if (Node_1_broken == null || Node_2_broken == null || Node_3_broken == null || Node_4_broken == null || Node_5_broken == null)
         {
             Debug.LogError("Eines der Labels ist null! Stelle sicher, dass die Namen in UI Toolkit stimmen.");

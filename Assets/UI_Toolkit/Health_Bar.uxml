@@ -20,6 +20,11 @@
                     <engine:Label text="X" name="Node_5_broken" class="font hidden" style="align-self: center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-text-align: middle-center;" />
                 </engine:VisualElement>
             </engine:VisualElement>
+            <engine:VisualElement name="VisualElement" style="flex-grow: 1; height: 100%; width: 100%;">
+                <engine:VisualElement name="VisualElement" style="flex-grow: 1; width: 100%; height: 10%; position: absolute; top: 10px; -unity-text-align: middle-left; justify-content: center;">
+                    <engine:Label text="100%" name="current_health" style="font-size: 40px; -unity-font-definition: url(&quot;project://database/Assets/Fonts/Rajdhani-Bold.ttf?fileID=12800000&amp;guid=fdce0fa83b5c1418ebba6e44589143b8&amp;type=3#Rajdhani-Bold&quot;); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-text-align: middle-center; color: rgb(255, 255, 255);" />
+                </engine:VisualElement>
+            </engine:VisualElement>
         </engine:VisualElement>
     </engine:VisualElement>
 </engine:UXML>
