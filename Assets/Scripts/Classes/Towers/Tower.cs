@@ -43,7 +43,7 @@ public abstract class Tower : MonoBehaviour
     [Header("Runtime Attributes and Refrences")]
     protected List<Transform> enemyTargets;
     protected int currentUpgradeCosts;
-    private int currentLevel = 0;
+    public int currentLevel = 0;
     public UpgradePath upgradePath = UpgradePath.Base;
     protected float currentTargetingRange;
     public int currentDMG;
@@ -90,7 +90,7 @@ public abstract class Tower : MonoBehaviour
         targetingRangeDetetector.radius = baseTargetingRange;
         targetingRangeDetetector.offset = new Vector2(0, 0);
 
-        isActiv = false;
+        //isActiv = false;
 
         accumulatedStagger = 0;
 
