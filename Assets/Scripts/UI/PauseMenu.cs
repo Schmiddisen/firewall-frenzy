@@ -25,14 +25,22 @@ public class PauseMenu : MonoBehaviour
         Button btnExitGame = root.Q<Button>("Exit_Game_Button");
 
         btnContinue.clicked += () => closePauseMenu();
-        btnRestartGame.clicked += () => restarGame();
+        btnRestartGame.clicked += () => restartGame();
         btnExitGame.clicked += () => exitGame();
+        Debug.Log("PauseMenu Awake");
+        Debug.Log(root);
+        Slider musicSlider = root.Q<Slider>("volume_slider");
+        Slider sfxSlider = root.Q<Slider>("sfx_slider");
 
-        Slider musicSlider = pauseMenuUIDocument.rootVisualElement.Q<Slider>("volume_slider");
-        Slider sfxSlider = pauseMenuUIDocument.rootVisualElement.Q<Slider>("sfx_slider");
-
-        musicSlider.value = AudioManager.main.getMusicVolume();
-        sfxSlider.value = AudioManager.main.getSFXVolume();
+        if (musicSlider != null && sfxSlider != null)
+        {
+            musicSlider.value = AudioManager.main.getMusicVolume();
+            sfxSlider.value = AudioManager.main.getSFXVolume();
+        }
+        else
+        {
+            Debug.LogError("Sliders not found in UI Document.");
+        }
         
         musicSlider.RegisterValueChangedCallback(evt =>
         {
@@ -73,9 +81,9 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.AddToClassList("hidden");
     }
 
-    private void restarGame() {
+    private void restartGame() {
         AudioManager.main.playButtonClick();
-        //Function for restarting the game
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void exitGame() {
