@@ -27,8 +27,6 @@ public class PauseMenu : MonoBehaviour
         btnContinue.clicked += () => closePauseMenu();
         btnRestartGame.clicked += () => restartGame();
         btnExitGame.clicked += () => exitGame();
-        Debug.Log("PauseMenu Awake");
-        Debug.Log(root);
         Slider musicSlider = root.Q<Slider>("volume_slider");
         Slider sfxSlider = root.Q<Slider>("sfx_slider");
 
