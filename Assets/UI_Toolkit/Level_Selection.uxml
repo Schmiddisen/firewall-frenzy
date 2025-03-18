@@ -1,0 +1,17 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI_Toolkit/Level_Selection.uss?fileID=7433441132597879392&amp;guid=2551dfd7a72c14f84a0b3a2b1f68621f&amp;type=3#Level_Selection" />
+    <engine:VisualElement name="VisualElement" style="flex-grow: 1; justify-content: space-evenly; flex-direction: row; align-items: center; background-color: rgb(63, 63, 63);">
+        <engine:VisualElement class="visual" style="flex-grow: 1;">
+            <engine:Label text="Level 1" class="font" />
+            <engine:Button text="Button" name="Level1" class="button" style="background-image: url(&quot;project://database/Assets/Art/Full%20Art/map1%201.png?fileID=2800000&amp;guid=ab59844a66198704ab4fed704ce85638&amp;type=3#map1 1&quot;);" />
+        </engine:VisualElement>
+        <engine:VisualElement class="visual" style="flex-grow: 1;">
+            <engine:Label text="Level 2" class="font" />
+            <engine:Button text="Button" name="Level2" class="button" style="background-image: url(&quot;project://database/Assets/Art/Full%20Art/map2.png?fileID=2800000&amp;guid=0e14e633dd4126d508f5eea11c72d7bb&amp;type=3#map2&quot;);" />
+        </engine:VisualElement>
+        <engine:VisualElement class="visual" style="flex-grow: 1;">
+            <engine:Label text="Level 3" class="font" />
+            <engine:Button text="Button" name="Level3" class="button" style="background-image: url(&quot;project://database/Assets/Art/Full%20Art/map3.png?fileID=-2014946694266490304&amp;guid=5e074b9939d042723b82a70be781eaee&amp;type=3#map3 1_0&quot;);" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

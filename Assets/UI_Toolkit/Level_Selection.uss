@@ -1,0 +1,58 @@
+.button {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    width: 550px;
+    height: 310px;
+    background-color: rgba(0, 0, 0, 0);
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-left-color: rgb(233, 166, 61);
+    border-right-color: rgb(233, 166, 61);
+    border-top-color: rgb(233, 166, 61);
+    border-bottom-color: rgb(233, 166, 61);
+    position: relative;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.visual {
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.font {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 50px;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    -unity-font-definition: url("project://database/Assets/Fonts/Rajdhani-Bold.ttf?fileID=12800000&guid=fdce0fa83b5c1418ebba6e44589143b8&type=3#Rajdhani-Bold");
+    -unity-font-style: bold;
+    color: rgb(254, 172, 0);
+    font-size: 90px;
+    -unity-text-outline-width: 2px;
+    -unity-text-outline-color: rgb(0, 0, 0);
+    text-shadow: 7px 3px 50px rgb(0, 0, 0);
+}
+
+.button:hover {
+    transition-property: scale;
+    scale: 1.1 1.3;
+    transition-duration: 0.4s;
+}

@@ -35,7 +35,7 @@ public class Game_Builder : MonoBehaviour
             return;
         }
 
-        newGameButton.clicked += LoadGameScene;
+        newGameButton.clicked += LoadLevelSelectScene;
         exitGameButton.clicked += ExitGame;
 
         Slider musicSlider = uIDocument.rootVisualElement.Q<Slider>("volume_slider");
@@ -56,12 +56,10 @@ public class Game_Builder : MonoBehaviour
 
     }
 
-    private void LoadGameScene()
+    private void LoadLevelSelectScene()
     {
         AudioManager.main.playButtonClick();
-        SceneManager.LoadScene("First_Level");
-        AudioManager.main.isLevelMusic = true;
-        AudioManager.main.playLevelMusic();
+        SceneManager.LoadScene("Level_Selection");
     }
 
     private void ExitGame()
