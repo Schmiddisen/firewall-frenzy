@@ -506,10 +506,10 @@
             "enemies": [
                 {
                     "enemyType": "Virus",
-                    "count": 40,
+                    "count": 6,
                     "firstSpawnDelay": 0,
-                    "spawnDelay": 0.4,
-                    "toughnessGrade": 5
+                    "spawnDelay": 0.875,
+                    "toughnessGrade": 6
                 }
             ]
         },
@@ -544,10 +544,10 @@
             "enemies": [
                 {
                     "enemyType": "Virus",
-                    "count": 15,
+                    "count": 16,
                     "firstSpawnDelay": 0,
-                    "spawnDelay": 0.55,
-                    "toughnessGrade": 4
+                    "spawnDelay": 0.5,
+                    "toughnessGrade": 6
                 }
             ]
         },
@@ -556,17 +556,17 @@
             "enemies": [
                 {
                     "enemyType": "Virus",
-                    "count": 50,
+                    "count": 7,
                     "firstSpawnDelay": 0,
-                    "spawnDelay": 0.3,
-                    "toughnessGrade": 5
+                    "spawnDelay": 0.3571,
+                    "toughnessGrade": 6
                 },
                 {
                     "enemyType": "Virus",
-                    "count": 10,
-                    "firstSpawnDelay": 25.0,
-                    "spawnDelay": 0.7,
-                    "toughnessGrade": 5
+                    "count": 7,
+                    "firstSpawnDelay": 4.82,
+                    "spawnDelay": 0.2857,
+                    "toughnessGrade": 6
                 }               
             ]
         },
@@ -593,18 +593,18 @@
             "waveName": "Wave 25",
             "enemies": [
                 {
-                    "enemyType": "Virus",
-                    "count": 60,
+                    "enemyType": "Worm",
+                    "count": 10,
                     "firstSpawnDelay": 0,
-                    "spawnDelay": 0.3,
+                    "spawnDelay": 0.56,
                     "toughnessGrade": 4
                 },
                 {
-                    "enemyType": "Virus",
-                    "count": 10,
-                    "firstSpawnDelay": 25.0,
-                    "spawnDelay": 0.7,
-                    "toughnessGrade": 5
+                    "enemyType": "DDOS",
+                    "count": 11,
+                    "firstSpawnDelay": 17.14,
+                    "spawnDelay": 0.4,
+                    "toughnessGrade": 1
                 }
             ]
         },
@@ -613,10 +613,17 @@
             "enemies": [
                 {
                     "enemyType": "Virus",
-                    "count": 50,
+                    "count": 23,
                     "firstSpawnDelay": 0,
-                    "spawnDelay": 0.5,
+                    "spawnDelay": 0.3783,
                     "toughnessGrade": 5
+                },
+                {
+                    "enemyType": "Virus",
+                    "count": 4,
+                    "firstSpawnDelay": 11.08,
+                    "spawnDelay": 0.8575,
+                    "toughnessGrade": 7
                 }
             ]
         },
@@ -625,10 +632,31 @@
             "enemies": [
                 {
                     "enemyType": "Virus",
-                    "count": 50,
-                    "firstSpawnDelay": 0,
-                    "spawnDelay": 0.3,
-                    "toughnessGrade": 5
+                    "count": 100,
+                    "firstSpawnDelay": 0.02,
+                    "spawnDelay": 0.12,
+                    "toughnessGrade": 1
+                },
+                {
+                    "enemyType": "Virus",
+                    "count": 60,
+                    "firstSpawnDelay": 11.54,
+                    "spawnDelay": 0.1333,
+                    "toughnessGrade": 2
+                },
+                {
+                    "enemyType": "Virus",
+                    "count": 45,
+                    "firstSpawnDelay": 19.05,
+                    "spawnDelay": 0.1633,
+                    "toughnessGrade": 3
+                },
+                {
+                    "enemyType": "Virus",
+                    "count": 45,
+                    "firstSpawnDelay": 26.53,
+                    "spawnDelay": 0.1718,
+                    "toughnessGrade": 4
                 }
             ]
         },
@@ -637,10 +665,10 @@
             "enemies": [
                 {
                     "enemyType": "Virus",
-                    "count": 80,
+                    "count": 6,
                     "firstSpawnDelay": 0,
-                    "spawnDelay": 0.4,
-                    "toughnessGrade": 5
+                    "spawnDelay": 0.8333,
+                    "toughnessGrade": 7
                 }
             ]
         },
@@ -649,10 +677,17 @@
             "enemies": [
                 {
                     "enemyType": "Virus",
-                    "count": 80,
+                    "count": 50,
                     "firstSpawnDelay": 0,
-                    "spawnDelay": 0.2,
-                    "toughnessGrade": 5
+                    "spawnDelay": 0.22,
+                    "toughnessGrade": 4
+                },
+                {
+                    "enemyType": "Worm",
+                    "count": 6,
+                    "firstSpawnDelay": 12.75,
+                    "spawnDelay": 0.1667,
+                    "toughnessGrade": 4
                 }
             ]
         },
@@ -661,10 +696,10 @@
             "enemies": [
                 {
                     "enemyType": "Virus",
-                    "count": 120,
+                    "count": 9,
                     "firstSpawnDelay": 0,
-                    "spawnDelay": 0.25,
-                    "toughnessGrade": 5
+                    "spawnDelay": 1.4522,
+                    "toughnessGrade": 7
                 }
             ]
         }
