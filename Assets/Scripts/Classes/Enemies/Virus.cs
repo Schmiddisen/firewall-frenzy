@@ -45,8 +45,25 @@ public class Virus : Enemy
 
     public override void removeplayerHealth()
     {
+        int totalHealthAtDeath = currentHealth;
+        int toughness = toughnessGrade;
+
         // Calculate the total health left at death
-        int totalHealthAtDeath = currentHealth + ((toughnessGrade - 1) * baseHealth);
+        while (toughness > 1)
+        {
+            if (toughness >= 6)
+            {
+                // For Grade 6 and above, the enemy spawns 2 weaker enemies
+                totalHealthAtDeath += 2 * baseHealth;
+                toughness--; // Reduce toughness grade for next iteration
+            }
+            else
+            {
+                // Standard equation for grades 5 and below
+                totalHealthAtDeath += baseHealth;
+                toughness--;
+            }
+        }
         
         // Deduct the total calculated damage from the player's health
         LevelManager.main.OnEnemyFinishTrack.Invoke(totalHealthAtDeath);
@@ -54,31 +71,53 @@ public class Virus : Enemy
 
     private void SpawnWeakerVirus()
     {
-        Virus weakerVirus = Instantiate(this, transform.position, Quaternion.identity);
-        weakerVirus.toughnessGrade = this.toughnessGrade - 1;
-        weakerVirus.baseHealth = this.baseHealth; 
-        weakerVirus.currencyWorth = this.currencyWorth; // Adjust currency reward
-        weakerVirus.distanceTraveled = this.getDistanceTraveled(); // Copy parent's distance
-        weakerVirus.UpdateColor();
+        int spawnCount = (toughnessGrade >= 6) ? 2 : 1; // Spawn two viruses if grade is 6 or higher
+        float spacing = 0.4f; // Distance between spawned viruses
 
-        // Set the movement speed based on the toughness grade
-        weakerVirus.currentMovementSpeed = GetMovementSpeedByToughness(weakerVirus.toughnessGrade);
-        
-        // Inherit Path Progress
-        weakerVirus.path = this.path; // Copy path array
-        weakerVirus.pathIndex = this.pathIndex; // Continue from current path index
-        weakerVirus.currentPathTarget = this.currentPathTarget; // Set correct next target
+        // Determine movement direction to spawn them slightly apart
+        Vector2 moveDirection = (pathIndex < path.Length) 
+        ? (path[pathIndex].position - transform.position).normalized 
+        : rb.linearVelocity.normalized;
 
-        // make the children burn too
-        // this might have to be removed if too strong
-        weakerVirus.ApplyBurnEffect(GetBurnEffect());
-        weakerVirus.lastBurnTime = lastBurnTime;
+        for (int i = 0; i < spawnCount; i++)
+        {
+            // Offset each spawned virus slightly to prevent overlap
+            Vector3 spawnPosition = transform.position - (Vector3)(moveDirection * i * spacing);
+
+            Virus weakerVirus = Instantiate(this, spawnPosition, Quaternion.identity);
+            weakerVirus.toughnessGrade = this.toughnessGrade - 1;
+            weakerVirus.baseHealth = this.baseHealth; 
+            weakerVirus.currencyWorth = this.currencyWorth; // Adjust currency reward
+            weakerVirus.distanceTraveled = this.getDistanceTraveled() - (i * spacing);; // Copy parent's distance
+            weakerVirus.UpdateColor();
+
+            // Set the movement speed based on the toughness grade
+            weakerVirus.currentMovementSpeed = GetMovementSpeedByToughness(weakerVirus.toughnessGrade);
+            
+            // Inherit Path Progress
+            weakerVirus.path = this.path; // Copy path array
+            weakerVirus.pathIndex = this.pathIndex; // Continue from current path index
+            weakerVirus.currentPathTarget = this.currentPathTarget; // Set correct next target
+
+            // make the children burn too
+            // this might have to be removed if too strong
+            weakerVirus.ApplyBurnEffect(GetBurnEffect());
+            weakerVirus.lastBurnTime = lastBurnTime;
+        }
     }
 
     public float GetMovementSpeedByToughness(int grade)
     {
         switch (grade)
         {
+            case 9:
+                return 2.5f;
+            case 8:
+                return 2.2f;
+            case 7:
+                return 2.0f;
+            case 6:
+                return 1.8f;
             case 5:
                 return 3.5f;
             case 4:

@@ -38,7 +38,7 @@ public class Trojan_horse : Enemy
             {
                 Virus.SetToughnessGrade(5);
                 Virus.setupEnemy(Virus.baseMovementSpeed, Virus.baseHealth, Virus.currencyWorth, Virus.isCamouflaged);
-                Virus.distanceTraveled = this.getDistanceTraveled(); // Copy parent's distance, relevant for tower targeting
+                Virus.distanceTraveled = this.getDistanceTraveled() - (i * spacing);; // Copy parent's distance, relevant for tower targeting
                 Virus.UpdateColor();
                 Virus.currentMovementSpeed = Virus.GetMovementSpeedByToughness(Virus.toughnessGrade);
 
