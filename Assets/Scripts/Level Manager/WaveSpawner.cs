@@ -177,12 +177,12 @@ public class WaveSpawner : MonoBehaviour
 			if (enemyInfo.enemyType == "Trojan_Horse")
 			{
 				// Each Trojan Horse counts as 381 initial enemies (Virus toughness grade)
-				totalEnemies += enemyInfo.count * 381;  // Trojan_Horse counts as 1 + 5 for each of the 5 spawned Viruses
+				totalEnemies += enemyInfo.count * 381;
 			}
 			else if (enemyInfo.enemyType == "Virus")
 			{
-				// For each Virus, multiply by its toughness grade to count how many "hits" are required
-				totalEnemies += enemyInfo.count * enemyInfo.toughnessGrade;
+				int gradeIndex = Mathf.Clamp(enemyInfo.toughnessGrade - 1, 0, 8); // Ensure it's within range
+        		totalEnemies += enemyInfo.count * virusSpawnCounts[gradeIndex];
 			}
 			else
 			{
@@ -249,5 +249,10 @@ public class WaveSpawner : MonoBehaviour
 		enemiesDefeatedThisWave++;
 		UpdateWaveProgression();
 	}
+
+	// Precompute the total number of enemies spawned for each toughness grade
+	private static readonly int[] virusSpawnCounts = new int[] { 
+		1, 2, 3, 4, 5, 11, 23, 47, 95 // Precomputed values for grades 1-9
+	};
 
 }

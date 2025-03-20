@@ -30,17 +30,17 @@ public class HealthUI : MonoBehaviour
             Debug.LogError("Health Label ist null! Stelle sicher, dass der Name in UI Toolkit stimmt.");
             return;
         }
-        Health_Label.text = ((float)health / 5000 * 100) + "%";
+        Health_Label.text = ((float)health / 2000 * 100) + "%";
         if (Node_1_broken == null || Node_2_broken == null || Node_3_broken == null || Node_4_broken == null || Node_5_broken == null)
         {
             Debug.LogError("Eines der Labels ist null! Stelle sicher, dass die Namen in UI Toolkit stimmen.");
             return;
         }
 
-        if (health <= 4000) Node_1_broken.RemoveFromClassList("hidden");
-        if (health <= 3000) Node_2_broken.RemoveFromClassList("hidden");
-        if (health <= 2000) Node_3_broken.RemoveFromClassList("hidden");
-        if (health <= 1000) Node_4_broken.RemoveFromClassList("hidden");
+        if (health <= 1600) Node_1_broken.RemoveFromClassList("hidden");
+        if (health <= 1200) Node_2_broken.RemoveFromClassList("hidden");
+        if (health <= 800) Node_3_broken.RemoveFromClassList("hidden");
+        if (health <= 400) Node_4_broken.RemoveFromClassList("hidden");
         if (health <= 0) Node_5_broken.RemoveFromClassList("hidden");
     }
 
