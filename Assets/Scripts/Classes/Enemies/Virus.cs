@@ -24,6 +24,14 @@ public class Virus : Enemy
     public override void SetToughnessGrade(int grade)
     {
         toughnessGrade = grade;
+
+        // Adjust baseHealth for toughness grade 9 (multiply by 10)
+        if (toughnessGrade == 9)
+        {
+            baseHealth *= 10; // Multiply baseHealth by 10 for grade 9
+            currentHealth = baseHealth;
+        }
+
         UpdateColor(); // Update the color when the toughness grade changes
         currentMovementSpeed = GetMovementSpeedByToughness(toughnessGrade); // Apply the movement speed based on the toughness grade
     }
@@ -48,21 +56,19 @@ public class Virus : Enemy
         int totalHealthAtDeath = currentHealth;
         int toughness = toughnessGrade;
 
+        // Total health array for each grade
+        int[] healthPerGrade = new int[] { 20, 40, 60, 80, 100, 220, 460, 940, 2080 }; // has to be modified if the base health of the virus changes
+
         // Calculate the total health left at death
-        while (toughness > 1)
+        if (toughness >= 6)
         {
-            if (toughness >= 6)
-            {
-                // For Grade 6 and above, the enemy spawns 2 weaker enemies
-                totalHealthAtDeath += 2 * baseHealth;
-                toughness--; // Reduce toughness grade for next iteration
-            }
-            else
-            {
-                // Standard equation for grades 5 and below
-                totalHealthAtDeath += baseHealth;
-                toughness--;
-            }
+            // For Grade 6 and above, the enemy spawns 2 weaker enemies
+            totalHealthAtDeath += 2 * healthPerGrade[toughness - 2];
+        }
+        else
+        {
+            // Standard equation for grades 5 and below
+            totalHealthAtDeath += healthPerGrade[toughness - 2];
         }
         
         // Deduct the total calculated damage from the player's health
@@ -86,7 +92,15 @@ public class Virus : Enemy
 
             Virus weakerVirus = Instantiate(this, spawnPosition, Quaternion.identity);
             weakerVirus.toughnessGrade = this.toughnessGrade - 1;
-            weakerVirus.baseHealth = this.baseHealth; 
+            if (this.toughnessGrade == 9)
+            {
+                weakerVirus.baseHealth = this.baseHealth / 10; // No adjustment needed for grade 9 parents
+                weakerVirus.currentHealth = this.currentHealth / 10;
+            }
+            else
+            {
+                weakerVirus.baseHealth = this.baseHealth; // Normal baseHealth for other grades
+            } 
             weakerVirus.currencyWorth = this.currencyWorth; // Adjust currency reward
             weakerVirus.distanceTraveled = this.getDistanceTraveled() - (i * spacing);; // Copy parent's distance
             weakerVirus.UpdateColor();

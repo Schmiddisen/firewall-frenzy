@@ -55,7 +55,7 @@ public class Trojan_horse : Enemy
     public override void removeplayerHealth()
     {
         // Calculate the total health left at death
-        int totalHealthAtDeath = currentHealth + (spawnCount * 104 * virusPrefab.GetComponent<Virus>().baseHealth); // the 104 represents the total amount of hitpoints needed to kill a spawned virus
+        int totalHealthAtDeath = currentHealth + (spawnCount * 2080 * virusPrefab.GetComponent<Virus>().baseHealth); // the 104 represents the total amount of hitpoints needed to kill a spawned virus
         
         // Deduct the total calculated damage from the player's health
         LevelManager.main.OnEnemyFinishTrack.Invoke(totalHealthAtDeath);
