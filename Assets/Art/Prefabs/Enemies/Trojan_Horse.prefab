@@ -178,4 +178,4 @@ MonoBehaviour:
   distanceTraveled: 0
   lastBurnTime: 0
   virusPrefab: {fileID: 6132882177054522237, guid: 79977cbda5d108f48a541621ca573571, type: 3}
-  spawnCount: 5
+  spawnCount: 4
