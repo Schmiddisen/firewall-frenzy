@@ -11,7 +11,7 @@ public class PauseMenu : MonoBehaviour
 
     private VisualElement pauseMenu;
 
-    void Awake()
+    void Start()
     {
         var root = pauseMenuUIDocument.rootVisualElement;
         pauseMenu = root.Q<VisualElement>("Pause_Menu_initial");
