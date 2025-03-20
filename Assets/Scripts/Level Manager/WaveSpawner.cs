@@ -176,8 +176,8 @@ public class WaveSpawner : MonoBehaviour
 		{
 			if (enemyInfo.enemyType == "Trojan_Horse")
 			{
-				// Each Trojan Horse counts as 6 initial enemies + 5 additional enemies (Virus toughness grade)
-				totalEnemies += enemyInfo.count * 26;  // Trojan_Horse counts as 1 + 5 for each of the 5 spawned Viruses
+				// Each Trojan Horse counts as 381 initial enemies (Virus toughness grade)
+				totalEnemies += enemyInfo.count * 381;  // Trojan_Horse counts as 1 + 5 for each of the 5 spawned Viruses
 			}
 			else if (enemyInfo.enemyType == "Virus")
 			{

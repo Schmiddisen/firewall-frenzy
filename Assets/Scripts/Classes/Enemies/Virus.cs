@@ -59,6 +59,13 @@ public class Virus : Enemy
         // Total health array for each grade
         int[] healthPerGrade = new int[] { 20, 40, 60, 80, 100, 220, 460, 940, 2080 }; // has to be modified if the base health of the virus changes
 
+        // Prevent out-of-bounds exception for toughness == 1
+        if (toughness == 1)
+        {
+            LevelManager.main.OnEnemyFinishTrack.Invoke(totalHealthAtDeath);
+            return;
+        }
+
         // Calculate the total health left at death
         if (toughness >= 6)
         {

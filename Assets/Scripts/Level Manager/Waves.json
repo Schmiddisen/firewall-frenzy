@@ -4,7 +4,7 @@
             "waveName": "Wave 1",
             "enemies": [
                 {
-                    "enemyType": "Virus",
+                    "enemyType": "Trojan_Horse",
                     "count": 1,
                     "firstSpawnDelay": 0,
                     "spawnDelay": 0.8755,
