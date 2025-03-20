@@ -80,6 +80,7 @@ public abstract class Enemy : MonoBehaviour
             if (pathIndex == path.Length) // Enemy has crossed the end line
             {
                 this.removeplayerHealth();
+                EnemyCounter();
                 this.onDestroy();
             }
             else
@@ -195,6 +196,11 @@ public abstract class Enemy : MonoBehaviour
     public virtual void removeplayerHealth()
     {
         LevelManager.main.OnEnemyFinishTrack.Invoke(currentHealth);
+    }
+
+    public virtual void EnemyCounter()
+    {
+        WaveSpawner.instance.EnemyDefeated();
     }
 
     public float getDistanceTraveled()

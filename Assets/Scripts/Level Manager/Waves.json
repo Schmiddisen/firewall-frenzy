@@ -5,10 +5,10 @@
             "enemies": [
                 {
                     "enemyType": "Virus",
-                    "count": 1,
+                    "count": 20,
                     "firstSpawnDelay": 0,
                     "spawnDelay": 0.8755,
-                    "toughnessGrade": 9
+                    "toughnessGrade": 1
                 }
             ]
         },

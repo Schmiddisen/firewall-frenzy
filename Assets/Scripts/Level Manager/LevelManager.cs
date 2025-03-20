@@ -29,7 +29,7 @@ public class LevelManager : MonoBehaviour
 
     public int currency = 100;
 
-    public int playerHealth = 2000; // -> 1000 health for each node
+    public int playerHealth = 2000; // -> 400 health for each node
 
     public bool gameOver = false;
 

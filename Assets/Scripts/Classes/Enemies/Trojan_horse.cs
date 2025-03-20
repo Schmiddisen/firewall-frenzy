@@ -60,4 +60,14 @@ public class Trojan_horse : Enemy
         // Deduct the total calculated damage from the player's health
         LevelManager.main.OnEnemyFinishTrack.Invoke(totalHealthAtDeath);
     }
+
+    public override void EnemyCounter()
+    {
+        int totalEnemies = 381; // Each Trojan Horse counts as 381 initial enemies (Virus toughness grade)
+        
+        for (int i = 0; i < totalEnemies; i++)
+        {
+            WaveSpawner.instance.EnemyDefeated();
+        }
+    }
 }

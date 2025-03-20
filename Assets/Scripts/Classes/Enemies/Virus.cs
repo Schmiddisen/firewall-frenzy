@@ -82,6 +82,19 @@ public class Virus : Enemy
         LevelManager.main.OnEnemyFinishTrack.Invoke(totalHealthAtDeath);
     }
 
+    public override void EnemyCounter()
+    {
+        int totalEnemies = 0;
+
+        int gradeIndex = Mathf.Clamp(this.toughnessGrade - 1, 0, 8); // Ensure it's within range
+        totalEnemies += virusSpawnCounts[gradeIndex];
+        
+        for (int i = 0; i < totalEnemies; i++)
+        {
+            WaveSpawner.instance.EnemyDefeated();
+        }
+    }
+
     private void SpawnWeakerVirus()
     {
         int spawnCount = (toughnessGrade >= 6) ? 2 : 1; // Spawn two viruses if grade is 6 or higher
@@ -195,5 +208,9 @@ public class Virus : Enemy
             }
         }
     }
+
+    private static readonly int[] virusSpawnCounts = new int[] { 
+		1, 2, 3, 4, 5, 11, 23, 47, 95 // Precomputed values for grades 1-9
+	};
 
 }
