@@ -167,8 +167,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 6494740328794203927}
   baseMovementSpeed: 1
-  baseHealth: 2000
-  currencyWorth: 100
+  baseHealth: 4000
+  currencyWorth: 200
   path: []
   currentPathTarget: {fileID: 0}
   pathIndex: 0
@@ -177,5 +177,5 @@ MonoBehaviour:
   isCamouflaged: 0
   distanceTraveled: 0
   lastBurnTime: 0
-  virusPrefab: {fileID: 6132882177054522237, guid: 5141747a24e6162a38c66a06024766e1, type: 3}
-  spawnCount: 5
+  virusPrefab: {fileID: 6132882177054522237, guid: 5b28977c9b6ae9e43a9d5db9afdc7b92, type: 3}
+  spawnCount: 4

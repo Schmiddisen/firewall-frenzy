@@ -356,13 +356,18 @@ MonoBehaviour:
   isCamouflaged: 0
   distanceTraveled: 0
   lastBurnTime: 0
-  toughnessGrade: 5
+  toughnessGrade: 9
   virusColors:
   - {r: 1, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 1, a: 0}
   - {r: 0, g: 1, b: 0, a: 0}
   - {r: 1, g: 1, b: 0, a: 0}
   - {r: 1, g: 0.05882353, b: 0.7529412, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 1, g: 1, b: 1, a: 0}
+  - {r: 0.4, g: 0.2, b: 0.6, a: 0}
+  - {r: 0.5411765, g: 0.42352942, b: 0.29803923, a: 0}
+  virusPrefab: {fileID: 6132882177054522237}
 --- !u!1 &7822614809263732438
 GameObject:
   m_ObjectHideFlags: 0

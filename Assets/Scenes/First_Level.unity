@@ -858,6 +858,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1659952454}
     - target: {fileID: 8473046603280991445, guid: 6c5e67dcd6f94a64986fad0383e5e2a6, type: 3}
+      propertyPath: playerHealth
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473046603280991445, guid: 6c5e67dcd6f94a64986fad0383e5e2a6, type: 3}
       propertyPath: towerDetailsUI
       value: 
       objectReference: {fileID: 766660418}

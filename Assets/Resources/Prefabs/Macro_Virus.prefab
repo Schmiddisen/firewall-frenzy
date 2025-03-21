@@ -167,11 +167,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 6494740328794203927}
   baseMovementSpeed: 0.5
-  baseHealth: 7000
+  baseHealth: 63280
   currencyWorth: 150
   path: []
   currentPathTarget: {fileID: 0}
   pathIndex: 0
   currentHealth: 0
   currentMovementSpeed: 0
+  isCamouflaged: 0
   distanceTraveled: 0
+  lastBurnTime: 0
