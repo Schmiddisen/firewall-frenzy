@@ -1169,6 +1169,22 @@ PrefabInstance:
       propertyPath: m_Icon
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3290954711354575457, guid: 3ceb9d771d113c84db7bd779def1ca89, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3290954711354575457, guid: 3ceb9d771d113c84db7bd779def1ca89, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4689670201351410481, guid: 38b8bb709a26c4befb1847a19be920d1, type: 3}
+    - target: {fileID: 4729330148356622827, guid: 3ceb9d771d113c84db7bd779def1ca89, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729330148356622827, guid: 3ceb9d771d113c84db7bd779def1ca89, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3331064460654838542, guid: e8cf5ce3296794829b4c730edc85caf5, type: 3}
     - target: {fileID: 4829694522022279492, guid: 3ceb9d771d113c84db7bd779def1ca89, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -1177,6 +1193,14 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5471971098763264788, guid: 3ceb9d771d113c84db7bd779def1ca89, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5471971098763264788, guid: 3ceb9d771d113c84db7bd779def1ca89, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6389208702845731617, guid: 6761548ab2ba947a8ac16f086315225f, type: 3}
     - target: {fileID: 6293613739855368737, guid: 3ceb9d771d113c84db7bd779def1ca89, type: 3}
       propertyPath: m_Pivot.x
       value: 0
