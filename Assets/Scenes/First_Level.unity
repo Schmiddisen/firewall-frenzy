@@ -774,19 +774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6664596400605299268, guid: ffa11478f35490846acbe9dc41741691, type: 3}
       propertyPath: isLevelMusic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6664596400605299268, guid: ffa11478f35490846acbe9dc41741691, type: 3}
-      propertyPath: music.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6664596400605299268, guid: ffa11478f35490846acbe9dc41741691, type: 3}
-      propertyPath: music.Array.data[6].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: b63e3e9e1b64a854aa54ce48e8a2ae03, type: 3}
-    - target: {fileID: 6664596400605299268, guid: ffa11478f35490846acbe9dc41741691, type: 3}
-      propertyPath: music.Array.data[6].name
-      value: Level_Music_6
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
