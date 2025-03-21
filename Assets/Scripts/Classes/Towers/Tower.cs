@@ -179,6 +179,8 @@ public abstract class Tower : MonoBehaviour
         upgradeAPS(metrics.aps);
         currentLevel += 1;
 
+        updateTowerValue(metrics.cost);
+
         upgradeHelper.UpgradeTower(this, path.ToString(), currentLevel);
     }
 
@@ -260,5 +262,15 @@ public abstract class Tower : MonoBehaviour
     public void disableCamouflageDetection()
     {
         canDetectCamouflage = false;
+    }
+
+    public int getTowerSellValue()
+    {
+        return (int)(this.buildCost * 0.80);
+    }
+
+    public void updateTowerValue(int newCost)
+    {
+        this.buildCost = this.buildCost + newCost;
     }
 }
