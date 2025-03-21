@@ -44,19 +44,3 @@
 .hidden {
     display: none;
 }
-
-.hidden_broken {
-    display: none;
-}
-
-.hidden_broken {
-    display: none;
-}
-
-.hidden_survive {
-    display: none;
-}
-
-.hidden_won {
-    display: none;
-}
