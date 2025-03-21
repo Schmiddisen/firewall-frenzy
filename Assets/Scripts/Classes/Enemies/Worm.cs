@@ -10,9 +10,11 @@ public class Worm : Enemy
     private GameObject visualIndicatorInstance;
     private bool isUntargetable = false;
 
+    private bool hasSpikes = true;
+
     void Awake()
     {
-        setupEnemy(baseMovementSpeed, baseHealth, currencyWorth, isCamouflaged);
+        setupEnemy(baseMovementSpeed, baseHealth, currencyWorth, isCamouflaged, hasSpikes);
     }
 
     public override void FixedUpdate()
