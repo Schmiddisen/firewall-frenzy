@@ -6,10 +6,10 @@ public class Worm : Enemy
     [SerializeField] private float stopDuration = 3f; // Time the worm stays untargetable
     [SerializeField] private int regenAmount = 50; // HP regained during stop
     [SerializeField] private GameObject visualIndicatorPrefab; // Visual indicator for untargetable state
+    [SerializeField] private float rotationSpeed = 250f;
 
     private GameObject visualIndicatorInstance;
     private bool isUntargetable = false;
-
     private bool hasSpikes = true;
 
     void Awake()
@@ -46,18 +46,26 @@ public class Worm : Enemy
     private void StopAndRegenerate()
     {
         isUntargetable = true;
-        gameObject.layer = LayerMask.NameToLayer("Untargetable"); // Change layer to avoid being targeted
+        gameObject.layer = LayerMask.NameToLayer("Untargetable");
 
         // Stop movement
-        currentMovementSpeed = 0; 
+        currentMovementSpeed = 0;
         rb.linearVelocity = Vector2.zero;
 
         regenHP();
 
-        // Show visual indicator
+        // Show visual indicator using CURRENT rotation
         if (visualIndicatorPrefab != null)
         {
-            visualIndicatorInstance = Instantiate(visualIndicatorPrefab, transform.position, Quaternion.identity, transform);
+            Quaternion currentRotation = transform.rotation;
+
+            float offsetAngle = 0f;
+            visualIndicatorInstance = Instantiate(
+                visualIndicatorPrefab,
+                transform.position,
+                currentRotation * Quaternion.Euler(0, 0, offsetAngle),
+                transform
+            );
         }
     }
 
@@ -97,4 +105,40 @@ public class Worm : Enemy
     {
         currentHealth = Mathf.Min(baseHealth, currentHealth + regenAmount);
     }
+
+    // override move funcion, as the sprite is longer than all other sprites
+    public override void move()
+    {
+        Vector2 dir = (currentPathTarget.position - transform.position).normalized;
+        rb.linearVelocity = dir * currentMovementSpeed;
+
+        // Calculate target rotation
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        float offsetAngle = 0f;
+        Quaternion targetRotation = Quaternion.Euler(0, 0, angle + offsetAngle);
+
+        // rotate towards target direction
+        transform.rotation = Quaternion.RotateTowards(
+            transform.rotation,
+            targetRotation,
+            rotationSpeed * Time.deltaTime
+        );
+
+        distanceTraveled += currentMovementSpeed * Time.deltaTime;
+
+        if (Vector2.Distance(currentPathTarget.position, transform.position) <= 0.1f)
+        {
+            pathIndex++;
+            if (pathIndex == path.Length)
+            {
+                this.removeplayerHealth();
+                this.onDestroy();
+            }
+            else
+            {
+                currentPathTarget = path[pathIndex];
+            }
+        }
+    }
 }
+

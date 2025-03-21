@@ -70,7 +70,7 @@ public abstract class Enemy : MonoBehaviour
     }
 
 
-    private void move()
+    public virtual void move()
     {
 
         Vector2 dir = (currentPathTarget.position - transform.position).normalized;
