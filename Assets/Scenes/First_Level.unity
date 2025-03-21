@@ -1471,6 +1471,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6664596400605299268, guid: ffa11478f35490846acbe9dc41741691, type: 3}
+      propertyPath: isLevelMusic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1552,6 +1556,10 @@ PrefabInstance:
       propertyPath: startPoint
       value: 
       objectReference: {fileID: 1659952454}
+    - target: {fileID: 8473046603280991445, guid: 6c5e67dcd6f94a64986fad0383e5e2a6, type: 3}
+      propertyPath: playerHealth
+      value: 2000
+      objectReference: {fileID: 0}
     - target: {fileID: 8473046603280991445, guid: 6c5e67dcd6f94a64986fad0383e5e2a6, type: 3}
       propertyPath: towerDetailsUI
       value: 

@@ -29,7 +29,7 @@ public class LevelManager : MonoBehaviour
 
     public int currency = 100;
 
-    public int playerHealth = 5000; // -> 1000 health for each node
+    public int playerHealth = 2000; // -> 400 health for each node
 
     public bool gameOver = false;
 
@@ -109,5 +109,31 @@ public class LevelManager : MonoBehaviour
             return false;
         }
     }
+    public void SellSelectedTower()
+    {
+        if (selectedTower == null)
+        {
+            FloatingTextSpawner.main.spawnFloatingText("No tower selected!", Input.mousePosition);
+            AudioManager.main.playDidntWorkSound();
+            return;
+        }
 
+        // Verkaufspreis berechnen (z.B. 75% des Kaufpreises)
+        int sellPrice = selectedTower.getTowerSellValue();
+
+        // Währung dem Spieler zurückgeben
+        IncreaseCurrency(sellPrice);
+
+        // Audiosignal abspielen
+        AudioManager.main.playCashSound();
+
+        // Turm aus der Szene entfernen
+        Destroy(selectedTower.gameObject);
+
+        // Auswahl zurücksetzen
+        deselectTower();
+
+        // Feedback geben
+        FloatingTextSpawner.main.spawnFloatingText($"Sold for {sellPrice}!", Input.mousePosition);
+    }
 }

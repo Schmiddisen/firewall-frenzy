@@ -36,9 +36,9 @@ public class Trojan_horse : Enemy
 
             if (Virus != null)
             {
-                Virus.SetToughnessGrade(5);
+                Virus.SetToughnessGrade(9);
                 Virus.setupEnemy(Virus.baseMovementSpeed, Virus.baseHealth, Virus.currencyWorth, Virus.isCamouflaged);
-                Virus.distanceTraveled = this.getDistanceTraveled(); // Copy parent's distance, relevant for tower targeting
+                Virus.distanceTraveled = this.getDistanceTraveled() - (i * spacing);; // Copy parent's distance, relevant for tower targeting
                 Virus.UpdateColor();
                 Virus.currentMovementSpeed = Virus.GetMovementSpeedByToughness(Virus.toughnessGrade);
 
@@ -55,9 +55,19 @@ public class Trojan_horse : Enemy
     public override void removeplayerHealth()
     {
         // Calculate the total health left at death
-        int totalHealthAtDeath = currentHealth + (spawnCount * 5 * virusPrefab.GetComponent<Virus>().baseHealth); // the 5 represents the toughness grade of the spawned viruses
+        int totalHealthAtDeath = currentHealth + (spawnCount * 2080 * virusPrefab.GetComponent<Virus>().baseHealth); // the 104 represents the total amount of hitpoints needed to kill a spawned virus
         
         // Deduct the total calculated damage from the player's health
         LevelManager.main.OnEnemyFinishTrack.Invoke(totalHealthAtDeath);
+    }
+
+    public override void EnemyCounter()
+    {
+        int totalEnemies = 381; // Each Trojan Horse counts as 381 initial enemies (Virus toughness grade)
+        
+        for (int i = 0; i < totalEnemies; i++)
+        {
+            WaveSpawner.instance.EnemyDefeated();
+        }
     }
 }

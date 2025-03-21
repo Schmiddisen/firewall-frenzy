@@ -69,6 +69,9 @@ public class MenuTowerDetails : MonoBehaviour
         PacketDefenderCost.text = towerData.towers[0].cost;
         FirewallNodeCost.text = towerData.towers[1].cost;
         MalwareScannerCost.text = towerData.towers[2].cost;
+
+        Button sell_button = uIDocument.rootVisualElement.Q<Button>("sell_button");
+        sell_button.clicked += () => LevelManager.main.SellSelectedTower();
     }
 
     public void upgrade(Button button)
@@ -124,7 +127,7 @@ public class MenuTowerDetails : MonoBehaviour
         VisualElement bar = doc.rootVisualElement.Q<VisualElement>("Tower_Information_Bottom");
         VisualElement Tower_preview = doc.rootVisualElement.Q<VisualElement>("Tower_preview");
         VisualElement Tower_preview_Image = doc.rootVisualElement.Q<VisualElement>("Tower_preview_Image");
-
+        Button sell_button = doc.rootVisualElement.Q<Button>("sell_button");
         Button btnPathA = doc.rootVisualElement.Q<Button>("UP_1_Button");
         Button btnPathB = doc.rootVisualElement.Q<Button>("UP_2_Button");
 
@@ -144,6 +147,7 @@ public class MenuTowerDetails : MonoBehaviour
         TowerLabelName.text = tower.name;
         TowerLabelDMG.text = tower.currentDMG.ToString();
         TowerLabelAPS.text = tower.currentAPS.ToString();
+        sell_button.text = tower.getTowerSellValue().ToString() + "$";
 
         //Priority
         int nextCapitalIndex = -1;
