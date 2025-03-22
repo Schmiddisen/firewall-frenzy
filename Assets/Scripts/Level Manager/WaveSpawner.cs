@@ -11,6 +11,10 @@ public class WaveSpawner : MonoBehaviour
 	[Header("Level Progression UIDocument")]
 	public UIDocument levelProgressionUIDocument;
 
+	[Header("Game Won UIDocument")]
+	public UIDocument gameWonUIDocument;
+	
+
 	[Header("Wave Configuration")]
     public TextAsset waveConfigFile; // Assign the JSON file in Unity Inspector
     private List<WaveData> waves;
@@ -130,18 +134,72 @@ public class WaveSpawner : MonoBehaviour
 		state = SpawnState.COUNTING;
 		waveCountdown = timeBetweenWaves;
 
+		int playerHealth = LevelManager.main.getPlayerHealth();
+		Debug.Log("Player Health: " + playerHealth);
+		
 		if (nextWave + 1 >= waves.Count)
 		{
 			nextWave = 0;
 			Debug.Log("ALL WAVES COMPLETE! Looping...");
 			//Im prinzip ist das Game hier gewonnen oder?? => Game winning sound
 			AudioManager.main.playGameWinSound();
+			LevelManager.main.pauseGame(true);
+            gameWonUIDocument.rootVisualElement.Q<VisualElement>("Gamewon_init").RemoveFromClassList("hidden_won");
+			
+			switch (playerHealth)
+			{
+				case <= 400:
+					gameWonUIDocument.rootVisualElement.Q<Label>("Node_1_Survive").RemoveFromClassList("hidden_survive");
+					gameWonUIDocument.rootVisualElement.Q<Label>("Node_2_broken").RemoveFromClassList("hidden_broken");
+					gameWonUIDocument.rootVisualElement.Q<Label>("Node_3_broken").RemoveFromClassList("hidden_broken");
+					gameWonUIDocument.rootVisualElement.Q<Label>("Node_4_broken").RemoveFromClassList("hidden_broken");
+					gameWonUIDocument.rootVisualElement.Q<Label>("Node_5_broken").RemoveFromClassList("hidden_broken");
+					break;
+				case <= 800 and > 400:
+					gameWonUIDocument.rootVisualElement.Q<Label>("Node_1_Survive").RemoveFromClassList("hidden_survive");
+					gameWonUIDocument.rootVisualElement.Q<Label>("Node_2_Survive").RemoveFromClassList("hidden_survive");
+					gameWonUIDocument.rootVisualElement.Q<Label>("Node_3_broken").RemoveFromClassList("hidden_broken");
+					gameWonUIDocument.rootVisualElement.Q<Label>("Node_4_broken").RemoveFromClassList("hidden_broken");
+					gameWonUIDocument.rootVisualElement.Q<Label>("Node_5_broken").RemoveFromClassList("hidden_broken");
+					break;
+				case <= 1200 and > 800:
+					gameWonUIDocument.rootVisualElement.Q<Label>("Node_1_Survive").RemoveFromClassList("hidden_survive");
+					gameWonUIDocument.rootVisualElement.Q<Label>("Node_2_Survive").RemoveFromClassList("hidden_survive");
+					gameWonUIDocument.rootVisualElement.Q<Label>("Node_3_Survive").RemoveFromClassList("hidden_survive");
+					gameWonUIDocument.rootVisualElement.Q<Label>("Node_4_broken").RemoveFromClassList("hidden_broken");
+					gameWonUIDocument.rootVisualElement.Q<Label>("Node_5_broken").RemoveFromClassList("hidden_broken");
+					break;
+				case <= 1600 and > 1200:
+					gameWonUIDocument.rootVisualElement.Q<Label>("Node_1_Survive").RemoveFromClassList("hidden_survive");
+					gameWonUIDocument.rootVisualElement.Q<Label>("Node_2_Survive").RemoveFromClassList("hidden_survive");
+					gameWonUIDocument.rootVisualElement.Q<Label>("Node_3_Survive").RemoveFromClassList("hidden_survive");
+					gameWonUIDocument.rootVisualElement.Q<Label>("Node_4_Survive").RemoveFromClassList("hidden_survive");
+					gameWonUIDocument.rootVisualElement.Q<Label>("Node_5_broken").RemoveFromClassList("hidden_broken");
+					break;
+				case > 1600:
+					Debug.Log("All Nodes survived");
+					gameWonUIDocument.rootVisualElement.Q<Label>("Node_1_Survive").RemoveFromClassList("hidden_survive");
+					gameWonUIDocument.rootVisualElement.Q<Label>("Node_2_Survive").RemoveFromClassList("hidden_survive");
+					gameWonUIDocument.rootVisualElement.Q<Label>("Node_3_Survive").RemoveFromClassList("hidden_survive");
+					gameWonUIDocument.rootVisualElement.Q<Label>("Node_4_Survive").RemoveFromClassList("hidden_survive");
+					gameWonUIDocument.rootVisualElement.Q<Label>("Node_5_Survive").RemoveFromClassList("hidden_survive");
+					break;
+				default:
+			}
+
 		}
 		else
 		{
 			nextWave++;
             current_level.text = (nextWave + 1).ToString();
-            next_level.text = (nextWave + 2).ToString();
+			if ((nextWave + 2) >= waves.Count)
+			{
+				next_level.text = "♛";
+			}
+			else
+			{
+            	next_level.text = (nextWave + 2).ToString();
+			}
             waveProgressionBar.value = 0;
 		}
 	}

@@ -136,4 +136,9 @@ public class LevelManager : MonoBehaviour
         // Feedback geben
         FloatingTextSpawner.main.spawnFloatingText($"Sold for {sellPrice}!", Input.mousePosition);
     }
+    
+    public int getPlayerHealth()
+    {
+        return this.playerHealth;
+    }
 }
