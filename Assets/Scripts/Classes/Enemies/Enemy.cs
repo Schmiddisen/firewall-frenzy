@@ -37,7 +37,9 @@ public abstract class Enemy : MonoBehaviour
 
     private System.Random rnd;
 
-    public void setupEnemy(float moveSpeed, int health, int currencyWorth, bool isCamouflaged)
+    private bool hasSpikes;
+
+    public void setupEnemy(float moveSpeed, int health, int currencyWorth, bool isCamouflaged, bool hasSpikes = false)
     {
         path = LevelManager.main.path;
         currentPathTarget = path[0];
@@ -57,6 +59,8 @@ public abstract class Enemy : MonoBehaviour
 
         this.lastBurnTime = Time.time;
 
+        this.hasSpikes = hasSpikes;
+
         this.rnd = new();
     }
 
@@ -66,7 +70,7 @@ public abstract class Enemy : MonoBehaviour
     }
 
 
-    private void move()
+    public virtual void move()
     {
 
         Vector2 dir = (currentPathTarget.position - transform.position).normalized;
@@ -177,6 +181,10 @@ public abstract class Enemy : MonoBehaviour
             }
         }
 
+        if (hasSpikes){
+            DestroySpikes();
+        }
+
         currentHealth -= dmg;
         if (currentHealth <= 0 && !isDestroyed)
         {
@@ -252,6 +260,31 @@ public abstract class Enemy : MonoBehaviour
         foreach (ParticleSystem particleSystem in GetComponentsInChildren<ParticleSystem>())
         {
             Destroy(particleSystem.gameObject);
+        }
+    }
+
+    private void DestroySpikes()
+    {
+        int totalSpikes = 0;
+        foreach (Transform child in transform)
+        {
+            if (child.name.Contains("Spike"))
+            {
+                totalSpikes++;
+            }
+        }
+
+        int healthPerSpike = baseHealth / totalSpikes;
+        int spikesDestroyed = baseHealth - currentHealth;
+        spikesDestroyed /= healthPerSpike;
+
+        foreach (Transform child in transform)
+        {
+            if (child.name.Contains("Spike") && spikesDestroyed > 0)
+            {
+                Destroy(child.gameObject);
+                spikesDestroyed--;
+            }
         }
     }
 }

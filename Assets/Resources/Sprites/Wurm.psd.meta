@@ -1,0 +1,339 @@
+fileFormatVersion: 2
+guid: 9a3c58076223dcd45aaba28791a6a95e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3446192932754469416
+    second: Wurm_0
+  - first:
+      213: 568463943364829932
+    second: Wurm_1
+  - first:
+      213: -4658632664025932653
+    second: Wurm_2
+  - first:
+      213: -339670097637550963
+    second: Wurm_3
+  - first:
+      213: -6937209313058308854
+    second: Wurm_4
+  - first:
+      213: 3089650097300896149
+    second: Wurm_5
+  - first:
+      213: -2064010571234541596
+    second: Wurm_6
+  - first:
+      213: -2499897161224041391
+    second: Wurm_7
+  - first:
+      213: 7434317074382222207
+    second: Wurm_8
+  - first:
+      213: -8167409723203044484
+    second: Wurm_9
+  - first:
+      213: 6658210906172613574
+    second: Wurm_10
+  - first:
+      213: 6400360176595006641
+    second: Wurm_11
+  - first:
+      213: 4485222773522096125
+    second: Wurm_12
+  - first:
+      213: 8100626383699704143
+    second: Wurm_13
+  - first:
+      213: -1162125678270437146
+    second: Wurm_14
+  - first:
+      213: -8362763978381740799
+    second: Wurm_15
+  - first:
+      213: -6222416001382677020
+    second: Wurm_16
+  - first:
+      213: -4446984817852299229
+    second: Wurm_17
+  - first:
+      213: -7295306574971985730
+    second: Wurm_18
+  - first:
+      213: -2991852685548898740
+    second: Wurm_19
+  - first:
+      213: 2848473361664109715
+    second: Wurm_20
+  - first:
+      213: 4642866188768643437
+    second: Wurm_21
+  - first:
+      213: -1735816281223139285
+    second: Wurm_22
+  - first:
+      213: -116830986246321736
+    second: Wurm_23
+  - first:
+      213: 8034683830929501439
+    second: Wurm_24
+  - first:
+      213: 5558289925924217707
+    second: Wurm_25
+  - first:
+      213: -8492219810734787049
+    second: Wurm_26
+  - first:
+      213: -6461087644129731819
+    second: Wurm_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1000
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Wurm_8
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 1345
+        width: 457
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f737c2e8dfffb2760800000000000000
+      internalID: 7434317074382222207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wurm_9
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 1005
+        width: 480
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7b3969212887ae80800000000000000
+      internalID: -8167409723203044484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wurm_11
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 990
+        width: 331
+        height: 520
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b470888ba5a2d850800000000000000
+      internalID: 6400360176595006641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wurm_21
+      rect:
+        serializedVersion: 2
+        x: 1044
+        y: 1042
+        width: 426
+        height: 414
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d690a312336ce6040800000000000000
+      internalID: 4642866188768643437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wurm_26
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 465
+        width: 1054
+        height: 267
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7163e9a6313952a80800000000000000
+      internalID: -8492219810734787049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: fc60113542275674e8123fa7d20d4cfe
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Wurm_0: -3446192932754469416
+      Wurm_1: 568463943364829932
+      Wurm_10: 6658210906172613574
+      Wurm_11: 6400360176595006641
+      Wurm_12: 4485222773522096125
+      Wurm_13: 8100626383699704143
+      Wurm_14: -1162125678270437146
+      Wurm_15: -8362763978381740799
+      Wurm_16: -6222416001382677020
+      Wurm_17: -4446984817852299229
+      Wurm_18: -7295306574971985730
+      Wurm_19: -2991852685548898740
+      Wurm_2: -4658632664025932653
+      Wurm_20: 2848473361664109715
+      Wurm_21: 4642866188768643437
+      Wurm_22: -1735816281223139285
+      Wurm_23: -116830986246321736
+      Wurm_24: 8034683830929501439
+      Wurm_25: 5558289925924217707
+      Wurm_26: -8492219810734787049
+      Wurm_27: -6461087644129731819
+      Wurm_3: -339670097637550963
+      Wurm_4: -6937209313058308854
+      Wurm_5: 3089650097300896149
+      Wurm_6: -2064010571234541596
+      Wurm_7: -2499897161224041391
+      Wurm_8: 7434317074382222207
+      Wurm_9: -8167409723203044484
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

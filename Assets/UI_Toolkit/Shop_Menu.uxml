@@ -16,15 +16,15 @@
             <engine:VisualElement name="Tower_Shop_Bot" style="flex-grow: 1; width: 100%; align-content: center; flex-direction: row; justify-content: space-evenly; align-items: flex-start; background-color: rgb(199, 200, 204); height: 190px;">
                 <engine:Button name="Tower_Packet_Defender_Button" class="tower_button" style="flex-direction: column; align-items: center; justify-content: space-evenly; -unity-text-align: middle-center; white-space: normal; align-content: center;">
                     <engine:Label text="100$" name="Packet_Defender_Cost" class="font" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
-                    <engine:VisualElement style="background-image: url(&quot;project://database/Assets/Art/Full%20Art/Basic%20Tower.psd?fileID=-6076782233491764048&amp;guid=acf27fc31ceccb4b1b076dd1f31bc650&amp;type=3#Layer2&quot;); background-color: rgba(255, 255, 255, 0); width: 80%; height: 80%;" />
+                    <engine:VisualElement style="background-image: resource(&apos;Full Art/Basic Tower&apos;); background-color: rgba(255, 255, 255, 0); width: 80%; height: 80%;" />
                 </engine:Button>
                 <engine:Button name="Tower_Firewall_Node" class="button tower_button" style="flex-direction: column; align-content: flex-end; justify-content: space-evenly;">
                     <engine:Label text="150$" name="Firewall_Node_Cost" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
-                    <engine:VisualElement name="VisualElement" style="background-image: url(&quot;project://database/Assets/Art/Full%20Art/AoE%20Tower.psd?fileID=2535951209920468646&amp;guid=3d10b7af0b5aeedfc8b0f915450c0ae1&amp;type=3#Layer6&quot;); background-color: rgba(255, 255, 255, 0); width: 80%; height: 80%;" />
+                    <engine:VisualElement name="VisualElement" style="background-image: url(&quot;project://database/Assets/Art/Full%20Art/Firewall_Node.png?fileID=720631850392066774&amp;guid=91b5e56a58e41402db891c119a0044d1&amp;type=3#Sniper Tower_5&quot;); background-color: rgba(255, 255, 255, 0); width: 80%; height: 80%;" />
                 </engine:Button>
                 <engine:Button name="Tower_Malware_Scanner" class="button tower_button" style="flex-direction: column; justify-content: space-evenly; align-content: center; align-self: auto; align-items: center;">
-                    <engine:Label text="150$" name="Malware_Scanner_Cost" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
-                    <engine:VisualElement style="background-image: url(&quot;project://database/Assets/Art/Full%20Art/Sniper%20Tower.psd?fileID=6407660491593047361&amp;guid=72740608c2b58f2dabae50c7cc9408c1&amp;type=3#Layer4-1-1&quot;); background-color: rgba(255, 255, 255, 0); width: 80%; height: 80%;" />
+                    <engine:Label text="150$" name="Malware_Scanner_Cost" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; background-image: none;" />
+                    <engine:VisualElement style="background-image: url(&quot;project://database/Assets/Art/Full%20Art/AoE%20Tower.png?fileID=4689670201351410481&amp;guid=03eed62e00e6f4703b1095ca3b910867&amp;type=3#AoE Tower_0&quot;); background-color: rgba(255, 255, 255, 0); width: 80%; height: 80%;" />
                 </engine:Button>
             </engine:VisualElement>
         </engine:VisualElement>
