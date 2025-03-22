@@ -124,16 +124,16 @@ ScriptedImporter:
     spritePosition: {x: 11, y: 0}
   - name: 1
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.51502675, y: 0.5038477}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 4
-      width: 889
-      height: 893
+      x: 18
+      y: 33
+      width: 846
+      height: 826
     spriteID: f40d86d61e30eb14ba689a9353918715
     spriteBone: []
     spriteOutline: []

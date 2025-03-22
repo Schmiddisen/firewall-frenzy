@@ -102,16 +102,16 @@ ScriptedImporter:
   layeredSpriteImportData:
   - name: "Layer1 Zusammengef\xFChrt"
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5016333, y: 0.49593627}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 4
-      width: 932
-      height: 929
+      x: 27
+      y: 79
+      width: 840
+      height: 844
     spriteID: b7a1da9f72cc0fa22a5850905f03c282
     spriteBone: []
     spriteOutline: []
