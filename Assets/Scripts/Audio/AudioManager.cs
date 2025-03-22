@@ -121,6 +121,10 @@ public class AudioManager : MonoBehaviour
         sfxSource.PlayOneShot(s.clip);
     }
 
+    public void stopSFX(Sound s) {
+        sfxSource.Stop();
+    }
+
     public void playButtonClick() {
         playSFX("button_click_1");
     }
@@ -157,4 +161,8 @@ public class AudioManager : MonoBehaviour
         playSFX("enemy_dead");
     }
 
+    internal void stopSFX(string v)
+    {
+        sfxSource.Stop();
+    }
 }
