@@ -1464,6 +1464,10 @@ PrefabInstance:
       value: LevelManager
       objectReference: {fileID: 0}
     - target: {fileID: 8473046603280991445, guid: 6c5e67dcd6f94a64986fad0383e5e2a6, type: 3}
+      propertyPath: currency
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473046603280991445, guid: 6c5e67dcd6f94a64986fad0383e5e2a6, type: 3}
       propertyPath: healthUI
       value: 
       objectReference: {fileID: 1443961904}

@@ -6,21 +6,21 @@
                 "aps": 3.0,
                 "damage": 10,
                 "range": 3.0,
-                "cost": 100
+                "cost": 150
             },
             {
                 "level": 2,
                 "aps": 5.0,
                 "damage": 10,
                 "range": 3.0,
-                "cost": 150
+                "cost": 450
             },
             {
                 "level": 3,
                 "aps": 9.0,
                 "damage": 10,
                 "range": 3.0,
-                "cost": 200
+                "cost": 1000
             }
         ]
     },
@@ -31,21 +31,21 @@
                 "aps": 1,
                 "damage": 20,
                 "range": 4.0,
-                "cost": 100
+                "cost": 150
             },
             {
                 "level": 2,
                 "aps": 0.9,
                 "damage": 30,
                 "range": 4.5,
-                "cost": 150
+                "cost": 600
             },
             {
                 "level": 3,
                 "aps": 0.7,
-                "damage": 50,
+                "damage": 70,
                 "range": 5,
-                "cost": 200
+                "cost": 1200
             }
         ]
     }

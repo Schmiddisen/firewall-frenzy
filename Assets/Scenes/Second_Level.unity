@@ -2495,7 +2495,7 @@ MonoBehaviour:
   - {fileID: 262572673}
   - {fileID: 653859853}
   selectedTower: {fileID: 0}
-  currency: 10000
+  currency: 200
   playerHealth: 2000
   gameOver: 0
   isPaused: 0
@@ -2547,6 +2547,7 @@ MonoBehaviour:
   levelProgressionUIDocument: {fileID: 314571976}
   gameWonUIDocument: {fileID: 632298473}
   waveConfigFile: {fileID: 4900000, guid: 76006e96d74872544854e0ac6e452c0e, type: 3}
+  nextWave: 0
   spawnPoints:
   - {fileID: 1659952454}
   timeBetweenWaves: 5
