@@ -18,7 +18,7 @@ public class WaveSpawner : MonoBehaviour
 	[Header("Wave Configuration")]
     public TextAsset waveConfigFile; // Assign the JSON file in Unity Inspector
     private List<WaveData> waves;
-    private int nextWave = 0;
+    public int nextWave = 0;
 
     public Transform[] spawnPoints;
     public float timeBetweenWaves = 5f;
