@@ -117,6 +117,9 @@ public class LevelManager : MonoBehaviour
             AudioManager.main.playDidntWorkSound();
             return;
         }
+        if (!selectedTower.isActiv) {
+            return;
+        }
 
         // Verkaufspreis berechnen (z.B. 75% des Kaufpreises)
         int sellPrice = selectedTower.getTowerSellValue();
