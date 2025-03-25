@@ -131,11 +131,17 @@ MonoBehaviour:
   rangeIndicator: {fileID: 7914309227316524238}
   rotationSpeed: 0
   baseUpgradeCosts: 100
-  buildCost: 100
+  buildCost: 150
   baseTargetingRange: 2
   baseDMG: 10
   baseAPS: 0.5
   name: Firewall Node
+  upgradeData:
+    PathA:
+      upgrades: []
+    PathB:
+      upgrades: []
+  currentLevel: 0
   upgradePath: 2
   currentDMG: 0
   currentAPS: 0

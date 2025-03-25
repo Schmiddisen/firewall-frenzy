@@ -26,7 +26,7 @@
           "description": "Higher Range"
         }
       ],
-      "cost": "100$"
+      "cost": "150$"
     },
     {
       "name": "Malware Scanner",
@@ -40,7 +40,7 @@
           "description": "Critical Hits, Enemy Movement Inflictions"
         }
       ],
-      "cost": "150$"
+      "cost": "200$"
     }
   ]
 }
