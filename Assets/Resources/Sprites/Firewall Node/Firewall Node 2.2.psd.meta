@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 49eb0a10c9599ac479d1d83a23523450
+guid: 15dc979d6bb975d6082f98a007301b8f
 importerOverride:
   nativeImporterType: 2089858483
   scriptedImporterType:
@@ -88,7 +88,7 @@ ScriptedImporter:
       y: 0
       width: 0
       height: 0
-    spriteID: 9d805f7dccbe6e74ebd991ef58012f96
+    spriteID: 98ff110b4fd22ab948ce936a74ee50a5
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -100,19 +100,19 @@ ScriptedImporter:
     spritePosition: {x: 0, y: 0}
   multiSpriteImportData: []
   layeredSpriteImportData:
-  - name: "Layer1.\" Zusammengef\xFChrt"
+  - name: Layer1."
     originalName: 
-    pivot: {x: 0.4892202, y: 0.50053734}
+    pivot: {x: 0.47904226, y: 0.5315723}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 24
-      y: 75
-      width: 847
-      height: 853
-    spriteID: 2ae6e36122f56f66fa8c234545c8dbda
+      x: 4
+      y: 4
+      width: 932
+      height: 928
+    spriteID: 93fb7d56af3f09fe08972a685c8c0a3f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -121,7 +121,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-    spritePosition: {x: 260, y: 411}
+    spritePosition: {x: 460, y: 611}
   - name: Layer6
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -134,7 +134,7 @@ ScriptedImporter:
       y: 940
       width: 329
       height: 328
-    spriteID: f3ca3184055e8cc96973b7e51afc5ef1
+    spriteID: fff865b2c46a1334399bac6df25a9d32
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -143,7 +143,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 940}
-    spritePosition: {x: 1130, y: 63}
+    spritePosition: {x: 1493, y: 156}
   spriteImportData: []
   rigSpriteImportData: []
   sharedRigSpriteImportData: []
@@ -183,11 +183,11 @@ ScriptedImporter:
   resliceFromLayer: 0
   pSDLayerImportSetting: []
   psdLayers:
-  - name: "Layer1.\" Zusammengef\xFChrt"
-    spriteName: "Layer1.\" Zusammengef\xFChrt"
+  - name: Layer1."
+    spriteName: Layer1."
     isGroup: 0
     parentIndex: -1
-    spriteID: 2ae6e36122f56f66fa8c234545c8dbda
+    spriteID: 93fb7d56af3f09fe08972a685c8c0a3f
     layerID: 0
     mosaicPosition: {x: 4, y: 4}
     flatten: 0
@@ -197,7 +197,7 @@ ScriptedImporter:
     spriteName: Layer6
     isGroup: 0
     parentIndex: -1
-    spriteID: f3ca3184055e8cc96973b7e51afc5ef1
+    spriteID: fff865b2c46a1334399bac6df25a9d32
     layerID: 86607701
     mosaicPosition: {x: 4, y: 940}
     flatten: 0
